@@ -1,0 +1,124 @@
+/* Шрифты */
+
+@font-face {
+  font-family: "Manrope";
+  src: local("Manrope"), url("/fonts/manrope-regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: local("Inter"), url("/fonts/inter-regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Сброс */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* База */
+
+:root {
+  font-family: "Inter", sans-serif;
+  color: var(--color-white);
+  font-size: var(--font-size);
+  background-color: var(--color-grey-0);
+}
+
+::selection {
+  background-color: var(--color-accent-light);
+}
+
+#root {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+}
+
+/* #sidebar */
+
+#sidebar {
+  flex: 0 0 20%;
+  min-width: 380px;
+  background-color: var(--color-grey-1);
+  border: var(--border);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+@media (max-width: 1140px) {
+  #sidebar {
+    display: none;
+  }
+}
+
+#header {
+  display: flex;
+  flex: 0 0 var(--header-size);
+}
+
+#header > div {
+  flex: 1;
+}
+
+#document-structure {
+  flex: 1;
+  overflow-y: auto;
+  word-break: break-all;
+}
+
+/* #body */
+
+#body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  font-family: "Manrope", sans-serif;
+}
+
+/* States */
+
+.dangerous {
+  background-color: var(--color-danger-dark);
+}
+.dangerous:hover {
+  background-color: var(--color-danger-light);
+}
+
+/* Vars */
+
+:root {
+  --color-black: #060606;
+  --color-white: #f6f6f6;
+  --color-accent-dark: #29486d;
+  --color-accent-light: #4a90e2;
+  --color-danger-dark: #9e1b32;
+  --color-danger-light: #c92845;
+  --color-grey-0: #161616;
+  --color-grey-1: #262626;
+  --color-grey-2: #363636;
+  --color-grey-3: #464646;
+  --color-grey-4: #565656;
+  --color-grey-5: #666666;
+
+  --border-radius: 0.3rem;
+  --border: 0.1rem solid var(--color-grey-3);
+
+  --box-shadow-small: 0 0.25rem 0.25rem 0 rgba(6, 6, 6, 0.25);
+  --box-shadow-big: 0 0.5rem 0.5rem 0 rgba(6, 6, 6, 0.5);
+
+  --height: 2.5rem;
+
+  --desc-size: 0.9rem;
+  --font-size: 16px;
+  --header-size: 1.5rem;
+}

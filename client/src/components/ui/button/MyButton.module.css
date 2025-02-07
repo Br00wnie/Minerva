@@ -1,0 +1,31 @@
+.button {
+  cursor: pointer;
+
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  text-align: center;
+
+  background-color: var(--color-grey-3);
+  border: none;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-small);
+  font-size: inherit;
+  color: inherit;
+
+  min-width: 10rem;
+  min-height: 2.5rem;
+}
+
+.button:hover {
+  background-color: var(--color-grey-4);
+}
+
+.button:disabled {
+  background-color: var(--color-grey-2);
+  cursor: default;
+}

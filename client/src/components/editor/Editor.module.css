@@ -1,0 +1,20 @@
+.editor {
+  outline: none;
+  width: auto;
+  margin: 2rem 15vw 0 15vw;
+  line-height: 200%;
+  height: 100%;
+}
+
+.name {
+  width: auto;
+  font-size: var(--header-size);
+  margin: 6rem 15vw 0 15vw;
+  background-color: rgba(0, 0, 0, 0);
+  outline: none;
+  border: none;
+  color: inherit;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: bold;
+}
