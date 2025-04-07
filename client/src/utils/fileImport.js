@@ -1,35 +1,32 @@
-export const importFile = () => {
+const importFile = () => {
   return new Promise((resolve, reject) => {
     const input = document.createElement("input");
     input.type = "file";
     input.accept = ".json";
     input.onchange = (event) => {
-      const rawData = event.target.files[0];
-      if (!rawData)
-        return reject({ message: "Файл не выбран", importedFile: null });
+      const file = event.target.files[0];
+      if (!file) return reject({ message: "Файл не выбран", success: false });
       const reader = new FileReader();
       reader.onload = () => {
         try {
-          const importedFile = JSON.parse(reader.result);
-          resolve({
-            message: "Файл импортирован",
-            importedFile,
-          });
+          if (typeof reader.result !== "string")
+            return reject({ message: "Некорректный формат", success: false });
+          const file = JSON.parse(reader.result);
+          resolve({ message: "Файл импортирован", file, success: true });
         } catch (e) {
-          reject({
-            message: "Файл повреждён",
-            importedFile: null,
-          });
+          reject({ message: "Файл повреждён", success: false });
         }
       };
       reader.onerror = () => {
         reject({
           message: "Не удалось импортировать файл из-за непредвиденной ошибки",
-          importedFile: null,
+          success: false,
         });
       };
-      reader.readAsText(rawData);
+      reader.readAsText(file);
     };
     input.click();
   });
 };
+
+export default importFile;

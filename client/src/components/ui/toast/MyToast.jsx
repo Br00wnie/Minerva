@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import styles from "./MyToast.module.css";
 
-const MyToast = ({ message, onRemove }) => {
+const MyToast = ({ message, removeFunction }) => {
   useEffect(() => {
-    const timer = setTimeout(onRemove, 3000);
-    return () => clearTimeout(timer);
-  }, [onRemove]);
+    const lifeTimer = setTimeout(removeFunction, 3000);
+    return () => clearTimeout(lifeTimer);
+  }, []);
 
   return (
     <div className={styles.container}>

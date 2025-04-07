@@ -90,7 +90,9 @@ class StyleController {
     try {
       const { style_id } = req.query;
       await StyleService.delete({ style_id });
-      res.sendStatus(204);
+      res.status(200).json({
+        message: "Документ удалён",
+      });
     } catch (error) {
       // Специфических ошибок не должно быть
     }

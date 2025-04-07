@@ -1,13 +1,10 @@
 import { React, useContext, useState } from "react";
 import MyModal from "../../ui/modal/MyModal";
 import MyButton from "../../ui/button/MyButton";
-import MyInput from "../../ui/input/MyInput";
 import { DELETE_DOCUMENT_MODAL_ID } from "../../../consts";
-import { Context } from "../../../../index";
-import toast from "../../ui/toast/MyToast";
-import { logAction } from "../../../utils/logging";
+import { Context } from "../../../../script";
 import DocumentService from "../../../services/DocumentService";
-import { read } from "../../../utils/storageManagement";
+import Storage from "../../../utils/storageManagement";
 
 const DeleteDocumentModal = () => {
   const { DocumentStore, ModalStore } = useContext(Context);

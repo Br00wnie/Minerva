@@ -18,6 +18,12 @@
   padding: 2rem;
   width: 40%;
   box-shadow: var(--box-shadow-big);
+  min-width: 30rem;
+}
+@media (max-width: 1140px) {
+  .modal {
+    width: 70%;
+  }
 }
 
 .title {

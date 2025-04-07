@@ -6,10 +6,11 @@ class DocumentApi {
     Base requests
   */
 
-  static async create({ document }) {
+  static async create({ documentName, documentContent }) {
     try {
       const res = await privateApi.post("/documents/create/", {
-        ...document,
+        document_name: documentName,
+        document_content: documentContent,
       });
       return {
         success: res.status >= 200 && res.status < 300,
@@ -23,10 +24,10 @@ class DocumentApi {
     }
   }
 
-  static async get({ documentId: document_id, documentName: document_name }) {
+  static async get({ documentId, documentName }) {
     const params = {};
-    if (document_id) params.document_id = document_id;
-    if (document_name) params.document_name = document_name;
+    if (documentId) params.document_id = documentId;
+    if (documentName) params.document_name = documentName;
     try {
       const res = await privateApi.get("/documents/get/", {
         params,
@@ -44,13 +45,13 @@ class DocumentApi {
     }
   }
 
-  static async update({ documentId: document_id, document }) {
+  static async update({ documentId, documentName, documentContent }) {
     try {
       const res = await privateApi.put(
         "/documents/update/",
-        { ...document },
+        { document_name: documentName, document_content: documentContent },
         {
-          params: { document_id },
+          params: { document_id: documentId },
         }
       );
       return {
@@ -65,13 +66,14 @@ class DocumentApi {
     }
   }
 
-  static async delete({ documentId: document_id }) {
+  static async delete({ documentId }) {
     try {
       const res = await privateApi.delete("/documents/delete/", {
-        params: { document_id },
+        params: { document_id: documentId },
       });
       return {
         success: res.status >= 200 && res.status < 300,
+        message: res.data.message,
       };
     } catch (error) {
       return {
@@ -105,4 +107,4 @@ class DocumentApi {
   }
 }
 
-export default new DocumentApi();
+export default DocumentApi;

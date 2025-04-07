@@ -1,19 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
-import MyToast from "./MyToast";
-import { PORTAL_ID } from "../../../consts";
+import MyToast from "../components/ui/toast/MyToast";
+import { PORTAL_ID } from "../consts";
+import { setToastHandler } from "../utils/toast";
 
 export const ToastManager = () => {
   const [toasts, setToasts] = useState([]);
-
   const displayToast = (message) => {
     const id = Date.now();
-    setToasts((prevToasts) => [...prevToasts, { id, message }]);
+    setToasts((prev) => [...prev, { id, message }]);
   };
   const removeToast = (id) => {
-    setToasts((prevToasts) => prevToasts.filter((toast) => toast.id !== id));
+    setToasts((prev) => prev.filter((toast) => toast.id !== id));
   };
-
+  useEffect(() => {
+    setToastHandler(displayToast);
+  }, []);
   return (
     <>
       {toasts.map(({ id, message }) =>
@@ -30,10 +32,4 @@ export const ToastManager = () => {
   );
 };
 
-export const toast = (message) => {
-  if (typeof displayToast === "function") {
-    displayToast(message);
-  } else {
-    console.warn("ToastManager не инициализирован!");
-  }
-};
+export default ToastManager;

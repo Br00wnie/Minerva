@@ -4,7 +4,6 @@ import React, {
   useCallback,
   useMemo,
   useEffect,
-  useRef,
   useContext,
   useState,
 } from "react";
@@ -13,13 +12,10 @@ import { createEditor } from "slate";
 import { withHistory } from "slate-history";
 import Leaf from "./Leaf";
 import styles from "./Editor.module.css";
-import { logAction } from "../../utils/logging";
-import { Context } from "../../../index.jsx";
+import { Context } from "../../../script.jsx";
 import initialDocument from "./initialDocument.js";
-import DocumentService from "../../services/DocumentService.js";
-import { write } from "../../utils/storageManagement.js";
+import Storage from "../../utils/storageManagement.js";
 import { observer } from "mobx-react-lite";
-import { read } from "../../utils/storageManagement.js";
 
 const Editor = observer(() => {
   const { DocumentStore } = useContext(Context);

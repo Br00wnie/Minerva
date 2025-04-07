@@ -3,9 +3,7 @@ import MyModal from "../../ui/modal/MyModal";
 import MyButton from "../../ui/button/MyButton";
 import MyInput from "../../ui/input/MyInput";
 import { REGISTRATION_MODAL_ID } from "../../../consts";
-import { Context } from "../../../../index";
-import toast from "../../ui/toast/MyToast";
-import { logAction } from "../../../utils/logging";
+import { Context } from "../../../../script";
 import UserService from "../../../services/UserService";
 
 const RegistrationModal = () => {

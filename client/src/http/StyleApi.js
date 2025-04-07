@@ -6,10 +6,20 @@ class StyleApi {
     Base requests
   */
 
-  static async create({ style }) {
+  static async create({
+    styleName,
+    styleContent,
+    styleDescription,
+    stylePopularity,
+    styleIsPublic,
+  }) {
     try {
       const res = await privateApi.post("/styles/create/", {
-        ...style,
+        style_name: styleName,
+        style_content: styleContent,
+        style_description: styleDescription,
+        style_popularity: stylePopularity,
+        style_is_public: styleIsPublic,
       });
       return {
         success: res.status >= 200 && res.status < 300,
@@ -23,10 +33,10 @@ class StyleApi {
     }
   }
 
-  static async get({ styleId: style_id, styleName: style_name }) {
+  static async get({ styleId, styleName }) {
     const params = {};
-    if (style_id) params.style_id = style_id;
-    if (style_name) params.style_name = style_name;
+    if (styleId) params.style_id = styleId;
+    if (styleName) params.style_name = styleName;
     try {
       const res = await privateApi.get("/styles/get/", {
         params,
@@ -44,13 +54,26 @@ class StyleApi {
     }
   }
 
-  static async update({ styleId: style_id, style }) {
+  static async update({
+    styleId,
+    styleName,
+    styleContent,
+    styleDescription,
+    stylePopularity,
+    styleIsPublic,
+  }) {
     try {
       const res = await privateApi.put(
         "/styles/update/",
-        { ...style },
         {
-          params: { style_id },
+          style_name: styleName,
+          style_content: styleContent,
+          style_description: styleDescription,
+          style_popularity: stylePopularity,
+          style_is_public: styleIsPublic,
+        },
+        {
+          params: { style_id: styleId },
         }
       );
       return {
@@ -65,13 +88,14 @@ class StyleApi {
     }
   }
 
-  static async delete({ styleId: style_id }) {
+  static async delete({ styleId }) {
     try {
       const res = await privateApi.delete("/styles/delete/", {
-        params: { style_id },
+        params: { style_id: styleId },
       });
       return {
         success: res.status >= 200 && res.status < 300,
+        message: res.data.message,
       };
     } catch (error) {
       return {
@@ -104,10 +128,10 @@ class StyleApi {
     }
   }
 
-  static async search({ page, limit, styleName: style_name }) {
+  static async search({ page, limit, styleName }) {
     try {
       const res = await publicApi.get("/styles/search/", {
-        params: { page, limit, style_name },
+        params: { page, limit, style_name: styleName },
       });
       return {
         success: res.status >= 200 && res.status < 300,
@@ -123,10 +147,10 @@ class StyleApi {
     }
   }
 
-  static async copy({ styleId: style_id }) {
+  static async copy({ styleId }) {
     try {
       const res = await privateApi.post("/styles/copy/", {
-        params: { style_id },
+        params: { style_id: styleId },
       });
       return {
         success: res.status >= 200 && res.status < 300,
@@ -141,4 +165,4 @@ class StyleApi {
   }
 }
 
-export default new DocumentApi();
+export default StyleApi;

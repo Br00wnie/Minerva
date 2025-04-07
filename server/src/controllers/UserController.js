@@ -73,7 +73,9 @@ class UserController {
     try {
       const user_id = getUserIdFromToken(req.cookies.token);
       await UserService.delete({ user_id });
-      res.sendStatus(204);
+      res.status(200).json({
+        message: "Документ удалён",
+      });
     } catch (error) {
       if (error instanceof UserInvalidTokenError)
         res.status(error.code).json({ message: error.message });

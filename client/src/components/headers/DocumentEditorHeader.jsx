@@ -1,5 +1,6 @@
-import React, { useContext, useState, useEffect } from "react";
-import { Context } from "../../../index.jsx";
+import React, { useContext } from "react";
+import { observer } from "mobx-react-lite";
+import { Context } from "../../../script.jsx";
 import {
   REGISTRATION_MODAL_ID,
   LOGIN_MODAL_ID,
@@ -9,36 +10,22 @@ import {
   LOAD_DOCUMENT_MODAL_ID,
 } from "../../consts.js";
 import MyDropdown from "../ui/dropdown/MyDropdown.jsx";
-import { observer } from "mobx-react-lite";
 import UserService from "../../services/UserService.js";
 import DocumentService from "../../services/DocumentService.js";
-import { read } from "../../utils/storageManagement.js";
 
 const DocumentEditorHeader = observer(() => {
   const { ModalStore, UserStore, DocumentStore } = useContext(Context);
-  const [documentId, setDocumentId] = useState(
-    localStorage.getItem("documentId")
-  );
-  useEffect(() => {
-    const handleStorageChange = () => {
-      setDocumentId(localStorage.getItem("documentId"));
-    };
-    window.addEventListener("localStorageUpdate", handleStorageChange);
-    return () => {
-      window.removeEventListener("localStorageUpdate", handleStorageChange);
-    };
-  }, []);
 
   return (
     <>
       <MyDropdown label="Документ">
-        {UserStore.getIsAuthenticated() ? (
+        {UserStore.getLogin() ? (
           <>
             <MyDropdown
               label="Создать"
               onClick={() => ModalStore.openModal(CREATE_DOCUMENT_MODAL_ID)}
             />
-            {documentId !== null ? (
+            {DocumentStore.getId !== null ? (
               <MyDropdown
                 label="Удалить"
                 onClick={() => ModalStore.openModal(DELETE_DOCUMENT_MODAL_ID)}
@@ -50,23 +37,15 @@ const DocumentEditorHeader = observer(() => {
               label="Загрузить"
               onClick={() => ModalStore.openModal(LOAD_DOCUMENT_MODAL_ID)}
             />
-            {documentId !== null ? (
-              <MyDropdown
-                label="Сохранить"
-                onClick={() =>
-                  DocumentService.save(
-                    { documentId: read("documentId") },
-                    { DocumentStore }
-                  )
-                }
-              />
+            {DocumentStore.getId !== null ? (
+              <MyDropdown label="Сохранить" />
             ) : null}
             <hr />
           </>
         ) : null}
         <MyDropdown
           label="Импортировать"
-          onClick={() => DocumentService.import({}, { DocumentStore })}
+          onClick={() => DocumentService.import()}
         />
         <MyDropdown
           label="Экспортировать"
@@ -77,12 +56,9 @@ const DocumentEditorHeader = observer(() => {
         <MyDropdown label="Оформить" />
       </MyDropdown>
       <MyDropdown label="Пользователь">
-        {UserStore.getIsAuthenticated() ? (
+        {UserStore.getLogin() ? (
           <>
-            <MyDropdown
-              label="Выйти"
-              onClick={() => UserService.logout({}, { UserStore })}
-            />
+            <MyDropdown label="Выйти" onClick={() => UserService.logout()} />
             <MyDropdown
               label="Удалить аккаунт"
               onClick={() => ModalStore.openModal(DELETE_USER_MODAL_ID)}

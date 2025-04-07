@@ -1,9 +1,9 @@
 import { BrowserRouter } from "react-router-dom";
 import RouteManager from "./managers/RouteManager";
-import ModalManager from "./components/modals/ModalManager";
-import { ToastManager } from "./components/ui/toast/MyToast";
-import "./index.css";
-import { useAuthCheck } from "./hooks/authCheckHook";
+import ModalManager from "./managers/ModalManager";
+import ToastManager from "./managers/ToastManager";
+import useAuthCheck from "./hooks/authCheckHook";
+import "./App.css";
 
 function App() {
   useAuthCheck();

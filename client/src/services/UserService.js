@@ -1,19 +1,15 @@
-import UserApi from "../http/UserApi.js";
-import toast from "../components/ui/toast/MyToast.jsx";
-import { logAction } from "../utils/logging.js";
 import Cookies from "js-cookie";
+import UserApi from "../http/UserApi.js";
+import toast from "../utils/toast.js";
 import { userYup } from "../utils/validation";
-import { checkToken } from "../utils/tokenChecking.js";
-import { write } from "../utils/storageManagement.js";
+import stores from "../stores/index.js";
 
 class UserService {
-  // Зарегистрировать нового пользователя
-  static async register({
-    userLogin,
-    userPassword,
-    repeatPassword,
-    ModalStore,
-  }) {
+  /* 
+    External
+  */
+
+  static async register({ userLogin, userPassword, repeatPassword }) {
     if (userPassword !== repeatPassword) {
       toast("Пароли не совпадают");
       return;
@@ -31,12 +27,11 @@ class UserService {
       userLogin,
       userPassword,
     });
-    if (result.success) ModalStore.openModal(null);
+    if (result.success) stores.ModalStore.openModal(null);
     toast(result.message);
   }
 
-  // Войти в аккаунт
-  static async login({ userLogin, userPassword, ModalStore }) {
+  static async login({ userLogin, userPassword }) {
     try {
       await userYup.validate({
         userLogin,
@@ -47,16 +42,11 @@ class UserService {
       return;
     }
     const result = await UserApi.login({ userLogin, userPassword });
-    if (result.success) ModalStore.openModal(null);
+    if (result.success) stores.ModalStore.openModal(null);
     toast(result.message);
   }
 
-  // Выйти из аккаунта
-  static async logout() {
-    if (!checkToken()) {
-      toast("Вы и так не авторизованы");
-      return;
-    }
+  static logout() {
     Cookies.remove("token");
     toast("Выход выполнен");
   }

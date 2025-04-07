@@ -3,8 +3,8 @@ class Storage {
     return localStorage.getItem(key);
   }
 
-  static write(key, data) {
-    localStorage.setItem(key, data);
+  static write(key, value) {
+    localStorage.setItem(key, value);
   }
 
   static remove(key) {

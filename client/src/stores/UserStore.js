@@ -6,10 +6,10 @@ export default class UserStore {
     makeAutoObservable(this);
   }
 
-  setLogin(login) {
-    this.login = login;
-  }
   getLogin() {
     return this.login;
+  }
+  setLogin(login) {
+    this.login = login;
   }
 }

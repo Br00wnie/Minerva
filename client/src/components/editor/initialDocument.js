@@ -1,6 +1,3 @@
-import { logAction } from "../../utils/logging";
-import { read } from "../../utils/storageManagement";
-
 const initialDocument = () => {
   return { name: defaultName, content: defaultContent };
 };

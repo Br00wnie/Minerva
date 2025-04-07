@@ -4,7 +4,7 @@
 
 ### Interaction Chain
 
-![Architecture diagram](https://i.ibb.co/m5HNFXtN/Minerva-Architecture-diagram.png)
+![Architecture diagram](https://i.ibb.co/hx0nVYZZ/Minerva-Architecture-diagram.png)
 
 User interaction with the application happens through _UI_. _UI_ does not handle logic; it delegates all logic to _ClientServices_.
 
@@ -18,8 +18,8 @@ _ServerServices_ perform all necessary logic with the provided data and interact
 
 ### Response Structure
 
-- ClientApi -> { success, _message_, _data_, _total_ }
-- ServerApi -> status, { _message_, _data_ }
+- ClientApi -> { success, message, _data_, _total_ }
+- ServerApi -> status, { message, _data_ }
 
 > _Italicized_ components are optional parts of the response
 

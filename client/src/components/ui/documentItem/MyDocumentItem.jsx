@@ -2,9 +2,9 @@ import React, { useContext } from "react";
 import MyButton from "../button/MyButton";
 import styles from "./MyDocumentItem.module.css";
 import DocumentService from "../../../services/DocumentService";
-import { Context } from "../../../../index";
-import toast from "../toast/MyToast";
-import { write } from "../../../utils/storageManagement";
+import { Context } from "../../../../script";
+import toast from "../../../utils/toast";
+import Storage from "../../../utils/storageManagement";
 
 const MyDocumentItem = ({
   name = "name",

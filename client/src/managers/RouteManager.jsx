@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Routes, Route } from "react-router-dom";
-import { privateRoutes, publicRoutes } from "./routes";
-import { checkToken } from "../utils/tokenChecking";
+import { observer } from "mobx-react-lite";
+import { privateRoutes, publicRoutes } from "../routes";
+import { Context } from "../../script";
 
-const RouteManager = () => {
+const RouteManager = observer(() => {
+  const { UserStore } = useContext(Context);
+  const isAuth = !!UserStore.getLogin();
   return (
     <Routes>
-      {checkToken() &&
+      {isAuth &&
         privateRoutes.map(({ path, Component }) => (
           <Route key={path} path={path} element={<Component />} />
         ))}
@@ -15,6 +18,6 @@ const RouteManager = () => {
       ))}
     </Routes>
   );
-};
+});
 
 export default RouteManager;

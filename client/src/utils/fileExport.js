@@ -1,23 +1,18 @@
 import { saveAs } from "file-saver";
-import { read } from "./storageManagement";
 
-export const exportFile = (key) => {
-  let message;
-  let exportedFile;
-  let rawData = read(key);
-  if (!rawData) {
-    return { message: "Файл ещё не сохранён в Local Storage", rawData: null };
-  }
+const exportFile = (file) => {
   try {
-    const parsedData = JSON.parse(rawData);
-    exportedFile = JSON.stringify(parsedData, null, 2);
-    const blob = new Blob([exportedFile], {
+    const blob = new Blob([JSON.stringify(file, null, 2)], {
       type: "application/json",
     });
-    saveAs(blob, `${parsedData.name}.json`);
-    message = "Файл готов к экспорту";
+    saveAs(blob, `${file.name}.json`);
+    return { message: "Файл готов к экспорту", success: true };
   } catch (e) {
-    message = "Во время экспорта файла возникла непредвиденная ошибка";
+    return {
+      message: "Во время экспорта файла возникла непредвиденная ошибка",
+      success: false,
+    };
   }
-  return { exportedFile, message };
 };
+
+export default exportFile;

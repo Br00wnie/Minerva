@@ -3,9 +3,7 @@ import MyModal from "../../ui/modal/MyModal";
 import MyButton from "../../ui/button/MyButton";
 import { DELETE_USER_MODAL_ID } from "../../../consts";
 import { observer } from "mobx-react-lite";
-import { logAction } from "../../../utils/logging";
-import toast from "../../ui/toast/MyToast";
-import { Context } from "../../../../index";
+import { Context } from "../../../../script";
 import UserService from "../../../services/UserService";
 
 const DeleteUserModal = observer(() => {

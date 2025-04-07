@@ -1,7 +1,7 @@
 import Cookies from "js-cookie";
 import { jwtDecode } from "jwt-decode";
 
-export const checkToken = () => {
+const checkToken = () => {
   const codedToken = Cookies.get("token");
   if (!codedToken) return false;
   try {
@@ -14,3 +14,5 @@ export const checkToken = () => {
     return false;
   }
 };
+
+export default checkToken;

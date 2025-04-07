@@ -6,11 +6,11 @@ class UserApi {
     Base requests
   */
 
-  static async create({ userLogin: user_login, userPassword: user_password }) {
+  static async create({ userLogin, userPassword }) {
     try {
       const res = await publicApi.post("/users/create/", {
-        user_login,
-        user_password,
+        user_login: userLogin,
+        user_password: userPassword,
       });
       return {
         message: res.data.message,
@@ -40,11 +40,11 @@ class UserApi {
     }
   }
 
-  static async update({ userLogin: user_login, userPassword: user_password }) {
+  static async update({ userLogin, userPassword }) {
     try {
       const res = await privateApi.put("/users/update/", {
-        user_login,
-        user_password,
+        user_login: userLogin,
+        user_password: userPassword,
       });
       return {
         success: res.status >= 200 && res.status < 300,
@@ -63,6 +63,7 @@ class UserApi {
       const res = await privateApi.delete("/users/delete/");
       return {
         success: res.status >= 200 && res.status < 300,
+        message: res.data.message,
       };
     } catch (error) {
       return {
@@ -76,19 +77,21 @@ class UserApi {
     Entity-specific requests
   */
 
-  static async login({ userLogin: user_login, userPassword: user_password }) {
+  static async login({ userLogin, userPassword }) {
     try {
       const res = await privateApi.post("/users/login/", {
-        user_login,
-        user_password,
+        user_login: userLogin,
+        user_password: userPassword,
       });
-      const responseCookies = res.headers["set-cookie"];
-      const tokenCookie = responseCookies.find((c) => c.startsWith("token="));
-      const tokenValue = tokenCookie.split(";")[0].split("=")[1];
-      document.cookie = `token=${tokenValue}; ${tokenCookie
-        .split(";")
-        .slice(1)
-        .join(";")}`;
+      if (res.status >= 200 && res.status < 300) {
+        const responseCookies = res.headers["set-cookie"];
+        const tokenCookie = responseCookies.find((c) => c.startsWith("token="));
+        const tokenValue = tokenCookie.split(";")[0].split("=")[1];
+        document.cookie = `token=${tokenValue}; ${tokenCookie
+          .split(";")
+          .slice(1)
+          .join(";")}`;
+      }
       return {
         success: res.status >= 200 && res.status < 300,
         message: res.data.message,

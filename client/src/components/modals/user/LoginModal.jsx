@@ -4,7 +4,7 @@ import MyButton from "../../ui/button/MyButton";
 import MyInput from "../../ui/input/MyInput";
 import { LOGIN_MODAL_ID } from "../../../consts";
 import { observer } from "mobx-react-lite";
-import { Context } from "../../../../index";
+import { Context } from "../../../../script";
 import UserService from "../../../services/UserService";
 
 const LoginModal = observer(() => {

@@ -74,7 +74,9 @@ class DocumentController {
     try {
       const { document_id } = req.query;
       await DocumentService.delete({ document_id });
-      res.sendStatus(204);
+      res.status(200).json({
+        message: "Документ удалён",
+      });
     } catch (error) {
       // Специфических ошибок не должно быть
     }

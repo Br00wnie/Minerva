@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import Storage from "../utils/storageManagement";
-import { checkToken } from "../utils/tokenChecking";
+import checkToken from "../utils/tokenChecking";
+import toast from "../utils/toast";
 import UserStore from "../stores/UserStore";
-import toast from "../components/ui/toast/MyToast";
 
-export const useAuthCheck = () => {
+const useAuthCheck = () => {
   useEffect(() => {
     if (checkToken()) {
       const userLogin = Storage.read("userLogin");
@@ -15,3 +15,5 @@ export const useAuthCheck = () => {
     }
   }, []);
 };
+
+export default useAuthCheck;
