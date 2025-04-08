@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import styles from "./MyToast.module.css";
 
-const MyToast = ({ message, removeFunction }) => {
+const MyToast = ({ message, removeToastFunction }) => {
   useEffect(() => {
-    const lifeTimer = setTimeout(removeFunction, 3000);
+    const lifeTimer = setTimeout(removeToastFunction, 3000);
+    // При смене длительности нужно ещё менять тайминги анимации в CSS-модуле
     return () => clearTimeout(lifeTimer);
   }, []);
 

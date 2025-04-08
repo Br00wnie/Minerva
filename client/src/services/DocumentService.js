@@ -2,7 +2,7 @@ import toast from "../utils/toast.js";
 import exportFile from "../utils/fileExport.js";
 import importFile from "../utils/fileImport.js";
 import { nameYup } from "../utils/validation";
-import initialDocument from "../components/editor/initialDocument.js";
+import defaultDocument from "../json/defaultDocument.json";
 import stores from "../stores/index.js";
 
 class DocumentService {
@@ -21,7 +21,7 @@ class DocumentService {
     }
     stores.DocumentStore.set({
       documentName,
-      documentContent: initialDocument.document_content,
+      documentContent: defaultDocument.content,
       documentId: null,
     });
     toast(`Создан документ ${documentName}`);

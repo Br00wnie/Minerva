@@ -1,19 +1,14 @@
 import React from "react";
-import DocumentEditorHeader from "../headers/DocumentEditorHeader.jsx";
-import Editor from "../editor/Editor.jsx";
+import AppLayout from "../layout/AppLayout.jsx";
+import DocumentEditorHeader from "../layout/header/DocumentEditorHeader.jsx";
+import DocumentEditor from "../layout/main/documentEditor/DocumentEditor.jsx";
 
-const DocumentEditor = () => {
+const DocumentEditorPage = () => {
   return (
-    <>
-      <div id="sidebar">
-        <div id="header">
-          <DocumentEditorHeader />
-        </div>
-        <div id="document-structure"></div>
-      </div>
-      <div id="body">{/* <Editor /> */}</div>
-    </>
+    <AppLayout header={<DocumentEditorHeader />}>
+      <DocumentEditor />
+    </AppLayout>
   );
 };
 
-export default DocumentEditor;
+export default DocumentEditorPage;

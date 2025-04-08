@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { observer } from "mobx-react-lite";
-import { Context } from "../../../script.jsx";
+import { Context } from "../../../../script.jsx";
 import {
   REGISTRATION_MODAL_ID,
   LOGIN_MODAL_ID,
@@ -8,10 +8,10 @@ import {
   CREATE_DOCUMENT_MODAL_ID,
   DELETE_DOCUMENT_MODAL_ID,
   LOAD_DOCUMENT_MODAL_ID,
-} from "../../consts.js";
-import MyDropdown from "../ui/dropdown/MyDropdown.jsx";
-import UserService from "../../services/UserService.js";
-import DocumentService from "../../services/DocumentService.js";
+} from "../../../consts.js";
+import MyDropdown from "../../ui/dropdown/MyDropdown.jsx";
+import UserService from "../../../services/UserService.js";
+import DocumentService from "../../../services/DocumentService.js";
 
 const DocumentEditorHeader = observer(() => {
   const { ModalStore, UserStore, DocumentStore } = useContext(Context);
@@ -25,7 +25,7 @@ const DocumentEditorHeader = observer(() => {
               label="Создать"
               onClick={() => ModalStore.openModal(CREATE_DOCUMENT_MODAL_ID)}
             />
-            {DocumentStore.getId !== null ? (
+            {DocumentStore.getId() !== null ? (
               <MyDropdown
                 label="Удалить"
                 onClick={() => ModalStore.openModal(DELETE_DOCUMENT_MODAL_ID)}
@@ -37,8 +37,11 @@ const DocumentEditorHeader = observer(() => {
               label="Загрузить"
               onClick={() => ModalStore.openModal(LOAD_DOCUMENT_MODAL_ID)}
             />
-            {DocumentStore.getId !== null ? (
-              <MyDropdown label="Сохранить" />
+            {DocumentStore.getId() !== null ? (
+              <MyDropdown
+                label="Сохранить"
+                onClick={() => DocumentService.save()}
+              />
             ) : null}
             <hr />
           </>
@@ -55,6 +58,7 @@ const DocumentEditorHeader = observer(() => {
         <MyDropdown label="Настроить" />
         <MyDropdown label="Оформить" />
       </MyDropdown>
+      <MyDropdown label="Стиль"></MyDropdown>
       <MyDropdown label="Пользователь">
         {UserStore.getLogin() ? (
           <>
@@ -76,11 +80,11 @@ const DocumentEditorHeader = observer(() => {
             />
           </>
         )}
-      </MyDropdown>
-      <MyDropdown label="Приложение">
+        <hr />
         <MyDropdown label="Помощь" />
-        <MyDropdown label="О приложении" />
         <MyDropdown label="Пользовательское соглашение" />
+        <hr />
+        <MyDropdown label="О приложении" />
         <MyDropdown label="Репозиторий" />
       </MyDropdown>
     </>

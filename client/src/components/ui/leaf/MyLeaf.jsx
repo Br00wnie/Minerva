@@ -1,7 +1,7 @@
 import React from "react";
 
-const Leaf = ({ attributes, children, leaf }) => {
+const MyLeaf = ({ attributes, children, leaf }) => {
   return <span {...attributes}>{children}</span>;
 };
 
-export default Leaf;
+export default MyLeaf;

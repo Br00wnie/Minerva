@@ -1,7 +1,7 @@
 import React from "react";
 
-const StyleEditor = () => {
+const StyleEditorPage = () => {
   return <div>Style Editor</div>;
 };
 
-export default StyleEditor;
+export default StyleEditorPage;

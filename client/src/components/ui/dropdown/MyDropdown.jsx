@@ -8,7 +8,7 @@ const MyDropdown = ({
   ...props
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const handleToggle = () => {
+  const toggleIsOpen = () => {
     setIsOpen(!isOpen);
   };
   const renderChildren = () => {
@@ -25,8 +25,9 @@ const MyDropdown = ({
       className={`${styles.container} ${className} ${
         React.Children.count(children) > 0 ? styles.dropdown : ""
       }`}
-      onMouseEnter={handleToggle}
-      onMouseLeave={handleToggle}
+      onClick={toggleIsOpen} // Для мобильных устройств
+      onMouseEnter={() => setIsOpen(true)}
+      onMouseLeave={() => setIsOpen(false)}
       {...props}
     >
       <div className={styles.label}>{label}</div>

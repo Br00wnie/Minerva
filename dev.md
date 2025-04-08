@@ -100,23 +100,48 @@ To authenticate, the user receives a JWT from the server, stored in a cookie. Th
 
 ## Client
 
-### Local Storage Content
+### Client-Side Storage
 
-Used to store data between sessions
-
-- document: { id, name, content }
-- style: { id, name, content }
-
-### Store Content
+#### Stores (State Management)
 
 Manages the application's state
 
-- UserStore: { isAuthenticated }
-- ModalStore: { openModalId }
-- DocumentStore: { name, content }
+- UserStore
+  - login
+- ModalStore
+  - openModalId
+- DocumentStore
+  - id
+  - name
+  - content
 - StyleStore: { name, content }
+  - id
+  - name
+  - description
+  - content
+  - isPublic
+  - popularity
 
-> On app startup, the active document and style data are loaded from Local Storage if it’s not the first launch. In all other cases, this data comes from the corresponding Store. During the app’s operation, the data in Local Storage will be updated to remain current.
+#### Local Storage (Persistent Data)
+
+Used to store data between sessions
+
+- userLogin
+- documentId
+- documentName
+- documentContent
+- styleId
+- styleName
+- styleDescription
+- styleContent
+- styleIsPublic
+- stylePopularity
+
+On app startup, the active document and style data are loaded from Local Storage. If the storage is empty, this data is retrieved from the corresponding Store. During app operation, Local Storage is continuously updated to maintain data consistency.
+
+#### Cookie (Authentication System)
+
+Cookies are used for authorization and store only a token containing the user_id.
 
 # Agreements
 

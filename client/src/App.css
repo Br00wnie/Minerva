@@ -47,16 +47,66 @@
 
 #sidebar {
   flex: 0 0 20%;
-  min-width: 380px;
+  min-width: 23.75rem;
   background-color: var(--color-grey-1);
   border: var(--border);
   display: flex;
   flex-direction: column;
   height: 100%;
+  transition: transform 0.3s ease;
+  z-index: 1000;
 }
+
 @media (max-width: 1140px) {
   #sidebar {
-    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    transform: translateX(-100%);
+  }
+
+  #sidebar.is-open {
+    transform: translateX(0);
+  }
+}
+
+/* Стили для кнопки */
+#sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  width: 40px;
+  height: 40px;
+  background: var(--color-accent-dark);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1001;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+#sidebar-toggle .arrow {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--color-white);
+  border-left: none;
+  border-bottom: none;
+  transform: rotate(-135deg);
+  transition: transform 0.3s ease;
+}
+
+#sidebar-toggle.is-open .arrow {
+  transform: rotate(45deg);
+}
+
+@media (max-width: 1140px) {
+  #sidebar-toggle {
+    display: flex;
   }
 }
 
@@ -69,20 +119,18 @@
   flex: 1;
 }
 
-#document-structure {
+#sidebar-body {
   flex: 1;
   overflow-y: auto;
-  word-break: break-all;
 }
 
-/* #body */
+/* #main */
 
-#body {
+#main {
   flex: 1;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  font-family: "Manrope", sans-serif;
 }
 
 /* States */
@@ -119,6 +167,6 @@
   --height: 2.5rem;
 
   --desc-size: 0.9rem;
-  --font-size: 16px;
+  --font-size: 1rem;
   --header-size: 1.5rem;
 }

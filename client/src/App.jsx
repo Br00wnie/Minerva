@@ -1,12 +1,15 @@
+import { useEffect } from "react";
 import { BrowserRouter } from "react-router-dom";
 import RouteManager from "./managers/RouteManager";
 import ModalManager from "./managers/ModalManager";
 import ToastManager from "./managers/ToastManager";
-import useAuthCheck from "./hooks/authCheckHook";
+import showWelcomeMessage from "./utils/welcomeMessage";
 import "./App.css";
 
 function App() {
-  useAuthCheck();
+  useEffect(() => {
+    showWelcomeMessage();
+  }, []);
 
   return (
     <BrowserRouter>

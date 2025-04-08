@@ -4,7 +4,10 @@ class Storage {
   }
 
   static write(key, value) {
-    localStorage.setItem(key, value);
+    localStorage.setItem(
+      key,
+      typeof value === "string" ? value : JSON.stringify(value)
+    );
   }
 
   static remove(key) {
