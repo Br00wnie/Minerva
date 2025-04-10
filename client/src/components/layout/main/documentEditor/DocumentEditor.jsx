@@ -1,37 +1,33 @@
-import React, { useCallback, useMemo } from "react";
+import React from "react";
 import { observer } from "mobx-react-lite";
-import { Slate, Editable } from "slate-react";
-import MyLeaf from "../../../ui/leaf/MyLeaf.jsx";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 import styles from "./DocumentEditor.module.css";
-import useDocument from "../../../../hooks/useDocument.js";
-import setUpEditor from "../../../../utils/editorSetUp.js";
+import useDocument from "../../../../hooks/useDocument";
+import editorConfig from "../../../../json/editorConfig.json";
 
 const DocumentEditor = observer(() => {
-  const { documentName, setDocumentName, documentContent, setDocumentContent } =
-    useDocument();
-  const renderLeaf = useCallback((props) => <MyLeaf {...props} />, []);
-  const editor = useMemo(() => setUpEditor(), []);
+  const { name, setName, content, setContent } = useDocument();
 
   return (
     <div className={styles.container}>
       <input
-        type="text"
-        placeholder="Название документа"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
         className={styles.name}
-        value={documentName}
-        onChange={(e) => setDocumentName(e.target.value)}
+        placeholder="Название документа"
       />
-      <Slate
-        editor={editor}
-        initialValue={documentContent}
-        onChange={setDocumentContent}
-      >
-        <Editable
-          renderLeaf={renderLeaf}
+      <div className={styles.editor}>
+        <ReactQuill
+          theme="snow"
+          value={content}
+          onChange={setContent}
+          modules={editorConfig.modules}
+          formats={editorConfig.formats}
           placeholder="Содержимое документа"
-          className={styles.editor}
+          className={styles.quill}
         />
-      </Slate>
+      </div>
     </div>
   );
 });

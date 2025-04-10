@@ -6,11 +6,10 @@ const exportFile = (file) => {
       type: "application/json",
     });
     saveAs(blob, `${file.name}.json`);
-    return { message: "Файл готов к экспорту", success: true };
+    return { message: "Файл готов к экспорту" };
   } catch (e) {
     return {
       message: "Во время экспорта файла возникла непредвиденная ошибка",
-      success: false,
     };
   }
 };

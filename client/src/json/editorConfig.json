@@ -1,0 +1,7 @@
+{
+  "modules": {
+    "toolbar": false,
+    "clipboard": { "matchVisual": false }
+  },
+  "formats": []
+}

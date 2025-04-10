@@ -1,15 +1,18 @@
 import { makeAutoObservable } from "mobx";
+import Storage from "../utils/storageManagement";
 
 export default class UserStore {
-  login = null;
+  login;
   constructor() {
+    this.login = Storage.read("userLogin") || null;
     makeAutoObservable(this);
   }
 
   getLogin() {
     return this.login;
   }
-  setLogin(login) {
+  setLogin = (login) => {
     this.login = login;
-  }
+    Storage.write("userLogin", login);
+  };
 }

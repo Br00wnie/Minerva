@@ -29,27 +29,28 @@ class DocumentService {
   }
 
   static async import() {
-    const { success, message, file } = await importFile();
-    toast(message);
+    const { success, message, file: document } = await importFile();
     if (success) {
-      if (!file.name) {
+      if (!document.name) {
         toast("Не найдено имя документа");
         return;
       }
-      if (!file.content) {
+      if (!document.content) {
         toast("Не найдено содержимое документа");
         return;
       }
-      stores.DocumentStore.setName(file.name);
-      stores.DocumentStore.setContent(file.content);
-      stores.DocumentStore.setId(null);
+      stores.DocumentStore.set({
+        documentName: document.name,
+        documentContent: document.content,
+        documentId: null,
+      });
     }
+    toast(message);
   }
 
   static async export() {
-    const file = stores.DocumentStore.get();
-    file.documentId = null;
-    const { message } = exportFile(file);
+    const { id, ...document } = stores.DocumentStore.get();
+    const { message } = exportFile(document);
     toast(message);
   }
 

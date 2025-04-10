@@ -1,3 +1,11 @@
+# Content
+
+- [Architecture](#architecture)
+  - [General](#general)
+  - [Server](#server)
+  - [Client](#client)
+- [Agreements](#agreements)
+
 # Architecture
 
 ## General
@@ -66,7 +74,7 @@ To authenticate, the user receives a JWT from the server, stored in a cookie. Th
 
 > The asterisk indicates mandatory parameters.
 
-## Middleware
+### Middleware
 
 | Name                    | Description                                                             | Type  |
 | ----------------------- | ----------------------------------------------------------------------- | ----- |
@@ -148,28 +156,3 @@ Cookies are used for authorization and store only a token containing the user_id
 - Only atomic constants are named in UPPER_SNAKE_CASE
 - Files that are entry points (both on the server and the client) are named "index"
 - Client can get _user_id_ only in hashed form
-
-# Dev Setup Example
-
-## Host & Guest
-
-| **Host (Main PC)**                                                                                | **Guest (Virtual Machine)**                                       |
-| ------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
-| **OS:** Windows 11 <br> **Tools:** VirtualBox, Visual Studio Code with the Remote - SSH extension | **OS:** Ubuntu 22, running in VirtualBox with NAT networking mode |
-
-## Ports Mapping
-
-| Service           | Host (Windows) | Guest (Ubuntu) | Docker Container |
-| ----------------- | -------------- | -------------- | ---------------- |
-| Frontend (Client) | 80             | 5173           | –                |
-| Backend (Server)  | 5000           | 5000           | –                |
-| Remote SSH        | 2222           | 22             | –                |
-| pgAdmin4          | 8080           | 8080           | 80               |
-
-> Since I didn’t want to install pgAdmin4 on the host machine, the decision was made to use its browser version. The classic method of installing pgAdmin4 didn’t work on Ubuntu, so I had to turn to Docker. The setup is like this: first, VirtualBox NAT forwards port 8080 from the guest machine, and then the Docker container forwards its own port 80. As a result, pgAdmin4 becomes available at http://localhost:8080 on the host.
-
-## Versions
-
-- **VirtualBox:** 7.1.2
-- **Docker:** 24.0.7
-- **PostgreSQL:** 17.2

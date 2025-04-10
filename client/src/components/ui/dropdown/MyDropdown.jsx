@@ -25,7 +25,7 @@ const MyDropdown = ({
       className={`${styles.container} ${className} ${
         React.Children.count(children) > 0 ? styles.dropdown : ""
       }`}
-      onClick={toggleIsOpen} // Для мобильных устройств
+      onClick={toggleIsOpen}
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
       {...props}

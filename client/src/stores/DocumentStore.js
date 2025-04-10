@@ -1,18 +1,25 @@
 import { makeAutoObservable } from "mobx";
+import Storage from "../utils/storageManagement";
+import defrost from "../utils/defrosting";
+import defaultDocument from "../json/defaultDocument.json";
 
 export default class DocumentStore {
-  name = null;
-  content = null;
-  id = null;
+  name;
+  content;
+  id;
   constructor() {
-    makeAutoObservable(this);
+    this.name = Storage.read("documentName") || defrost(defaultDocument.name);
+    this.content =
+      Storage.read("documentContent") || defrost(defaultDocument.content);
+    this.id = Storage.read("documentId") || null;
+    makeAutoObservable(this, {}, { autoBind: true });
   }
 
   get() {
     return {
-      documentName: this.getName(),
-      documentContent: this.getContent(),
-      documentId: this.getId(),
+      name: this.getName(),
+      content: this.getContent(),
+      id: this.getId(),
     };
   }
   set({ documentName: name, documentContent: content, documentId: id }) {
@@ -26,13 +33,15 @@ export default class DocumentStore {
   }
   setName(name) {
     this.name = name;
+    Storage.write("documentName", name);
   }
 
   getContent() {
     return this.content;
   }
   setContent(content) {
-    this.content = content;
+    this.content = defrost(content);
+    Storage.write("documentContent", this.content);
   }
 
   getId() {
@@ -40,5 +49,6 @@ export default class DocumentStore {
   }
   setId(id) {
     this.id = id;
+    Storage.write("documentId", id);
   }
 }

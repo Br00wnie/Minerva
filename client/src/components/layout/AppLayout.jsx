@@ -1,21 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 const AppLayout = ({ header, sidebar, children }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
-
+  const handleResize = useCallback(() => {
+    if (window.innerWidth >= 1140) setIsSidebarOpen(false);
+  }, []);
   useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 1140) {
-        setIsSidebarOpen(false);
-      }
-    };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  }, [handleResize]);
 
   return (
     <>
@@ -23,15 +19,11 @@ const AppLayout = ({ header, sidebar, children }) => {
         <div id="header">{header}</div>
         <div id="sidebar-body">{sidebar}</div>
       </div>
-
       <button
         id="sidebar-toggle"
         onClick={toggleSidebar}
         className={isSidebarOpen ? "is-open" : ""}
-      >
-        <span className="arrow"></span>
-      </button>
-
+      ></button>
       <div id="main">{children}</div>
     </>
   );

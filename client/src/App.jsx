@@ -3,12 +3,12 @@ import { BrowserRouter } from "react-router-dom";
 import RouteManager from "./managers/RouteManager";
 import ModalManager from "./managers/ModalManager";
 import ToastManager from "./managers/ToastManager";
-import showWelcomeMessage from "./utils/welcomeMessage";
-import "./App.css";
+import initializeApp from "./utils/appInitialization";
+import "./components/layout/AppLayout.css";
 
 function App() {
   useEffect(() => {
-    showWelcomeMessage();
+    initializeApp();
   }, []);
 
   return (

@@ -1,21 +1,42 @@
-.editor {
-  outline: none;
-  width: auto;
-  margin: 2rem 15vw 0 15vw;
-  line-height: 200%;
-  height: 100%;
-  font-family: "Manrope", sans-serif;
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .name {
   width: auto;
   font-size: var(--header-size);
   margin: 6rem 15vw 0 15vw;
-  background-color: rgba(0, 0, 0, 0);
-  outline: none;
+  background: transparent;
   border: none;
+  outline: none;
   color: inherit;
-  overflow: hidden;
-  text-overflow: ellipsis;
   font-weight: bold;
+  text-overflow: ellipsis;
+}
+.name::placeholder {
+  color: var(--color-grey-5);
+}
+
+.editor {
+  margin: 2rem 15vw;
+  padding-bottom: 8rem;
+  flex-grow: 1;
+}
+
+.quill :global(.ql-container) {
+  border: none;
+  font-family: "Manrope", sans-serif;
+  font-size: inherit;
+}
+
+.quill :global(.ql-editor) {
+  padding: 0;
+}
+
+.quill :global(.ql-editor::before) {
+  font-style: normal;
+  left: 0;
+  color: var(--color-grey-5);
 }

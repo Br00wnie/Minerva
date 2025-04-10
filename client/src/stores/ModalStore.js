@@ -3,6 +3,7 @@ import { makeAutoObservable } from "mobx";
 export default class ModalStore {
   openModalId = null;
   constructor() {
+    this.openModalId = null;
     makeAutoObservable(this);
   }
 
