@@ -1,22 +1,18 @@
-import { makeAutoObservable } from "mobx";
+import { buildStore } from "../utils/store";
 
-class ModalStore {
-  openModalId = null;
-  constructor() {
-    this.openModalId = null;
-    makeAutoObservable(this);
-  }
+const store = buildStore({
+  openModalId: null,
+});
 
-  getOpenModalId() {
-    return this.openModalId;
-  }
+const services = (store) => ({
+  openModal: (openModalId) => {
+    store.openModalId = openModalId;
+  },
+  closeModal: () => {
+    store.openModalId = null;
+  },
+});
 
-  openModal(modalId) {
-    this.openModalId = modalId;
-  }
-  closeModal() {
-    this.openModalId = null;
-  }
-}
-
-export default new ModalStore();
+export default { store, services };
+export const getModalStore = () => store;
+export const getModalServices = () => services(store);

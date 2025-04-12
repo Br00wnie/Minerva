@@ -8,7 +8,7 @@ Web app for converting Markdown to PDF file with specified layout
 
 ## Stack
 
-- **Frontend**: React + MobX, Axios
+- **Frontend**: React, Incrum State Manager, Axios
 - **Backend**: Express, Sequelize
 - **Database**: PostgreSQL
 - **Other**: Vite, Quill

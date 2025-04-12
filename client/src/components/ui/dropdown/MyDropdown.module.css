@@ -35,12 +35,18 @@
   .select {
     position: fixed;
     top: var(--height);
+    width: 30rem;
   }
 }
 
 .select .container {
   background: none;
   width: 20rem;
+}
+@media (max-width: 1150px) {
+  .select .container {
+    width: 30rem;
+  }
 }
 
 .select .select {

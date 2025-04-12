@@ -1,7 +1,7 @@
 import React from "react";
-import { observer } from "mobx-react-lite";
 import styles from "./MyModal.module.css";
 import ModalStore from "../../../stores/ModalStore";
+import { useStore } from "../../../utils/store";
 
 const MyModal = ({
   id,
@@ -11,8 +11,12 @@ const MyModal = ({
   className = "",
   ...props
 }) => {
+  const [modalStore, modalServices] = useStore(
+    ModalStore.store,
+    ModalStore.services
+  );
   const bindCloseModalEvent = (e) => {
-    if (e.target.dataset.closeModal !== undefined) ModalStore.closeModal();
+    if (e.target.dataset.closeModal !== undefined) modalServices.closeModal();
   };
 
   return (
@@ -37,4 +41,4 @@ const MyModal = ({
   );
 };
 
-export default observer(MyModal);
+export default MyModal;

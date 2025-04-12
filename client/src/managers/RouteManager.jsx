@@ -1,11 +1,10 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { observer } from "mobx-react-lite";
 import { privateRoutes, publicRoutes } from "../routes";
-import UserStore from "../stores/UserStore";
+import { getUserStore } from "../stores/UserStore";
 
-const RouteManager = observer(() => {
-  const isAuth = !!UserStore.getLogin();
+const RouteManager = () => {
+  const isAuth = !!getUserStore().login;
   return (
     <Routes>
       {isAuth &&
@@ -17,6 +16,6 @@ const RouteManager = observer(() => {
       ))}
     </Routes>
   );
-});
+};
 
 export default RouteManager;

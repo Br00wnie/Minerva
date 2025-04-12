@@ -2,12 +2,11 @@ import React from "react";
 import MyModal from "../../ui/modal/MyModal";
 import MyButton from "../../ui/button/MyButton";
 import { DELETE_USER_MODAL_ID } from "../../../consts";
-import { observer } from "mobx-react-lite";
 import UserStore from "../../../stores/UserStore";
 import ModalStore from "../../../stores/ModalStore";
 import UserService from "../../../services/UserService";
 
-const DeleteUserModal = observer(() => {
+const DeleteUserModal = () => {
   return (
     <MyModal
       id={DELETE_USER_MODAL_ID}
@@ -24,6 +23,6 @@ const DeleteUserModal = observer(() => {
       </div>
     </MyModal>
   );
-});
+};
 
 export default DeleteUserModal;

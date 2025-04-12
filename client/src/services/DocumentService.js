@@ -3,8 +3,11 @@ import exportFile from "../utils/fileExport.js";
 import importFile from "../utils/fileImport.js";
 import { nameYup } from "../utils/validation";
 import defaultDocument from "../json/defaultDocument.json";
-import DocumentStore from "../stores/DocumentStore.js";
-import ModalStore from "../stores/ModalStore.js";
+import { getModalServices } from "../stores/ModalStore.js";
+import {
+  getDocumentStore,
+  getDocumentServices,
+} from "../stores/DocumentStore.js";
 
 class DocumentService {
   /* 
@@ -20,13 +23,12 @@ class DocumentService {
       toast(error.message);
       return;
     }
-    DocumentStore.set({
-      documentName,
-      documentContent: defaultDocument.content,
-      documentId: null,
-    });
+    const documentService = getDocumentServices();
+    documentService.setName(documentName);
+    documentService.setContent(defaultDocument.content);
+    documentService.setId(null);
     toast(`Создан документ ${documentName}`);
-    ModalStore.closeModal();
+    getModalServices().closeModal();
   }
 
   static async import() {
@@ -40,17 +42,20 @@ class DocumentService {
         toast("Не найдено содержимое документа");
         return;
       }
-      DocumentStore.set({
-        documentName: document.name,
-        documentContent: document.content,
-        documentId: null,
-      });
+      const documentService = getDocumentServices();
+      documentService.setName(document.name);
+      documentService.setContent(document.content);
+      documentService.setId(null);
     }
     toast(message);
   }
 
   static async export() {
-    const { id, ...document } = DocumentStore.get();
+    const documentStore = getDocumentStore();
+    const document = {
+      name: documentStore.name,
+      content: documentStore.content,
+    };
     const { message } = exportFile(document);
     toast(message);
   }

@@ -1,56 +1,28 @@
-import { makeAutoObservable } from "mobx";
 import Storage from "../utils/storageManagement";
-import defrost from "../utils/defrosting";
 import defaultDocument from "../json/defaultDocument.json";
+import { buildStore } from "../utils/store";
 
-class DocumentStore {
-  name;
-  content;
-  id;
-  constructor() {
-    this.name = Storage.read("documentName") || defrost(defaultDocument.name);
-    this.content =
-      Storage.read("documentContent") || defrost(defaultDocument.content);
-    this.id = Storage.read("documentId") || null;
-    makeAutoObservable(this, {}, { autoBind: true });
-  }
+const store = buildStore({
+  name: Storage.read("documentName") || defaultDocument.name,
+  content: Storage.read("documentContent") || defaultDocument.content,
+  id: Storage.read("documentId") || null,
+});
 
-  get() {
-    return {
-      name: this.getName(),
-      content: this.getContent(),
-      id: this.getId(),
-    };
-  }
-  set({ documentName: name, documentContent: content, documentId: id }) {
-    this.setName(name);
-    this.setContent(content);
-    this.setId(id);
-  }
-
-  getName() {
-    return this.name;
-  }
-  setName(name) {
-    this.name = name;
+const services = (store) => ({
+  setName: (name) => {
+    store.name = name;
     Storage.write("documentName", name);
-  }
-
-  getContent() {
-    return this.content;
-  }
-  setContent(content) {
-    this.content = defrost(content);
-    Storage.write("documentContent", this.content);
-  }
-
-  getId() {
-    return this.id;
-  }
-  setId(id) {
-    this.id = id;
+  },
+  setContent: (content) => {
+    store.content = content;
+    Storage.write("documentContent", content);
+  },
+  setId: (id) => {
+    store.id = id;
     Storage.write("documentId", id);
-  }
-}
+  },
+});
 
-export default new DocumentStore();
+export default { store, services };
+export const getDocumentStore = () => store;
+export const getDocumentServices = () => services(store);

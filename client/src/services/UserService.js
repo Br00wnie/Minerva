@@ -1,8 +1,8 @@
-import Cookies from "js-cookie";
 import UserApi from "../http/UserApi.js";
 import toast from "../utils/toast.js";
 import { userYup } from "../utils/validation";
-import ModalStore from "../stores/ModalStore.js";
+import { getModalServices, getModalStore } from "../stores/ModalStore.js";
+import { getUserServices } from "../stores/UserStore.js";
 
 class UserService {
   /* 
@@ -27,7 +27,7 @@ class UserService {
       userLogin,
       userPassword,
     });
-    if (result.success) ModalStore.openModal(null);
+    if (result.success) getModalServices().closeModal();
     toast(result.message);
   }
 
@@ -42,12 +42,15 @@ class UserService {
       return;
     }
     const result = await UserApi.login({ userLogin, userPassword });
-    if (result.success) ModalStore.openModal(null);
+    if (result.success) {
+      getModalServices().closeModal();
+      getUserServices().setLogin(userLogin);
+    }
     toast(result.message);
   }
 
   static logout() {
-    Cookies.remove("token");
+    getUserServices().setLogin(null);
     toast("Выход выполнен");
   }
 }

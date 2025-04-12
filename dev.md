@@ -134,7 +134,7 @@ Manages the application's state
 
 Used to store data between sessions
 
-- userLogin
+- login
 - documentId
 - documentName
 - documentContent

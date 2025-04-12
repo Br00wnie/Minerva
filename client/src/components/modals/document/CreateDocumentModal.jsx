@@ -6,9 +6,13 @@ import { CREATE_DOCUMENT_MODAL_ID } from "../../../consts";
 import DocumentStore from "../../../stores/DocumentStore";
 import ModalStore from "../../../stores/ModalStore";
 import DocumentService from "../../../services/DocumentService";
+import UserStore from "../../../stores/UserStore";
 
 const CreateDocumentModal = () => {
-  const [documentName, setDocumentName] = useState("");
+  const [documentStore, documentServices] = useStore(
+    DocumentStore.store,
+    DocumentStore.services
+  );
 
   return (
     <MyModal id={CREATE_DOCUMENT_MODAL_ID} title="Создать документ">
@@ -17,8 +21,8 @@ const CreateDocumentModal = () => {
           label="Название"
           desc="Имена ваших документов должны отличаться."
           placeholder="ПЗ к ВКР"
-          value={documentName}
-          onChange={(e) => setDocumentName(e.target.value)}
+          value={documentStore.name}
+          onChange={(e) => documentServices.setName(e.target.value)}
         />
       </div>
       <div className="buttons">
