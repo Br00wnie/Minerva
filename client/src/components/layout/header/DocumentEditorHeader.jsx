@@ -1,6 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import { observer } from "mobx-react-lite";
-import { Context } from "../../../../script.jsx";
+import ModalStore from "../../../stores/ModalStore.js";
+import UserStore from "../../../stores/UserStore.js";
+import DocumentStore from "../../../stores/DocumentStore.js";
 import {
   REGISTRATION_MODAL_ID,
   LOGIN_MODAL_ID,
@@ -14,8 +16,6 @@ import UserService from "../../../services/UserService.js";
 import DocumentService from "../../../services/DocumentService.js";
 
 const DocumentEditorHeader = observer(() => {
-  const { ModalStore, UserStore, DocumentStore } = useContext(Context);
-
   return (
     <>
       <MyDropdown label="Документ">

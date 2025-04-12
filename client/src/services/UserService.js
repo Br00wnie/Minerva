@@ -2,7 +2,7 @@ import Cookies from "js-cookie";
 import UserApi from "../http/UserApi.js";
 import toast from "../utils/toast.js";
 import { userYup } from "../utils/validation";
-import stores from "../stores/index.js";
+import ModalStore from "../stores/ModalStore.js";
 
 class UserService {
   /* 
@@ -27,7 +27,7 @@ class UserService {
       userLogin,
       userPassword,
     });
-    if (result.success) stores.ModalStore.openModal(null);
+    if (result.success) ModalStore.openModal(null);
     toast(result.message);
   }
 
@@ -42,7 +42,7 @@ class UserService {
       return;
     }
     const result = await UserApi.login({ userLogin, userPassword });
-    if (result.success) stores.ModalStore.openModal(null);
+    if (result.success) ModalStore.openModal(null);
     toast(result.message);
   }
 

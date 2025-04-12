@@ -1,14 +1,12 @@
-import { React, useContext, useState, useEffect } from "react";
+import { React, useState, useEffect } from "react";
 import MyModal from "../../ui/modal/MyModal";
 import MyButton from "../../ui/button/MyButton";
 import { LOAD_DOCUMENT_MODAL_ID } from "../../../consts";
-import { Context } from "../../../../script";
 import DocumentService from "../../../services/DocumentService";
 import MyDocumentItem from "../../ui/documentItem/MyDocumentItem";
 import toast from "../../../utils/toast";
 
 const LoadDocumentModal = () => {
-  const { DocumentStore, ModalStore } = useContext(Context);
   const [documents, setDocuments] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);

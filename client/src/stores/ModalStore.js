@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
 
-export default class ModalStore {
+class ModalStore {
   openModalId = null;
   constructor() {
     this.openModalId = null;
@@ -18,3 +18,5 @@ export default class ModalStore {
     this.openModalId = null;
   }
 }
+
+export default new ModalStore();

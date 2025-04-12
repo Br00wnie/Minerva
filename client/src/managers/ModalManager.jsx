@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { observer } from "mobx-react-lite";
-import { Context } from "../../script";
+import ModalStore from "../stores/ModalStore";
 import RegistrationModal from "../components/modals/user/RegistrationModal";
 import LoginModal from "../components/modals/user/LoginModal";
 import DeleteUserModal from "../components/modals/user/DeleteUserModal";
@@ -31,7 +31,6 @@ const renderModal = (ModalComponent) =>
   ReactDOM.createPortal(<ModalComponent />, document.getElementById(PORTAL_ID));
 
 const ModalManager = observer(() => {
-  const { ModalStore } = React.useContext(Context);
   const ModalComponent = modalMap[ModalStore.getOpenModalId()];
   if (!ModalComponent) return null;
   return renderModal(ModalComponent);

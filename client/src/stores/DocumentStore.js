@@ -3,7 +3,7 @@ import Storage from "../utils/storageManagement";
 import defrost from "../utils/defrosting";
 import defaultDocument from "../json/defaultDocument.json";
 
-export default class DocumentStore {
+class DocumentStore {
   name;
   content;
   id;
@@ -52,3 +52,5 @@ export default class DocumentStore {
     Storage.write("documentId", id);
   }
 }
+
+export default new DocumentStore();

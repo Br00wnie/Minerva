@@ -1,10 +1,7 @@
-import React, { useContext } from "react";
-import { Context } from "../../../index.jsx";
+import React from "react";
 import MyDropdown from "../ui/dropdown/MyDropdown.jsx";
 
 const StyleEditorHeader = () => {
-  const { modal } = useContext(Context);
-
   return (
     <>
       <MyDropdown label="Настройки" />

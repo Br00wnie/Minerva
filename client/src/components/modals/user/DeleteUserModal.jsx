@@ -1,14 +1,13 @@
-import React, { useContext } from "react";
+import React from "react";
 import MyModal from "../../ui/modal/MyModal";
 import MyButton from "../../ui/button/MyButton";
 import { DELETE_USER_MODAL_ID } from "../../../consts";
 import { observer } from "mobx-react-lite";
-import { Context } from "../../../../script";
+import UserStore from "../../../stores/UserStore";
+import ModalStore from "../../../stores/ModalStore";
 import UserService from "../../../services/UserService";
 
 const DeleteUserModal = observer(() => {
-  const { UserStore, ModalStore } = useContext(Context);
-
   return (
     <MyModal
       id={DELETE_USER_MODAL_ID}

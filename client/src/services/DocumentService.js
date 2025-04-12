@@ -3,7 +3,8 @@ import exportFile from "../utils/fileExport.js";
 import importFile from "../utils/fileImport.js";
 import { nameYup } from "../utils/validation";
 import defaultDocument from "../json/defaultDocument.json";
-import stores from "../stores/index.js";
+import DocumentStore from "../stores/DocumentStore.js";
+import ModalStore from "../stores/ModalStore.js";
 
 class DocumentService {
   /* 
@@ -19,13 +20,13 @@ class DocumentService {
       toast(error.message);
       return;
     }
-    stores.DocumentStore.set({
+    DocumentStore.set({
       documentName,
       documentContent: defaultDocument.content,
       documentId: null,
     });
     toast(`Создан документ ${documentName}`);
-    stores.ModalStore.closeModal();
+    ModalStore.closeModal();
   }
 
   static async import() {
@@ -39,7 +40,7 @@ class DocumentService {
         toast("Не найдено содержимое документа");
         return;
       }
-      stores.DocumentStore.set({
+      DocumentStore.set({
         documentName: document.name,
         documentContent: document.content,
         documentId: null,
@@ -49,7 +50,7 @@ class DocumentService {
   }
 
   static async export() {
-    const { id, ...document } = stores.DocumentStore.get();
+    const { id, ...document } = DocumentStore.get();
     const { message } = exportFile(document);
     toast(message);
   }

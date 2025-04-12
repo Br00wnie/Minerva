@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 import MyButton from "../button/MyButton";
 import styles from "./MyDocumentItem.module.css";
 import DocumentService from "../../../services/DocumentService";
-import { Context } from "../../../../script";
+import ModalStore from "../../../stores/ModalStore";
+import DocumentStore from "../../../stores/DocumentStore";
 import toast from "../../../utils/toast";
-import Storage from "../../../utils/storageManagement";
 
 const MyDocumentItem = ({
   name = "name",
@@ -13,7 +13,6 @@ const MyDocumentItem = ({
   documentId,
   ...props
 }) => {
-  const { DocumentStore, ModalStore } = useContext(Context);
   const handleLoad = async () => {
     try {
       const res = await DocumentService.get({ documentId }, {});

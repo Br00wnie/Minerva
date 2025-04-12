@@ -1,13 +1,11 @@
-import { useContext } from "react";
-import { Context } from "../../script";
+import DocumentStore from "../stores/DocumentStore";
 
 const useDocument = () => {
-  const context = useContext(Context);
   return {
-    name: context.DocumentStore.name,
-    setName: context.DocumentStore.setName,
-    content: context.DocumentStore.content,
-    setContent: context.DocumentStore.setContent,
+    name: DocumentStore.name,
+    setName: DocumentStore.setName,
+    content: DocumentStore.content,
+    setContent: DocumentStore.setContent,
   };
 };
 

@@ -1,16 +1,15 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import MyModal from "../../ui/modal/MyModal";
 import MyButton from "../../ui/button/MyButton";
 import MyInput from "../../ui/input/MyInput";
 import { LOGIN_MODAL_ID } from "../../../consts";
 import { observer } from "mobx-react-lite";
-import { Context } from "../../../../script";
+import ModalStore from "../../../stores/ModalStore";
 import UserService from "../../../services/UserService";
 
 const LoginModal = observer(() => {
   const [userLogin, setUserLogin] = useState("");
   const [userPassword, setUserPassword] = useState("");
-  const { UserStore, ModalStore } = useContext(Context);
 
   return (
     <MyModal id={LOGIN_MODAL_ID} title="Войти">

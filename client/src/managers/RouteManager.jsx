@@ -1,11 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { observer } from "mobx-react-lite";
 import { privateRoutes, publicRoutes } from "../routes";
-import { Context } from "../../script";
+import UserStore from "../stores/UserStore";
 
 const RouteManager = observer(() => {
-  const { UserStore } = useContext(Context);
   const isAuth = !!UserStore.getLogin();
   return (
     <Routes>

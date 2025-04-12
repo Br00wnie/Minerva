@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 import { observer } from "mobx-react-lite";
 import styles from "./MyModal.module.css";
-import { Context } from "../../../../script";
+import ModalStore from "../../../stores/ModalStore";
 
 const MyModal = ({
   id,
@@ -11,7 +11,6 @@ const MyModal = ({
   className = "",
   ...props
 }) => {
-  const { ModalStore } = useContext(Context);
   const bindCloseModalEvent = (e) => {
     if (e.target.dataset.closeModal !== undefined) ModalStore.closeModal();
   };

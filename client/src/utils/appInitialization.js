@@ -1,8 +1,8 @@
 import toast from "./toast";
-import stores from "../stores/index";
+import UserStore from "../stores/UserStore";
 
 const initializeApp = () => {
-  const userLogin = stores.UserStore.getLogin();
+  const userLogin = UserStore.getLogin();
   if (userLogin) toast(`С возвращением, ${userLogin}`);
   else toast("Вы вошли как гость");
 };
