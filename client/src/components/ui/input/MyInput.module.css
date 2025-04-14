@@ -33,4 +33,5 @@
 
 .desc {
   font-size: var(--desc-size);
+  padding-top: var(--desc-size);
 }

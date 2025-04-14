@@ -7,6 +7,7 @@ import DeleteUserModal from "../components/modals/user/DeleteUserModal";
 import CreateDocumentModal from "../components/modals/document/CreateDocumentModal";
 import LoadDocumentModal from "../components/modals/document/LoadDocumentModal";
 import DeleteDocumentModal from "../components/modals/document/DeleteDocumentModal";
+import AboutModal from "../components/modals/user/AboutModal";
 import {
   PORTAL_ID,
   REGISTRATION_MODAL_ID,
@@ -15,6 +16,7 @@ import {
   CREATE_DOCUMENT_MODAL_ID,
   LOAD_DOCUMENT_MODAL_ID,
   DELETE_DOCUMENT_MODAL_ID,
+  ABOUT_MODAL_ID,
 } from "../consts";
 
 const modalMap = {
@@ -24,6 +26,7 @@ const modalMap = {
   [CREATE_DOCUMENT_MODAL_ID]: CreateDocumentModal,
   [LOAD_DOCUMENT_MODAL_ID]: LoadDocumentModal,
   [DELETE_DOCUMENT_MODAL_ID]: DeleteDocumentModal,
+  [ABOUT_MODAL_ID]: AboutModal,
 };
 import { useStore } from "../utils/store";
 

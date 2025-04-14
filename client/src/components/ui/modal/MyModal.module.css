@@ -33,6 +33,7 @@
 
 .desc {
   font-size: var(--desc-size);
+  padding-top: var(--desc-size);
 }
 
 .buttons {
@@ -47,4 +48,8 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+}
+
+.inputs > div {
+  margin: 0.5rem 0;
 }

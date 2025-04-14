@@ -17,7 +17,7 @@ const DeleteUserModal = () => {
         <MyButton label="Отмена" data-close-modal />
         <MyButton
           label="Удалить"
-          className="dangerous"
+          className="danger"
           onClick={() => UserService.delete({}, { UserStore, ModalStore })}
         />
       </div>

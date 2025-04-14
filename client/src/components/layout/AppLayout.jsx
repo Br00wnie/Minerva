@@ -23,6 +23,7 @@ const AppLayout = ({ header, sidebar, children }) => {
         id="sidebar-toggle"
         onClick={toggleSidebar}
         className={isSidebarOpen ? "is-open" : ""}
+        title="Развернуть/свернуть боковую панель"
       ></button>
       <div id="main">{children}</div>
     </>

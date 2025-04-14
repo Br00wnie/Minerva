@@ -3,7 +3,6 @@ import MyModal from "../../ui/modal/MyModal";
 import MyButton from "../../ui/button/MyButton";
 import MyInput from "../../ui/input/MyInput";
 import { LOGIN_MODAL_ID } from "../../../consts";
-import ModalStore from "../../../stores/ModalStore";
 import UserService from "../../../services/UserService";
 
 const LoginModal = () => {
@@ -35,7 +34,6 @@ const LoginModal = () => {
             UserService.login({
               userLogin,
               userPassword,
-              ModalStore,
             })
           }
         />

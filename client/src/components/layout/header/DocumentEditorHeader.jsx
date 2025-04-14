@@ -10,6 +10,8 @@ import {
   CREATE_DOCUMENT_MODAL_ID,
   DELETE_DOCUMENT_MODAL_ID,
   LOAD_DOCUMENT_MODAL_ID,
+  ABOUT_MODAL_ID,
+  STYLE_EDITOR_ROUTE,
 } from "../../../consts.js";
 import MyDropdown from "../../ui/dropdown/MyDropdown.jsx";
 import UserService from "../../../services/UserService.js";
@@ -32,12 +34,12 @@ const DocumentEditorHeader = () => {
   return (
     <>
       <MyDropdown label="Документ">
+        <MyDropdown
+          label="Создать"
+          onClick={() => modalServices.openModal(CREATE_DOCUMENT_MODAL_ID)}
+        />
         {userStore.login ? (
           <>
-            <MyDropdown
-              label="Создать"
-              onClick={() => modalServices.openModal(CREATE_DOCUMENT_MODAL_ID)}
-            />
             {documentStore.id !== null ? (
               <MyDropdown
                 label="Удалить"
@@ -46,7 +48,6 @@ const DocumentEditorHeader = () => {
                 }
               />
             ) : null}
-
             <hr />
             <MyDropdown
               label="Загрузить"
@@ -58,9 +59,12 @@ const DocumentEditorHeader = () => {
                 onClick={() => DocumentService.save()}
               />
             ) : null}
-            <hr />
+            {documentStore.id !== null ? (
+              <MyDropdown label="Сохранить как" />
+            ) : null}
           </>
         ) : null}
+        <hr />
         <MyDropdown
           label="Импортировать"
           onClick={() => DocumentService.import()}
@@ -73,7 +77,6 @@ const DocumentEditorHeader = () => {
         <MyDropdown label="Настроить" />
         <MyDropdown label="Оформить" />
       </MyDropdown>
-      <MyDropdown label="Стиль"></MyDropdown>
       <MyDropdown label="Пользователь">
         {userStore.login ? (
           <>
@@ -95,12 +98,21 @@ const DocumentEditorHeader = () => {
             />
           </>
         )}
-        <hr />
+      </MyDropdown>
+      <MyDropdown label="Приложение">
         <MyDropdown label="Помощь" />
         <MyDropdown label="Пользовательское соглашение" />
         <hr />
-        <MyDropdown label="О приложении" />
-        <MyDropdown label="Репозиторий" />
+        <MyDropdown
+          label="О приложении"
+          onClick={() => modalServices.openModal(ABOUT_MODAL_ID)}
+        />
+        <MyDropdown
+          label="Репозиторий"
+          onClick={() =>
+            window.open("https://github.com/Br00wnie/Minerva", "_blank")
+          }
+        />
       </MyDropdown>
     </>
   );

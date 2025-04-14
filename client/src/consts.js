@@ -7,6 +7,7 @@ export const DELETE_USER_MODAL_ID = "delete-user-modal";
 export const CREATE_DOCUMENT_MODAL_ID = "create-document-modal";
 export const DELETE_DOCUMENT_MODAL_ID = "delete-document-modal";
 export const LOAD_DOCUMENT_MODAL_ID = "load-document-modal";
+export const ABOUT_MODAL_ID = "about-modal";
 
 export const PORTAL_ID = "portal";
 

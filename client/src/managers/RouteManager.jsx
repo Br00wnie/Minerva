@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { privateRoutes, publicRoutes } from "../routes";
+import { privateRoutes, publicRoutes } from "../routes.jsx";
 import { getUserStore } from "../stores/UserStore";
 
 const RouteManager = () => {

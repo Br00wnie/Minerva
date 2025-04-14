@@ -3,38 +3,39 @@ import MyModal from "../../ui/modal/MyModal";
 import MyButton from "../../ui/button/MyButton";
 import MyInput from "../../ui/input/MyInput";
 import { CREATE_DOCUMENT_MODAL_ID } from "../../../consts";
-import DocumentStore from "../../../stores/DocumentStore";
-import ModalStore from "../../../stores/ModalStore";
 import DocumentService from "../../../services/DocumentService";
-import UserStore from "../../../stores/UserStore";
 
 const CreateDocumentModal = () => {
-  const [documentStore, documentServices] = useStore(
-    DocumentStore.store,
-    DocumentStore.services
-  );
+  const [documentName, setDocumentName] = useState("");
+  const handleInputChange = (e) => {
+    setDocumentName(e.target.value);
+  };
+  const handleCreateDocument = () => {
+    DocumentService.create({ documentName });
+  };
 
   return (
-    <MyModal id={CREATE_DOCUMENT_MODAL_ID} title="Создать документ">
+    <MyModal
+      id={CREATE_DOCUMENT_MODAL_ID}
+      title="Создать документ"
+      desc="Перед созданием нового документа, экспортируйте или сохраните на аккаунт 
+      активный документ, чтобы не потерять прогресс."
+    >
       <div className="inputs">
         <MyInput
           label="Название"
-          desc="Имена ваших документов должны отличаться."
+          desc="Названия должны быть уникальными в рамках одного аккаунта."
           placeholder="ПЗ к ВКР"
-          value={documentStore.name}
-          onChange={(e) => documentServices.setName(e.target.value)}
+          value={documentName}
+          onChange={handleInputChange}
         />
       </div>
       <div className="buttons">
         <MyButton label="Отмена" data-close-modal />
         <MyButton
+          className="danger"
           label="Создать"
-          onClick={() =>
-            DocumentService.create(
-              { documentName },
-              { DocumentStore, ModalStore }
-            )
-          }
+          onClick={handleCreateDocument}
         />
       </div>
     </MyModal>

@@ -19,7 +19,7 @@ const DeleteDocumentModal = () => {
         <MyButton label="Отмена" data-close-modal />
         <MyButton
           label="Удалить"
-          className="dangerous"
+          className="danger"
           onClick={() =>
             DocumentService.delete(
               { documentId: read("documentId") },

@@ -3,7 +3,6 @@ import MyModal from "../../ui/modal/MyModal";
 import MyButton from "../../ui/button/MyButton";
 import MyInput from "../../ui/input/MyInput";
 import { REGISTRATION_MODAL_ID } from "../../../consts";
-import ModalStore from "../../../stores/ModalStore";
 import UserService from "../../../services/UserService";
 
 const RegistrationModal = () => {
@@ -15,12 +14,13 @@ const RegistrationModal = () => {
     <MyModal
       id={REGISTRATION_MODAL_ID}
       title="Зарегистрироваться"
-      desc={"Мы не собираем статистику и не передаем данные третьим лицам."}
+      desc="Мы не собираем статистику и не передаем данные третьим лицам."
     >
       <div className="inputs">
         <MyInput
           label="Логин"
-          desc="Ваш уникальный неизменяемый идентификатор."
+          desc="Ваш уникальный неизменяемый идентификатор. 
+          Он будет виден другим пользователям под вашими публичными стилями."
           placeholder="artyom"
           value={userLogin}
           onChange={(e) => setUserLogin(e.target.value)}
@@ -50,7 +50,6 @@ const RegistrationModal = () => {
               userLogin,
               userPassword,
               repeatPassword,
-              ModalStore,
             });
           }}
         />
