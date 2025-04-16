@@ -1,16 +1,14 @@
 import React from "react";
+import StyleSettings from "./StyleSettings";
+import StyleSearchPanel from "./StyleSearchPanel";
 
 const StyleEditorSidebar = ({ selectedTab }) => {
   return (
     <div>
-      {selectedTab === "config" && <ConfigSettings />}
-      {selectedTab === "search" && <SearchPanel />}
+      {selectedTab === "config" && <StyleSettings />}
+      {selectedTab === "search" && <StyleSearchPanel />}
     </div>
   );
 };
-
-// Пример компонентов для вкладок
-const ConfigSettings = () => <div>Настройки конфигурации...</div>;
-const SearchPanel = () => <div>Панель поиска...</div>;
 
 export default StyleEditorSidebar;

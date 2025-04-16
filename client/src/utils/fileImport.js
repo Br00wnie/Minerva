@@ -9,8 +9,6 @@ const importFile = () => {
       const reader = new FileReader();
       reader.onload = () => {
         try {
-          if (typeof reader.result !== "string")
-            return reject({ message: "Некорректный формат", success: false });
           const file = JSON.parse(reader.result);
           resolve({ message: "Файл импортирован", file, success: true });
         } catch (e) {

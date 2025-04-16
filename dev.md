@@ -12,7 +12,7 @@
 
 ### Interaction Chain
 
-![Architecture diagram](https://i.ibb.co/hx0nVYZZ/Minerva-Architecture-diagram.png)
+![Architecture diagram](https://i.ibb.co/tw1FNc2q/Minerva-Architecture-Diagram.png)
 
 User interaction with the application happens through _UI_. _UI_ does not handle logic; it delegates all logic to _ClientServices_.
 
@@ -26,7 +26,7 @@ _ServerServices_ perform all necessary logic with the provided data and interact
 
 ### Response Structure
 
-- ClientApi -> { success, message, _data_, _total_ }
+- ClientApi -> { success, message, _data_}
 - ServerApi -> status, { message, _data_ }
 
 > _Italicized_ components are optional parts of the response
@@ -122,7 +122,7 @@ Manages the application's state
   - id
   - name
   - content
-- StyleStore: { name, content }
+- StyleStore
   - id
   - name
   - description
@@ -134,18 +134,18 @@ Manages the application's state
 
 Used to store data between sessions
 
-- login
-- documentId
-- documentName
-- documentContent
-- styleId
-- styleName
-- styleDescription
-- styleContent
-- styleIsPublic
-- stylePopularity
+- minerva_userLogin
+- minerva_documentId
+- minerva_documentName
+- minerva_documentContent
+- minerva_styleId
+- minerva_styleName
+- minerva_styleDescription
+- minerva_styleContent
+- minerva_styleIsPublic
+- minerva_stylePopularity
 
-On app startup, the active document and style data are loaded from Local Storage. If the storage is empty, this data is retrieved from the corresponding Store. During app operation, Local Storage is continuously updated to maintain data consistency.
+On app startup, the active document and style data are loaded from Local Storage. If the storage is empty, this data is retrieved from the default template. During app operation, Local Storage is continuously updated to maintain data consistency.
 
 #### Cookie (Authentication System)
 

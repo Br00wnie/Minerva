@@ -1,0 +1,91 @@
+{
+  "font-color": {
+    "label": "Цвет шрифта",
+    "type": "color",
+    "default": "#060606",
+    "group": "Шрифт"
+  },
+  "font-size": {
+    "label": "Размер шрифта [пт]",
+    "type": "number",
+    "default": 14,
+    "min": 1,
+    "group": "Шрифт"
+  },
+  "font-family": {
+    "label": "Шрифт",
+    "type": "select",
+    "default": "Times New Roman",
+    "options": [
+      "Arial",
+      "Helvetica",
+      "Times New Roman",
+      "Georgia",
+      "Courier New",
+      "Verdana",
+      "Roboto",
+      "Open Sans"
+    ],
+    "group": "Шрифт"
+  },
+  "text-align": {
+    "label": "Выравнивание текста",
+    "type": "select",
+    "default": "К левому краю",
+    "options": ["К левому краю", "К правому краю", "По центру", "Растяжка"],
+    "group": "Позиционирование"
+  },
+  "line-height": {
+    "label": "Межстрочный интервал [доля размера шрифта]",
+    "type": "number",
+    "default": 1.5,
+    "step": 0.1,
+    "group": "Позиционирование"
+  },
+  "margin-top": {
+    "label": "Верхнее поле страницы [см]",
+    "type": "number",
+    "default": 2,
+    "step": 0.1,
+    "min": 0,
+    "group": "Позиционирование"
+  },
+  "margin-right": {
+    "label": "Правое поле страницы [см]",
+    "type": "number",
+    "default": 2,
+    "step": 0.1,
+    "min": 0,
+    "group": "Позиционирование"
+  },
+  "margin-bottom": {
+    "label": "Нижнее поле страницы [см]",
+    "type": "number",
+    "default": 2,
+    "step": 0.1,
+    "min": 0,
+    "group": "Позиционирование"
+  },
+  "margin-left": {
+    "label": "Левое поле страницы [см]",
+    "type": "number",
+    "default": 2,
+    "step": 0.1,
+    "min": 0,
+    "group": "Позиционирование"
+  },
+  "paragraph-spacing": {
+    "label": "Межабзацный интервал [доля размера шрифта]",
+    "type": "number",
+    "default": 2,
+    "step": 0.1,
+    "group": "Позиционирование"
+  },
+  "first-line-indent": {
+    "label": "Отступ красной строки [см]",
+    "type": "number",
+    "default": 1,
+    "step": 0.1,
+    "group": "Позиционирование"
+  }
+}

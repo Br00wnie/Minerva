@@ -6,9 +6,7 @@ const checkToken = () => {
   if (!codedToken) return false;
   try {
     const decodedToken = jwtDecode(codedToken);
-    const user_id = decodedToken.user_id;
-    if (isNaN(user_id)) return false;
-    if (decodedToken.exp && decodedToken.exp < Date.now() / 1000) return false;
+    if (decodedToken.exp < Date.now() / 1000) return false;
     return true;
   } catch (error) {
     return false;

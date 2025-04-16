@@ -14,9 +14,9 @@ class DocumentService {
     Internal
   */
 
-  static async create({ documentName }) {
+  static create({ documentName }) {
     try {
-      await nameYup.validate({
+      nameYup.validate({
         name: documentName,
       });
     } catch (error) {
@@ -56,7 +56,7 @@ class DocumentService {
       name: documentStore.name,
       content: documentStore.content,
     };
-    const { message } = exportFile(document);
+    const { message } = await exportFile(document);
     toast(message);
   }
 

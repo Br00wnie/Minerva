@@ -7,9 +7,4 @@ export default defineConfig({
     host: "0.0.0.0",
     port: 5173,
   },
-  customLogger: {
-    info: () => {}, // Отключил вывод адресов, так как они неактуальны в случае переброса
-    warn: console.warn,
-    error: console.error,
-  },
 });
