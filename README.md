@@ -53,5 +53,4 @@ To successfully start the server application (`npm run dev`):
 ## TODO
 
 - [ ] Formula support
-- [ ] Collaboration system with commenting
 - [ ] Customizable progress bar for page count

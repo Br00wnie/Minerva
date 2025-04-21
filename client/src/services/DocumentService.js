@@ -6,8 +6,7 @@ import {
 import toast from "../utils/toast.js";
 import exportFile from "../utils/fileExport.js";
 import importFile from "../utils/fileImport.js";
-import { nameYup } from "../utils/validation";
-import defaultDocument from "../json/defaultDocument.json";
+import emptyDocument from "../json/emptyDocument.json";
 
 class DocumentService {
   /* 
@@ -15,17 +14,9 @@ class DocumentService {
   */
 
   static create({ documentName }) {
-    try {
-      nameYup.validate({
-        name: documentName,
-      });
-    } catch (error) {
-      toast(error.message);
-      return;
-    }
     const documentService = getDocumentServices();
     documentService.setName(documentName);
-    documentService.setContent(defaultDocument.content);
+    documentService.setContent(emptyDocument.content);
     documentService.setId(null);
     toast(`Создан документ ${documentName}`);
     getModalServices().closeModal();

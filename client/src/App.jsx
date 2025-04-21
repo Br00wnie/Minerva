@@ -4,7 +4,7 @@ import RouteManager from "./managers/RouteManager";
 import ModalManager from "./managers/ModalManager";
 import ToastManager from "./managers/ToastManager";
 import EditorToggleManager from "./managers/EditorToggleManager";
-import initializeApp from "./utils/appInitialization";
+import initializeApp from "./appInitialization";
 import "./components/layout/AppLayout.css";
 
 function App() {

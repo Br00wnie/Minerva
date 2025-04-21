@@ -13,21 +13,16 @@ const MyDropdown = ({
   };
   const renderChildren = () => {
     return React.Children.map(children, (child) => {
-      if (child && child.type === "hr") {
+      if (child && child.type === "hr")
         return <div>{React.cloneElement(child, { className: styles.hr })}</div>;
-      }
       return child;
     });
   };
 
   return (
     <div
-      className={`${styles.container} ${className} ${
-        React.Children.count(children) > 0 ? styles.dropdown : ""
-      }`}
+      className={`${styles.container} ${className}`}
       onClick={toggleIsOpen}
-      onMouseEnter={() => setIsOpen(true)}
-      onMouseLeave={() => setIsOpen(false)}
       {...props}
     >
       <div className={styles.label}>{label}</div>

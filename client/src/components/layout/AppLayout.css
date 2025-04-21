@@ -52,7 +52,7 @@ a {
 
 #sidebar {
   flex: 0 0 20%;
-  min-width: 30rem;
+  min-width: 25rem;
   background-color: var(--color-grey-1);
   border: var(--border);
   display: flex;

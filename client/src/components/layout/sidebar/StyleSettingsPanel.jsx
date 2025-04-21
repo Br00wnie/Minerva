@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import styleSettings from "../../../json/styleSettings.json";
+import defaultStyle from "../../../json/defaultStyle.json";
 import MyInput from "../../ui/input/MyInput";
 import styles from "./StyleSettings.module.css";
 
 const StyleSettingsPanel = () => {
   const [inputValues, setInputValues] = useState(
     Object.fromEntries(
-      Object.keys(styleSettings).map((key) => [key, styleSettings[key].default])
+      Object.keys(defaultStyle.content).map((key) => [
+        key,
+        defaultStyle.content[key],
+      ])
     )
   );
   const handleInputValueChange = (key) => (newInputValue) => {

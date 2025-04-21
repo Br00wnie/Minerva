@@ -10,7 +10,7 @@ class Storage {
 
   static write(key, value) {
     key = STORAGE_PREFIX + key;
-    if (value === null) remove(key);
+    if (value === null) Storage.remove(key);
     else
       localStorage.setItem(
         key,

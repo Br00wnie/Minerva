@@ -5,7 +5,7 @@ import StyleSearchPanel from "./StyleSearchPanel";
 const StyleEditorSidebar = ({ selectedTab }) => {
   return (
     <div>
-      {selectedTab === "config" && <p>Hi</p>}
+      {selectedTab === "config" && <StyleSettingsPanel />}
       {selectedTab === "search" && <StyleSearchPanel />}
     </div>
   );

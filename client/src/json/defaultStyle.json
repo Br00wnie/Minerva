@@ -1,5 +1,17 @@
 {
-  "name": "",
+  "name": "Default",
   "description": "",
-  "content": ""
+  "content": {
+    "font-color": "#060606",
+    "font-size": 14,
+    "font-family": { "label": "Times New Roman", "value": "Times New Roman" },
+    "text-align": { "label": "По левому краю", "value": "left" },
+    "line-height": 1.5,
+    "margin-top": 2,
+    "margin-right": 2,
+    "margin-bottom": 2,
+    "margin-left": 2,
+    "paragraph-spacing": 2,
+    "first-line-indent": 1
+  }
 }

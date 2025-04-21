@@ -36,7 +36,7 @@
   cursor: text;
 }
 
-.desc {
+.description {
   font-size: var(--desc-size);
   padding-top: var(--desc-size);
 }
@@ -82,7 +82,7 @@
   cursor: text;
 }
 
-.desc {
+.description {
   font-size: var(--desc-size);
   padding-top: var(--desc-size);
 }
@@ -93,6 +93,7 @@ input[type="number"]::-webkit-inner-spin-button {
   margin: 0;
 }
 input[type="number"] {
+  appearance: textfield;
   -moz-appearance: textfield;
 }
 

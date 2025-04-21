@@ -7,11 +7,8 @@ import DocumentService from "../../../services/DocumentService";
 
 const CreateDocumentModal = () => {
   const [documentName, setDocumentName] = useState("");
-  const handleInputChange = (e) => {
-    setDocumentName(e.target.value);
-  };
-  const handleCreateDocument = () => {
-    DocumentService.create({ documentName });
+  const handleDocumentNameChange = (value) => {
+    setDocumentName(value);
   };
 
   return (
@@ -27,7 +24,7 @@ const CreateDocumentModal = () => {
           desc="Названия должны быть уникальными в рамках одного аккаунта."
           placeholder="ПЗ к ВКР"
           value={documentName}
-          onChange={handleInputChange}
+          onChange={handleDocumentNameChange}
         />
       </div>
       <div className="buttons">
@@ -35,7 +32,7 @@ const CreateDocumentModal = () => {
         <MyButton
           className="danger"
           label="Создать"
-          onClick={handleCreateDocument}
+          onClick={() => DocumentService.create({ documentName })}
         />
       </div>
     </MyModal>

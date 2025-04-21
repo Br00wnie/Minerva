@@ -1,108 +1,44 @@
-.select {
-  flex: 0 0 50% !important;
-}
+/* control */
 
 .react-select__control {
   background-color: var(--color-grey-2) !important;
-  height: var(--height) !important;
   border: var(--border) !important;
+  height: var(--height) !important;
   cursor: pointer !important;
 }
-.react-select__control:hover {
+.react-select__control:hover,
+.react-select__control--is-focused,
+.react-select__control--menu-is-open,
+.react-select__control:active {
   background-color: var(--color-grey-3) !important;
 }
 
+/* menu */
+
 .react-select__menu {
   background-color: var(--color-grey-2) !important;
-  border-radius: var(--border-radius) !important;
   border: var(--border) !important;
+  border-radius: var(--border-radius) !important;
   box-shadow: var(--box-shadow-big) !important;
 }
 
-.react-select__single-value {
-  color: var(--color-white) !important;
-  outline: none;
-}
+/* option */
 
-.react-select__option:hover {
-  background-color: var(--color-grey-5) !important;
-}
-
-.react-select__option--is-selected {
-  background-color: var(--color-accent-light) !important;
-  outline: none !important;
-}
-
+.react-select__option:hover,
 .react-select__option--is-focused {
   background-color: var(--color-grey-5) !important;
-  outline: none !important;
+}
+.react-select__option--is-selected {
+  background-color: var(--color-accent-light) !important;
 }
 
-.react-select__indicator {
-  color: var(--color-white) !important;
-  outline: none !important;
-}
-
-.react-select__control * {
-  outline: none !important;
-  box-shadow: none !important;
-  border: none !important;
-}
-
-/* Полностью убираем рамки и тени */
-.react-select__control {
-  border: var(--border) !important;
-  box-shadow: none !important;
-  background-color: var(--color-grey-2) !important;
-  height: var(--height) !important;
-}
-
-/* Состояния: hover/focus/active */
-.react-select__control--is-focused,
-.react-select__control--menu-is-open,
-.react-select__control:hover,
-.react-select__control:active {
-  border: var(--border) !important; /* Ваш кастомный бордер */
-  box-shadow: none !important;
-}
-
-/* Убираем "глобальные" обводки */
-.react-select__control *,
-.react-select__menu *,
-.react-select__option * {
-  outline: none !important;
-  box-shadow: none !important;
-}
-
-/* Дополнение для индикаторов */
-.react-select__indicator {
-  padding: 4px !important;
-}
-
-/* Ваши остальные стили остаются без изменений */
-.select {
-  flex: 0 0 50% !important;
-}
-
-.react-select__menu {
-  background-color: var(--color-grey-2) !important;
-}
+/* single-value */
 
 .react-select__single-value {
   color: var(--color-white) !important;
 }
 
-.react-select__option:hover {
-  background-color: var(--color-grey-5) !important;
-}
-
-.react-select__option--is-selected {
-  background-color: var(--color-accent-light) !important;
-}
-
-.react-select__option--is-focused {
-  background-color: var(--color-grey-5) !important;
-}
+/* indicator */
 
 .react-select__indicator {
   color: var(--color-white) !important;

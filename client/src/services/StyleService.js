@@ -3,7 +3,6 @@ import { getStyleStore, getStyleServices } from "../stores/StyleStore.js";
 import toast from "../utils/toast.js";
 import exportFile from "../utils/fileExport.js";
 import importFile from "../utils/fileImport.js";
-import { nameYup } from "../utils/validation";
 import defaultStyle from "../json/defaultStyle.json";
 
 class StyleService {
@@ -12,14 +11,6 @@ class StyleService {
   */
 
   static create({ styleName, styleDescription }) {
-    try {
-      nameYup.validate({
-        name: styleName,
-      });
-    } catch (error) {
-      toast(error.message);
-      return;
-    }
     const styleService = getStyleServices();
     styleService.setName(styleName);
     styleService.setContent(defaultStyle.content);

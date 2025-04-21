@@ -1,3 +1,5 @@
+/* container */
+
 .container {
   background-color: var(--color-grey-2);
   display: inline-flex;
@@ -8,6 +10,13 @@
   padding: 0.25rem;
   z-index: 50;
 }
+
+.select .container {
+  background: none;
+  width: 100%;
+}
+
+/* label */
 
 .label {
   cursor: pointer;
@@ -22,6 +31,13 @@
   background-color: var(--color-grey-4);
 }
 
+.select .container .label {
+  justify-content: flex-start;
+  padding-left: 1rem;
+}
+
+/* select */
+
 .select {
   position: absolute;
   top: 100%;
@@ -30,53 +46,22 @@
   border-radius: var(--border-radius);
   border: var(--border);
   box-shadow: var(--box-shadow-big);
-}
-@media (max-width: 1150px) {
-  .select {
-    position: fixed;
-    top: var(--height);
-    width: 30rem;
-  }
-}
-
-.select .container {
-  background: none;
   width: 20rem;
 }
-@media (max-width: 1150px) {
-  .select .container {
-    width: 30rem;
+@media (max-width: 1140px) {
+  .select {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
 }
 
-.select .select {
-  top: 0;
-  left: 100%;
-}
-.select .select:empty {
-  border: none;
-}
+/* hr */
 
-hr {
+.hr {
   border: none;
   border-top: var(--border);
   width: 95%;
   margin: 0 auto;
-}
-
-.select .container .label {
-  justify-content: flex-start;
-  padding-left: 1rem;
-}
-
-.select .container.dropdown::after {
-  content: "";
-  position: absolute;
-  right: 1rem;
-  top: 50%;
-  transform: translateY(-50%) rotate(45deg);
-  border-top: var(--border);
-  border-right: var(--border);
-  width: 0.25rem;
-  height: 0.25rem;
 }

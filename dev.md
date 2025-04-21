@@ -1,16 +1,26 @@
 # Content
 
-- [Architecture](#architecture)
-  - [General](#general)
-  - [Server](#server)
-  - [Client](#client)
+- [General](#general)
+  - [Interaction Chain](#interaction-chain)
+  - [Response Structure](#response-structure)
+  - [Entities](#entities)
+  - [Authorization System](#authorization-system)
+- [Server](#server)
+  - [ER Diagram](#er-diagram)
+  - [Universal Endpoints](#universal-endpoints)
+  - [Entity-Specific Endpoints](#entity-specific-endpoints)
+  - [Middleware](#middleware)
+  - [Utils](#utils-server)
+  - [Environment variables](#environment-variables)
+- [Client](#client)
+  - [Client-Side Storage](#client-side-storage)
+  - [Utils](#utils-client)
+  - [Style Library](#style-library)
 - [Agreements](#agreements)
 
-# Architecture
+# General
 
-## General
-
-### Interaction Chain
+## Interaction Chain
 
 ![Architecture diagram](https://i.ibb.co/tw1FNc2q/Minerva-Architecture-Diagram.png)
 
@@ -24,31 +34,31 @@ The request reaches _ServerAPI_, which handles incoming requests from _ClientAPI
 
 _ServerServices_ perform all necessary logic with the provided data and interact with _DB_.
 
-### Response Structure
+## Response Structure
 
 - ClientApi -> { success, message, _data_}
 - ServerApi -> status, { message, _data_ }
 
 > _Italicized_ components are optional parts of the response
 
-### Entities
+## Entities
 
 - User — users
 - Document — documents
 - Style — styles
 - Favorite — favorite styles
 
-### Authorization System
+## Authorization System
 
 To authenticate, the user receives a JWT from the server, stored in a cookie. The token contains the user_id and expires after 24 hours. Clients automatically send the token in the cookies for authorization.
 
-## Server
+# Server
 
-### ER Diagram
+## ER Diagram
 
 ![ER diagram](https://i.ibb.co/fdGmjJgk/Minerva-ER-Diagram.png)
 
-### Universal Endpoints
+## Universal Endpoints
 
 | Functionality | Path             | Query Params                 | Method |
 | ------------- | ---------------- | ---------------------------- | ------ |
@@ -63,7 +73,7 @@ To authenticate, the user receives a JWT from the server, stored in a cookie. Th
 
 > The asterisk indicates mandatory parameters.
 
-### Entity-Specific Endpoints
+## Entity-Specific Endpoints
 
 | Functionality           | Path           | Query Params                  | Method | Scope           |
 | ----------------------- | -------------- | ----------------------------- | ------ | --------------- |
@@ -74,7 +84,7 @@ To authenticate, the user receives a JWT from the server, stored in a cookie. Th
 
 > The asterisk indicates mandatory parameters.
 
-### Middleware
+## Middleware
 
 | Name                    | Description                                                             | Type  |
 | ----------------------- | ----------------------------------------------------------------------- | ----- |
@@ -89,11 +99,11 @@ To authenticate, the user receives a JWT from the server, stored in a cookie. Th
 | NameValidation          | Performs entity name validation specified in the body                   | Front |
 | UnexpectedErrorHandling | Handles unexpected errors                                               | Back  |
 
-### Utils
+## Utils {#server}
 
-- auth.js: getting user ID from token
+- auth.js: Getting user ID from token
 
-### Environment variables
+## Environment variables
 
 - DB_NAME ("minerva")
 - DB_USER ("user")
@@ -106,11 +116,11 @@ To authenticate, the user receives a JWT from the server, stored in a cookie. Th
 
 > Default values are shown in parentheses
 
-## Client
+# Client
 
-### Client-Side Storage
+## Client-Side Storage
 
-#### Stores (State Management)
+### Stores (State Management)
 
 Manages the application's state
 
@@ -130,7 +140,7 @@ Manages the application's state
   - isPublic
   - popularity
 
-#### Local Storage (Persistent Data)
+### Local Storage (Persistent Data)
 
 Used to store data between sessions
 
@@ -147,12 +157,102 @@ Used to store data between sessions
 
 On app startup, the active document and style data are loaded from Local Storage. If the storage is empty, this data is retrieved from the default template. During app operation, Local Storage is continuously updated to maintain data consistency.
 
-#### Cookie (Authentication System)
+### Cookie (Authentication System)
 
 Cookies are used for authorization and store only a token containing the user_id.
+
+## Utils {#client}
+
+- storageManagement.js: Wrapper for easy Storage interaction
+- toast.js: User notification system
+- fileExport.js: Exports data as JSON
+- fileImport.js: JSON import
+- store.jsx: State manager
+  - helpers.js
+- tokenChecking.js: Token presence/validity checks
+- validation.js: Name, login & password validations
+
+## Style Library
+
+### MyButton
+
+**Params worth noting:** label:string
+
+**Children:** -
+
+**Structure:**
+
+```jsx
+<button>{label}</button>
+```
+
+**Usage example:**
+
+```jsx
+<MyButton
+  label="Delete"
+  onClick={() => DocumentService.delete({ documentId })}
+  className="danger"
+/>
+```
+
+### MyDropdown
+
+**Params worth noting:** label:string
+
+**Children:** MyDropdown, hr
+
+**Structure:**
+
+```jsx
+<container>
+  <label>{label}</label>
+  <select>{children}</select>
+</container>
+```
+
+**Usage example:**
+
+```jsx
+<MyDropdown label="User">
+  <MyDropdown
+    label="Login"
+    onClick={() => modalServices.openModal(LOGIN_MODAL_ID)}
+  />
+  <MyDropdown
+    label="Register"
+    onClick={() => modalServices.openModal(REGISTRATION_MODAL_ID)}
+  />
+</MyDropdown>
+```
+
+### MyInput
+
+**Params worth noting:** label:string, description:string, options:array, short:bool
+
+**Children:** -
+
+**Structure:**
+
+```jsx
+<container>
+  <info>
+    <label>{label}</label>
+    <description>{description}</description>
+  </info>
+  <input />
+</container>
+```
+
+**Usage example:**
+
+```jsx
+
+```
 
 # Agreements
 
 - Only atomic constants are named in UPPER_SNAKE_CASE
 - Files that are entry points (both on the server and the client) are named "index"
 - Client can get _user_id_ only in hashed form
+- Atomic UI components can be assigned no more than one class

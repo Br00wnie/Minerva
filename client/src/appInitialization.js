@@ -1,5 +1,5 @@
-import { getUserStore } from "../stores/UserStore.js";
-import toast from "./toast";
+import { getUserStore } from "./stores/UserStore.js";
+import toast from "./utils/toast.js";
 
 const initializeApp = () => {
   const userLogin = getUserStore().login;

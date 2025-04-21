@@ -14,21 +14,20 @@
     "label": "Шрифт",
     "type": "select",
     "options": [
-      "Arial",
-      "Helvetica",
-      "Times New Roman",
-      "Georgia",
-      "Courier New",
-      "Verdana",
-      "Roboto",
-      "Open Sans"
+      { "label": "Arial", "value": "Arial" },
+      { "label": "Times New Roman", "value": "Times New Roman" }
     ],
     "group": "Шрифт"
   },
   "text-align": {
     "label": "Выравнивание текста",
     "type": "select",
-    "options": ["К левому краю", "К правому краю", "По центру", "По ширине"],
+    "options": [
+      { "label": "К левому краю", "value": "left" },
+      { "label": "К правому краю", "value": "right" },
+      { "label": "К центру", "value": "center" },
+      { "label": "К ширине", "value": "justify" }
+    ],
     "group": "Позиционирование"
   },
   "line-height": {
