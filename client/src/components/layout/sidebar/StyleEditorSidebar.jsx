@@ -1,11 +1,11 @@
 import React from "react";
-import StyleSettings from "./StyleSettings";
+import StyleSettingsPanel from "./StyleSettingsPanel";
 import StyleSearchPanel from "./StyleSearchPanel";
 
 const StyleEditorSidebar = ({ selectedTab }) => {
   return (
     <div>
-      {selectedTab === "config" && <StyleSettings />}
+      {selectedTab === "config" && <p>Hi</p>}
       {selectedTab === "search" && <StyleSearchPanel />}
     </div>
   );

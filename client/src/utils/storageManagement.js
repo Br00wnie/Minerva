@@ -10,15 +10,22 @@ class Storage {
 
   static write(key, value) {
     key = STORAGE_PREFIX + key;
-    localStorage.setItem(
-      key,
-      typeof value === "string" ? value : JSON.stringify(value)
-    );
+    if (value === null) remove(key);
+    else
+      localStorage.setItem(
+        key,
+        typeof value === "string" ? value : JSON.stringify(value)
+      );
   }
 
   static remove(key) {
     key = STORAGE_PREFIX + key;
     localStorage.removeItem(key);
+  }
+
+  static has(key) {
+    key = STORAGE_PREFIX + key;
+    return localStorage.getItem(key) !== null;
   }
 
   static clear() {

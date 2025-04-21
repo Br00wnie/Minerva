@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import styleConfig from "../../../json/styleConfig.json";
+import styleSettings from "../../../json/styleSettings.json";
 import MyInput from "../../ui/input/MyInput";
 import styles from "./StyleSettings.module.css";
 
-const StyleSettings = () => {
+const StyleSettingsPanel = () => {
   const [inputValues, setInputValues] = useState(
     Object.fromEntries(
-      Object.keys(styleConfig).map((key) => [key, styleConfig[key].default])
+      Object.keys(styleSettings).map((key) => [key, styleSettings[key].default])
     )
   );
   const handleInputValueChange = (key) => (newInputValue) => {
@@ -18,8 +18,8 @@ const StyleSettings = () => {
 
   return (
     <div className={styles.container}>
-      {Object.keys(styleConfig).map((key) => {
-        const params = styleConfig[key];
+      {Object.keys(styleSettings).map((key) => {
+        const params = styleSettings[key];
         return (
           <MyInput
             key={key}
@@ -41,4 +41,4 @@ const StyleSettings = () => {
   );
 };
 
-export default StyleSettings;
+export default StyleSettingsPanel;

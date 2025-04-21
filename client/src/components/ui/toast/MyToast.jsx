@@ -4,7 +4,6 @@ import styles from "./MyToast.module.css";
 const MyToast = ({ message, removeToastFunction }) => {
   useEffect(() => {
     const lifeTimer = setTimeout(removeToastFunction, 3000);
-    // При смене длительности нужно ещё менять тайминги анимации в CSS-модуле
     return () => clearTimeout(lifeTimer);
   }, []);
 

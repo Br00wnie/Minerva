@@ -27,7 +27,7 @@ const LoginModal = () => {
         />
       </div>
       <div className="buttons">
-        <MyButton label="Отмена" data-close-modal />
+        <MyButton label="Отмена" closeModal />
         <MyButton
           label="Войти"
           onClick={() =>

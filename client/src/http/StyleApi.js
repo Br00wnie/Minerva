@@ -6,20 +6,12 @@ class StyleApi {
     Base requests
   */
 
-  static async create({
-    styleName,
-    styleContent,
-    styleDescription,
-    stylePopularity,
-    styleIsPublic,
-  }) {
+  static async create({ styleName, styleContent, styleDescription }) {
     try {
       const res = await privateApi.post("/styles/create/", {
         style_name: styleName,
         style_content: styleContent,
         style_description: styleDescription,
-        style_popularity: stylePopularity,
-        style_is_public: styleIsPublic,
       });
       return {
         success: res.status >= 200 && res.status < 300,
@@ -59,7 +51,6 @@ class StyleApi {
     styleName,
     styleContent,
     styleDescription,
-    stylePopularity,
     styleIsPublic,
   }) {
     try {
@@ -69,7 +60,6 @@ class StyleApi {
           style_name: styleName,
           style_content: styleContent,
           style_description: styleDescription,
-          style_popularity: stylePopularity,
           style_is_public: styleIsPublic,
         },
         {

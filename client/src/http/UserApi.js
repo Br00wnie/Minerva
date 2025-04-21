@@ -83,18 +83,9 @@ class UserApi {
         user_login: userLogin,
         user_password: userPassword,
       });
-      if (res.status >= 200 && res.status < 300) {
-        const responseCookies = res.headers["set-cookie"];
-        const tokenCookie = responseCookies.find((c) => c.startsWith("token="));
-        const tokenValue = tokenCookie.split(";")[0].split("=")[1];
-        document.cookie = `token=${tokenValue}; ${tokenCookie
-          .split(";")
-          .slice(1)
-          .join(";")}`;
-      }
       return {
         success: res.status >= 200 && res.status < 300,
-        message: res.data.message,
+        data: res.headers,
       };
     } catch (error) {
       return {

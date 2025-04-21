@@ -44,7 +44,7 @@ npm run dev
 
 ### Server
 
-To successfully start the server application:
+To successfully start the server application (`npm run dev`):
 
 - install npm packages in the server folder,
 - create a database in PostgreSQL,

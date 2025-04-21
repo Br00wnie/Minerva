@@ -15,14 +15,14 @@ const MyModal = ({
     ModalStore.store,
     ModalStore.services
   );
-  const bindCloseModalEvent = (e) => {
-    if (e.target.dataset.closeModal !== undefined) modalServices.closeModal();
-  };
 
   return (
     <div
       className={`${styles.container} ${className}`}
-      onClick={bindCloseModalEvent}
+      onClick={(e) => {
+        if (e.target.dataset.closeModal !== undefined)
+          modalServices.closeModal();
+      }}
     >
       <div className={styles.modal}>
         <form {...props}>
@@ -30,9 +30,7 @@ const MyModal = ({
           {desc && <p className={styles.desc}>{desc}</p>}
           {React.Children.map(children, (child) =>
             React.cloneElement(child, {
-              className: `${styles[child.props.className] || ""} ${
-                child.props.className || ""
-              }`,
+              className: `${styles[child.props.className] || ""}`,
             })
           )}
         </form>

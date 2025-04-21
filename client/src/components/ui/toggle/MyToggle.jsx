@@ -1,16 +1,8 @@
 import React from "react";
 import styles from "./MyToggle.module.css";
 
-const MyToggle = ({
-  className = "",
-  name,
-  value, // Текущее выбранное значение
-  onChange, // Обработчик изменений
-  children,
-}) => {
-  const processedChildren = React.Children.map(children, (child) => {
-    if (!React.isValidElement(child)) return child;
-
+const MyToggle = ({ className = "", name, value, onChange, children }) => {
+  const renderChildren = React.Children.map(children, (child) => {
     if (child.type === "input") {
       return React.cloneElement(child, {
         type: "radio",
@@ -21,21 +13,16 @@ const MyToggle = ({
         className: `${styles.input} ${child.props.className || ""}`.trim(),
       });
     }
-
     if (child.type === "label") {
       return React.cloneElement(child, {
-        htmlFor: child.props.htmlFor || child.props.for,
+        htmlFor: child.props.htmlFor,
         className: `${styles.label} ${child.props.className || ""}`.trim(),
       });
     }
-
-    return child;
   });
 
   return (
-    <form className={`${styles.container} ${className}`}>
-      {processedChildren}
-    </form>
+    <form className={`${styles.container} ${className}`}>{renderChildren}</form>
   );
 };
 

@@ -1,17 +1,14 @@
 import axios from "axios";
 
-const publicApi = axios.create({
+const commonSettings = {
   baseURL: import.meta.env.VITE_API_URL,
-  validateStatus: function (status) {
-    return status >= 200 && status <= 500;
-  },
-});
+  validateStatus: (status) => status >= 200 && status <= 500,
+};
+
+const publicApi = axios.create(commonSettings);
 
 const privateApi = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
-  validateStatus: function (status) {
-    return status >= 200 && status <= 500;
-  },
+  ...commonSettings,
   withCredentials: true,
 });
 

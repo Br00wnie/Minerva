@@ -1,17 +1,17 @@
-import toast from "../utils/toast.js";
-import exportFile from "../utils/fileExport.js";
-import importFile from "../utils/fileImport.js";
-import { nameYup } from "../utils/validation";
-import defaultDocument from "../json/defaultDocument.json";
 import { getModalServices } from "../stores/ModalStore.js";
 import {
   getDocumentStore,
   getDocumentServices,
 } from "../stores/DocumentStore.js";
+import toast from "../utils/toast.js";
+import exportFile from "../utils/fileExport.js";
+import importFile from "../utils/fileImport.js";
+import { nameYup } from "../utils/validation";
+import defaultDocument from "../json/defaultDocument.json";
 
 class DocumentService {
   /* 
-    Internal
+    External
   */
 
   static create({ documentName }) {
@@ -59,10 +59,6 @@ class DocumentService {
     const { message } = await exportFile(document);
     toast(message);
   }
-
-  /* 
-    External
-  */
 }
 
 export default DocumentService;

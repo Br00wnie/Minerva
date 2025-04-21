@@ -34,8 +34,8 @@ const renderModal = (ModalComponent) =>
   ReactDOM.createPortal(<ModalComponent />, document.getElementById(PORTAL_ID));
 
 const ModalManager = () => {
-  const [store] = useStore(getModalStore());
-  const ModalComponent = modalMap[store.openModalId];
+  const [modalStore] = useStore(getModalStore());
+  const ModalComponent = modalMap[modalStore.openModalId];
   if (!ModalComponent) return null;
   return renderModal(ModalComponent);
 };
