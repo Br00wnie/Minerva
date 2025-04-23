@@ -48,6 +48,10 @@ a {
   display: flex;
 }
 
+*::placeholder {
+  color: var(--color-grey-5);
+}
+
 /* #sidebar */
 
 #sidebar {
@@ -119,7 +123,7 @@ a {
   right: 35%;
 }
 
-/* header */
+/* #header */
 
 #header {
   display: flex;
@@ -204,7 +208,7 @@ a {
 
   --height: 2.5rem;
 
-  --desc-size: 0.9rem;
+  --description-size: 0.9rem;
   --font-size: 1rem;
   --header-size: 1.5rem;
 

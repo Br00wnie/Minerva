@@ -4,8 +4,8 @@
   "content": {
     "font-color": "#060606",
     "font-size": 14,
-    "font-family": { "label": "Times New Roman", "value": "Times New Roman" },
-    "text-align": { "label": "По левому краю", "value": "left" },
+    "font-family": "Times New Roman",
+    "text-align": "left",
     "line-height": 1.5,
     "margin-top": 2,
     "margin-right": 2,

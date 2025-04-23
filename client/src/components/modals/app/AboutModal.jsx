@@ -12,9 +12,7 @@ const AboutModal = () => {
           alt="Иконка приложения"
           style={{ width: "4rem", height: "4rem" }}
         />
-        <p>
-          <b>Minerva</b>
-        </p>
+        <h2>Minerva</h2>
         <p>
           <b>Описание:</b> веб-приложение для преобразования Markdown в PDF-файл
           с заданным оформлением

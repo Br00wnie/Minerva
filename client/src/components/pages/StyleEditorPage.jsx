@@ -6,7 +6,7 @@ import StyleEditorSidebar from "../layout/sidebar/StyleEditorSidebar.jsx";
 import { useState } from "react";
 
 const StyleEditorPage = () => {
-  const [selectedTab, setSelectedTab] = useState("config");
+  const [selectedTab, setSelectedTab] = useState("settings");
 
   return (
     <AppLayout

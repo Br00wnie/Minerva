@@ -5,6 +5,7 @@ import styles from "./DocumentEditor.module.css";
 import editorConfig from "../../../../json/editorConfig.json";
 import DocumentStore from "../../../../stores/DocumentStore";
 import { useStore } from "../../../../utils/store";
+import "./Quill.css";
 
 const DocumentEditor = () => {
   const [documentStore, documentServices] = useStore(
@@ -28,7 +29,7 @@ const DocumentEditor = () => {
           modules={editorConfig.modules}
           formats={editorConfig.formats}
           placeholder="Содержимое документа"
-          className={styles.quill}
+          className="quill"
         />
       </div>
     </div>

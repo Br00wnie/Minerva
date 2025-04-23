@@ -6,9 +6,9 @@ import { useStore } from "../../../utils/store.jsx";
 import {
   REGISTRATION_MODAL_ID,
   LOGIN_MODAL_ID,
-  DELETE_USER_MODAL_ID,
   CREATE_DOCUMENT_MODAL_ID,
   ABOUT_MODAL_ID,
+  IMPORT_DOCUMENT_MODAL_ID,
 } from "../../../consts.js";
 import MyDropdown from "../../ui/dropdown/MyDropdown.jsx";
 import UserService from "../../../services/UserService.js";
@@ -35,26 +35,10 @@ const DocumentEditorHeader = () => {
           label="Создать"
           onClick={() => modalServices.openModal(CREATE_DOCUMENT_MODAL_ID)}
         />
-        {userStore.login ? (
-          <>
-            {documentStore.id !== null ? <MyDropdown label="Удалить" /> : null}
-            <hr />
-            <MyDropdown label="Загрузить" />
-            {documentStore.id !== null ? (
-              <MyDropdown
-                label="Сохранить"
-                onClick={() => DocumentService.save()}
-              />
-            ) : null}
-            {documentStore.id !== null ? (
-              <MyDropdown label="Сохранить как" />
-            ) : null}
-          </>
-        ) : null}
         <hr />
         <MyDropdown
           label="Импортировать"
-          onClick={() => DocumentService.import()}
+          onClick={() => modalServices.openModal(IMPORT_DOCUMENT_MODAL_ID)}
         />
         <MyDropdown
           label="Экспортировать"
@@ -64,37 +48,21 @@ const DocumentEditorHeader = () => {
         <MyDropdown label="Оформить" />
       </MyDropdown>
       <MyDropdown label="Пользователь">
-        {userStore.login ? (
-          <>
-            <MyDropdown label="Выйти" onClick={() => UserService.logout()} />
-            <MyDropdown
-              label="Удалить аккаунт"
-              onClick={() => modalServices.openModal(DELETE_USER_MODAL_ID)}
-            />
-          </>
-        ) : (
-          <>
-            <MyDropdown
-              label="Войти"
-              onClick={() => modalServices.openModal(LOGIN_MODAL_ID)}
-            />
-            <MyDropdown
-              label="Зарегистрироваться"
-              onClick={() => modalServices.openModal(REGISTRATION_MODAL_ID)}
-            />
-          </>
-        )}
+        <>
+          <MyDropdown
+            label="Войти"
+            onClick={() => modalServices.openModal(LOGIN_MODAL_ID)}
+          />
+          <MyDropdown
+            label="Зарегистрироваться"
+            onClick={() => modalServices.openModal(REGISTRATION_MODAL_ID)}
+          />
+        </>
       </MyDropdown>
       <MyDropdown label="Приложение">
         <MyDropdown
           label="О приложении"
           onClick={() => modalServices.openModal(ABOUT_MODAL_ID)}
-        />
-        <MyDropdown
-          label="Репозиторий"
-          onClick={() =>
-            window.open("https://github.com/Br00wnie/Minerva", "_blank")
-          }
         />
       </MyDropdown>
     </>

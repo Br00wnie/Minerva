@@ -10,12 +10,9 @@
   - [Universal Endpoints](#universal-endpoints)
   - [Entity-Specific Endpoints](#entity-specific-endpoints)
   - [Middleware](#middleware)
-  - [Utils](#utils-server)
   - [Environment variables](#environment-variables)
 - [Client](#client)
   - [Client-Side Storage](#client-side-storage)
-  - [Utils](#utils-client)
-  - [Style Library](#style-library)
 - [Agreements](#agreements)
 
 # General
@@ -99,10 +96,6 @@ To authenticate, the user receives a JWT from the server, stored in a cookie. Th
 | NameValidation          | Performs entity name validation specified in the body                   | Front |
 | UnexpectedErrorHandling | Handles unexpected errors                                               | Back  |
 
-## Utils {#server}
-
-- auth.js: Getting user ID from token
-
 ## Environment variables
 
 - DB_NAME ("minerva")
@@ -160,95 +153,6 @@ On app startup, the active document and style data are loaded from Local Storage
 ### Cookie (Authentication System)
 
 Cookies are used for authorization and store only a token containing the user_id.
-
-## Utils {#client}
-
-- storageManagement.js: Wrapper for easy Storage interaction
-- toast.js: User notification system
-- fileExport.js: Exports data as JSON
-- fileImport.js: JSON import
-- store.jsx: State manager
-  - helpers.js
-- tokenChecking.js: Token presence/validity checks
-- validation.js: Name, login & password validations
-
-## Style Library
-
-### MyButton
-
-**Params worth noting:** label:string
-
-**Children:** -
-
-**Structure:**
-
-```jsx
-<button>{label}</button>
-```
-
-**Usage example:**
-
-```jsx
-<MyButton
-  label="Delete"
-  onClick={() => DocumentService.delete({ documentId })}
-  className="danger"
-/>
-```
-
-### MyDropdown
-
-**Params worth noting:** label:string
-
-**Children:** MyDropdown, hr
-
-**Structure:**
-
-```jsx
-<container>
-  <label>{label}</label>
-  <select>{children}</select>
-</container>
-```
-
-**Usage example:**
-
-```jsx
-<MyDropdown label="User">
-  <MyDropdown
-    label="Login"
-    onClick={() => modalServices.openModal(LOGIN_MODAL_ID)}
-  />
-  <MyDropdown
-    label="Register"
-    onClick={() => modalServices.openModal(REGISTRATION_MODAL_ID)}
-  />
-</MyDropdown>
-```
-
-### MyInput
-
-**Params worth noting:** label:string, description:string, options:array, short:bool
-
-**Children:** -
-
-**Structure:**
-
-```jsx
-<container>
-  <info>
-    <label>{label}</label>
-    <description>{description}</description>
-  </info>
-  <input />
-</container>
-```
-
-**Usage example:**
-
-```jsx
-
-```
 
 # Agreements
 

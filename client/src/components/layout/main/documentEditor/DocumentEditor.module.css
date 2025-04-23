@@ -14,29 +14,11 @@
   color: inherit;
   font-weight: bold;
   text-overflow: ellipsis;
-}
-.name::placeholder {
-  color: var(--color-grey-5);
+  font-family: "Manrope", sans-serif;
 }
 
 .editor {
   margin: 2rem 15vw;
   padding-bottom: 8rem;
   flex-grow: 1;
-}
-
-.quill :global(.ql-container) {
-  border: none;
-  font-family: "Manrope", sans-serif;
-  font-size: inherit;
-}
-
-.quill :global(.ql-editor) {
-  padding: 0;
-}
-
-.quill :global(.ql-editor::before) {
-  font-style: normal;
-  left: 0;
-  color: var(--color-grey-5);
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./MyToggle.module.css";
 
-const MyToggle = ({ className = "", name, value, onChange, children }) => {
+const MyToggle = ({ name, value, onChange, children }) => {
   const renderChildren = React.Children.map(children, (child) => {
     if (child.type === "input") {
       return React.cloneElement(child, {
@@ -10,20 +10,18 @@ const MyToggle = ({ className = "", name, value, onChange, children }) => {
         id: child.props.id,
         checked: child.props.id === value,
         onChange: () => onChange(child.props.id),
-        className: `${styles.input} ${child.props.className || ""}`.trim(),
+        className: styles.input,
       });
     }
     if (child.type === "label") {
       return React.cloneElement(child, {
         htmlFor: child.props.htmlFor,
-        className: `${styles.label} ${child.props.className || ""}`.trim(),
+        className: styles.label,
       });
     }
   });
 
-  return (
-    <form className={`${styles.container} ${className}`}>{renderChildren}</form>
-  );
+  return <div className={styles.container}>{renderChildren}</div>;
 };
 
 export default MyToggle;

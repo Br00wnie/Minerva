@@ -14,7 +14,7 @@ const LoginModal = () => {
       <div className="inputs">
         <MyInput
           label="Логин"
-          placeholder="artyom"
+          placeholder="Artyom"
           value={userLogin}
           onChange={(e) => setUserLogin(e.target.value)}
         />
@@ -27,7 +27,7 @@ const LoginModal = () => {
         />
       </div>
       <div className="buttons">
-        <MyButton label="Отмена" closeModal />
+        <MyButton label="Отмена" data-close-modal />
         <MyButton
           label="Войти"
           onClick={() =>

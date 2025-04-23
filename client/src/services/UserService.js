@@ -15,7 +15,7 @@ class UserService {
       return;
     }
     try {
-      userYup.validate({
+      await userYup.validate({
         userLogin,
         userPassword,
       });

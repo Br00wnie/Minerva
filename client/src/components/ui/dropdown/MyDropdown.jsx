@@ -21,8 +21,10 @@ const MyDropdown = ({
 
   return (
     <div
-      className={`${styles.container} ${className}`}
+      className={styles.container}
       onClick={toggleIsOpen}
+      onMouseEnter={() => setIsOpen(true)}
+      onMouseLeave={() => setIsOpen(false)}
       {...props}
     >
       <div className={styles.label}>{label}</div>

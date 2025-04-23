@@ -13,12 +13,12 @@ class DocumentService {
     External
   */
 
-  static create({ documentName }) {
+  static create() {
     const documentService = getDocumentServices();
-    documentService.setName(documentName);
+    documentService.setName(emptyDocument.name);
     documentService.setContent(emptyDocument.content);
     documentService.setId(null);
-    toast(`Создан документ ${documentName}`);
+    toast("Документ создан");
     getModalServices().closeModal();
   }
 

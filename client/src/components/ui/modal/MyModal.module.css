@@ -19,37 +19,47 @@
   width: 40%;
   box-shadow: var(--box-shadow-big);
   min-width: 40rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 @media (max-width: 1140px) {
   .modal {
     width: 70%;
-    min-width: 30rem;
+    min-width: 25rem;
   }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--description-size);
+  cursor: default;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  cursor: default;
 }
 
 .title {
   font-size: var(--header-size);
 }
 
-.desc {
-  font-size: var(--desc-size);
-  padding-top: var(--desc-size);
+.description {
+  font-size: var(--description-size);
 }
 
-.buttons {
-  display: flex;
-  gap: 1rem;
-  justify-content: flex-end;
-  margin-top: 2rem;
-}
-
-.inputs {
-  margin-top: 2rem;
+.form .inputs {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
-.inputs > div {
-  margin: 0.5rem 0;
+.form .buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
 }

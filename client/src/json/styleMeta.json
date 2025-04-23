@@ -15,7 +15,10 @@
     "type": "select",
     "options": [
       { "label": "Arial", "value": "Arial" },
-      { "label": "Times New Roman", "value": "Times New Roman" }
+      {
+        "label": "Times New Roman",
+        "value": "Times New Roman"
+      }
     ],
     "group": "Шрифт"
   },

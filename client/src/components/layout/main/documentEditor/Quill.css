@@ -1,0 +1,14 @@
+.quill .ql-container {
+  border: none;
+  font-family: "Manrope", sans-serif;
+  font-size: inherit;
+}
+
+.quill .ql-editor {
+  padding: 0;
+}
+.quill .ql-editor::before {
+  font-style: normal;
+  left: 0;
+  color: var(--color-grey-5);
+}

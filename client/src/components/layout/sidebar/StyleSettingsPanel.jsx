@@ -1,34 +1,49 @@
-import React, { useState } from "react";
-import styleSettings from "../../../json/styleSettings.json";
-import defaultStyle from "../../../json/defaultStyle.json";
+import React from "react";
+import styleMeta from "../../../json/styleMeta.json";
 import MyInput from "../../ui/input/MyInput";
-import styles from "./StyleSettings.module.css";
+import { useStore } from "../../../utils/store";
+import StyleStore from "../../../stores/StyleStore";
 
 const StyleSettingsPanel = () => {
-  const [inputValues, setInputValues] = useState(
-    Object.fromEntries(
-      Object.keys(defaultStyle.content).map((key) => [
-        key,
-        defaultStyle.content[key],
-      ])
-    )
+  const [styleStore, styleServices] = useStore(
+    StyleStore.store,
+    StyleStore.services
   );
-  const handleInputValueChange = (key) => (newInputValue) => {
-    setInputValues((prev) => ({
-      ...prev,
-      [key]: newInputValue,
-    }));
+  const handleSettingsChange = (key, type) => (newValue) => {
+    newValue = type === "select" ? newValue : newValue.target.value;
+    const newStyleContent = { ...styleStore.content };
+    newStyleContent[key] = newValue;
+    styleServices.setContent(newStyleContent);
   };
 
   return (
-    <div className={styles.container}>
-      {Object.keys(styleSettings).map((key) => {
-        const params = styleSettings[key];
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "1rem",
+      }}
+    >
+      {Object.keys(styleMeta).map((key) => {
+        const params = styleMeta[key];
+        const selectedOption =
+          params.type === "select"
+            ? params.options.find(
+                (option) => option.value === styleStore.content[key]
+              )
+            : null;
         return (
           <MyInput
             key={key}
-            value={inputValues[key]}
-            onChange={handleInputValueChange(key)}
+            value={
+              selectedOption
+                ? {
+                    label: selectedOption.label,
+                    value: styleStore.content[key],
+                  }
+                : styleStore.content[key]
+            }
+            onChange={handleSettingsChange(key, params.type)}
             options={params.options}
             label={params.label}
             description={params.description}
@@ -36,8 +51,6 @@ const StyleSettingsPanel = () => {
             min={params.min}
             max={params.max}
             step={params.step}
-            title={key}
-            short={params.type !== "select" ? true : false}
           />
         );
       })}

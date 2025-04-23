@@ -14,20 +14,20 @@ const RegistrationModal = () => {
     <MyModal
       id={REGISTRATION_MODAL_ID}
       title="Зарегистрироваться"
-      desc="Мы не собираем статистику и не передаем данные третьим лицам."
+      description="Мы не собираем статистику и не передаем данные третьим лицам."
     >
       <div className="inputs">
         <MyInput
           label="Логин"
-          desc="Ваш уникальный неизменяемый идентификатор. 
+          description="Ваш уникальный неизменяемый идентификатор. 
           Он будет виден другим пользователям под вашими публичными стилями."
-          placeholder="artyom"
+          placeholder="Artyom"
           value={userLogin}
           onChange={(e) => setUserLogin(e.target.value)}
         />
         <MyInput
           label="Пароль"
-          desc="Восстановление пароля не предусмотрено."
+          description="Восстановление пароля не предусмотрено."
           placeholder="123456A!"
           type="password"
           value={userPassword}
