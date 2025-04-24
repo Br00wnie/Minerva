@@ -6,7 +6,7 @@ import { useStore } from "../../../utils/store.jsx";
 import {
   REGISTRATION_MODAL_ID,
   LOGIN_MODAL_ID,
-  CREATE_DOCUMENT_MODAL_ID,
+  RESET_DOCUMENT_MODAL_ID,
   ABOUT_MODAL_ID,
   IMPORT_DOCUMENT_MODAL_ID,
 } from "../../../consts.js";
@@ -32,17 +32,17 @@ const DocumentEditorHeader = () => {
     <>
       <MyDropdown label="Документ">
         <MyDropdown
-          label="Создать"
-          onClick={() => modalServices.openModal(CREATE_DOCUMENT_MODAL_ID)}
-        />
-        <hr />
-        <MyDropdown
           label="Импортировать"
           onClick={() => modalServices.openModal(IMPORT_DOCUMENT_MODAL_ID)}
         />
         <MyDropdown
           label="Экспортировать"
           onClick={() => DocumentService.export()}
+        />
+        <hr />
+        <MyDropdown
+          label="Сбросить"
+          onClick={() => modalServices.openModal(RESET_DOCUMENT_MODAL_ID)}
         />
         <hr />
         <MyDropdown label="Оформить" />

@@ -3,9 +3,9 @@ import defaultDocument from "../json/defaultDocument.json";
 import { buildStore } from "../utils/store";
 
 const store = buildStore({
-  name: Storage.read("documentName") || defaultDocument.name,
-  content: Storage.read("documentContent") || defaultDocument.content,
-  id: Storage.read("documentId") || null,
+  name: Storage.read("documentName") ?? defaultDocument.name,
+  content: Storage.read("documentContent") ?? defaultDocument.content,
+  id: Number(Storage.read("documentId")) ?? null,
 });
 
 const services = (store) => ({
@@ -18,6 +18,7 @@ const services = (store) => ({
     Storage.write("documentContent", content);
   },
   setId: (id) => {
+    if (typeof id !== "number") id = Number(id);
     store.id = id;
     Storage.write("documentId", id);
   },

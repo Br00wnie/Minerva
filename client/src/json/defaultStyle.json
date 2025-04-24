@@ -2,7 +2,7 @@
   "name": "Default",
   "description": "",
   "content": {
-    "font-color": "#060606",
+    "color": "#060606",
     "font-size": 14,
     "font-family": "Times New Roman",
     "text-align": "left",
@@ -11,7 +11,8 @@
     "margin-right": 2,
     "margin-bottom": 2,
     "margin-left": 2,
-    "paragraph-spacing": 2,
-    "first-line-indent": 1
+    "paragraph-spacing": 1,
+    "text-indent": 1,
+    "background-color": "#FFFFFF"
   }
 }

@@ -15,14 +15,14 @@ const AppLayout = ({ header, sidebar, children }) => {
 
   return (
     <>
-      <div id="sidebar" className={isSidebarOpen ? "is-open" : ""}>
+      <div id="sidebar" className={isSidebarOpen ? "open" : ""}>
         <div id="header">{header}</div>
         <div id="sidebar-body">{sidebar}</div>
       </div>
       <button
         id="sidebar-toggle"
         onClick={toggleSidebar}
-        className={isSidebarOpen ? "is-open" : ""}
+        className={isSidebarOpen ? "open" : ""}
       ></button>
       <div id="main">{children}</div>
     </>

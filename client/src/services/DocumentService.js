@@ -7,30 +7,43 @@ import toast from "../utils/toast.js";
 import exportFile from "../utils/fileExport.js";
 import importFile from "../utils/fileImport.js";
 import emptyDocument from "../json/emptyDocument.json";
+import parse from "html-react-parser";
 
 class DocumentService {
   /* 
     External
   */
 
-  static create() {
+  static reset() {
     const documentService = getDocumentServices();
     documentService.setName(emptyDocument.name);
     documentService.setContent(emptyDocument.content);
     documentService.setId(null);
-    toast("Документ создан");
+    toast("Документ сброшен");
     getModalServices().closeModal();
   }
 
   static async import() {
     const { success, message, file: document } = await importFile();
     if (success) {
-      if (!document.name) {
+      if (
+        !document.hasOwnProperty("name") ||
+        typeof document.name !== "string"
+      ) {
         toast("Не найдено имя документа");
         return;
       }
-      if (!document.content) {
+      if (
+        !document.hasOwnProperty("content") ||
+        typeof document.content !== "string"
+      ) {
         toast("Не найдено содержимое документа");
+        return;
+      }
+      try {
+        parse(document.content);
+      } catch (e) {
+        toast("Содержимого имеет некорректную структуру");
         return;
       }
       const documentService = getDocumentServices();

@@ -29,16 +29,10 @@ const EditorToggleManager = () => {
     return renderToggle(
       "/icons/document.svg",
       "Иконка документа",
-      handleToggleClick,
-      "Открыть редактор документа"
+      handleToggleClick
     );
   else
-    return renderToggle(
-      "/icons/style.svg",
-      "Иконка стиля",
-      handleToggleClick,
-      "Открыть редактор стиля"
-    );
+    return renderToggle("/icons/style.svg", "Иконка стиля", handleToggleClick);
 };
 
 export default EditorToggleManager;

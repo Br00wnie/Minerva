@@ -1,5 +1,5 @@
 {
-  "font-color": {
+  "color": {
     "label": "Цвет шрифта",
     "type": "color",
     "group": "Шрифт"
@@ -44,28 +44,32 @@
     "type": "number",
     "step": 0.1,
     "min": 0,
-    "group": "Позиционирование"
+    "group": "Позиционирование",
+    "subgroup": "Поля"
   },
   "margin-right": {
     "label": "Правое поле страницы [см]",
     "type": "number",
     "step": 0.1,
     "min": 0,
-    "group": "Позиционирование"
+    "group": "Позиционирование",
+    "subgroup": "Поля"
   },
   "margin-bottom": {
     "label": "Нижнее поле страницы [см]",
     "type": "number",
     "step": 0.1,
     "min": 0,
-    "group": "Позиционирование"
+    "group": "Позиционирование",
+    "subgroup": "Поля"
   },
   "margin-left": {
     "label": "Левое поле страницы [см]",
     "type": "number",
     "step": 0.1,
     "min": 0,
-    "group": "Позиционирование"
+    "group": "Позиционирование",
+    "subgroup": "Поля"
   },
   "paragraph-spacing": {
     "label": "Межабзацный интервал [доля размера шрифта]",
@@ -74,11 +78,16 @@
     "min": 0,
     "group": "Позиционирование"
   },
-  "first-line-indent": {
+  "text-indent": {
     "label": "Отступ красной строки [см]",
     "type": "number",
     "step": 0.1,
     "min": 0,
     "group": "Позиционирование"
+  },
+  "background-color": {
+    "label": "Цвета фона",
+    "type": "color",
+    "group": "Страница"
   }
 }

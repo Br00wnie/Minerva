@@ -118,20 +118,20 @@ To authenticate, the user receives a JWT from the server, stored in a cookie. Th
 Manages the application's state
 
 - UserStore
-  - login
+  - login:sting
 - ModalStore
-  - openModalId
+  - openModalId:string
 - DocumentStore
-  - id
-  - name
-  - content
+  - id:number
+  - name:string
+  - content:string
 - StyleStore
-  - id
-  - name
-  - description
-  - content
-  - isPublic
-  - popularity
+  - id:number
+  - name:string
+  - description:string
+  - content:object
+  - isPublic:boolean
+  - popularity:number
 
 ### Local Storage (Persistent Data)
 

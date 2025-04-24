@@ -4,7 +4,7 @@ import MyButton from "../../ui/button/MyButton";
 import { IMPORT_DOCUMENT_MODAL_ID } from "../../../consts";
 import DocumentService from "../../../services/DocumentService";
 
-const CreateDocumentModal = () => {
+const ResetDocumentModal = () => {
   return (
     <MyModal
       id={IMPORT_DOCUMENT_MODAL_ID}
@@ -24,4 +24,4 @@ const CreateDocumentModal = () => {
   );
 };
 
-export default CreateDocumentModal;
+export default ResetDocumentModal;

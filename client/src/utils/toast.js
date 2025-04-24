@@ -5,6 +5,7 @@ export const setDisplayToastFunction = (f) => {
 };
 
 export const toast = (message) => {
+  if (!message) return;
   if (typeof displayToastFunction === "function") {
     displayToastFunction(message);
   } else {

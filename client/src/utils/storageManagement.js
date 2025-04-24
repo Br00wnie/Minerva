@@ -1,21 +1,18 @@
 const STORAGE_PREFIX = "minerva_";
 
 class Storage {
-  static read(key, isObject = false) {
+  static read(key) {
     key = STORAGE_PREFIX + key;
     const value = localStorage.getItem(key);
-    if (value === null) return null;
-    return isObject ? JSON.parse(value) : value;
+    return value;
   }
 
   static write(key, value) {
     key = STORAGE_PREFIX + key;
-    if (value === null) Storage.remove(key);
-    else
-      localStorage.setItem(
-        key,
-        typeof value === "string" ? value : JSON.stringify(value)
-      );
+    localStorage.setItem(
+      key,
+      typeof value === "string" ? value : JSON.stringify(value)
+    );
   }
 
   static remove(key) {

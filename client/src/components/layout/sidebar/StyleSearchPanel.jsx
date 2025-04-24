@@ -1,5 +1,5 @@
 import React from "react";
 
-const StyleSearchPanel = () => <div>SearchPanel</div>;
+const StyleSearchPanel = () => <div>StyleSearchPanel</div>;
 
 export default StyleSearchPanel;

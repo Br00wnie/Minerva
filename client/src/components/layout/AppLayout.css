@@ -72,8 +72,9 @@ a {
     left: 0;
     bottom: 0;
     transform: translateX(-100%);
+    width: 25rem;
   }
-  #sidebar.is-open {
+  #sidebar.open {
     transform: translateX(0);
   }
 }
@@ -111,14 +112,13 @@ a {
   top: 50%;
   width: 0.5rem;
   height: 0.5rem;
-  border: 0.15rem solid var(--color-grey-3);
+  border: 0.15rem solid var(--color-white);
   border-bottom: none;
   border-left: none;
   transform: translateY(-50%) rotate(45deg);
   transition: var(--transition);
-  border-color: var(--color-white);
 }
-#sidebar-toggle.is-open::after {
+#sidebar-toggle.open::after {
   transform: translateY(-50%) rotate(225deg);
   right: 35%;
 }
