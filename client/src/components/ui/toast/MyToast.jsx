@@ -5,7 +5,7 @@ const MyToast = ({ message, removeToastFunction }) => {
   useEffect(() => {
     const lifeTimer = setTimeout(removeToastFunction, 3000);
     return () => clearTimeout(lifeTimer);
-  }, []);
+  }, [removeToastFunction]);
 
   return (
     <div className={styles.container}>

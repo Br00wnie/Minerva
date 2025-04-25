@@ -12,3 +12,8 @@
   left: 0;
   color: var(--color-grey-5);
 }
+
+.quill .ql-editor p {
+  margin: 0 0 1em 0;
+  line-height: 1.5;
+}

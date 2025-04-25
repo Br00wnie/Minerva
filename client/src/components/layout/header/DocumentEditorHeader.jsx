@@ -1,8 +1,6 @@
 import React from "react";
 import ModalStore from "../../../stores/ModalStore.js";
-import UserStore from "../../../stores/UserStore.js";
-import DocumentStore from "../../../stores/DocumentStore.js";
-import { useStore } from "../../../utils/store.jsx";
+import { useStore } from "../../../incrum/store.jsx";
 import {
   REGISTRATION_MODAL_ID,
   LOGIN_MODAL_ID,
@@ -11,22 +9,16 @@ import {
   IMPORT_DOCUMENT_MODAL_ID,
 } from "../../../consts.js";
 import MyDropdown from "../../ui/dropdown/MyDropdown.jsx";
-import UserService from "../../../services/UserService.js";
 import DocumentService from "../../../services/DocumentService.js";
+import generatePdf from "../../../utils/pdfGeneration.js";
+import useDocumentStyle from "../../../hooks/useDocumentStyle.js";
 
 const DocumentEditorHeader = () => {
-  const [documentStore, documentServices] = useStore(
-    DocumentStore.store,
-    DocumentStore.services
-  );
-  const [userStore, userServices] = useStore(
-    UserStore.store,
-    UserStore.services
-  );
   const [modalStore, modalServices] = useStore(
     ModalStore.store,
     ModalStore.services
   );
+  const documentStyle = useDocumentStyle();
 
   return (
     <>
@@ -45,7 +37,10 @@ const DocumentEditorHeader = () => {
           onClick={() => modalServices.openModal(RESET_DOCUMENT_MODAL_ID)}
         />
         <hr />
-        <MyDropdown label="Оформить" />
+        <MyDropdown
+          label="Оформить"
+          onClick={() => generatePdf(documentStyle)}
+        />
       </MyDropdown>
       <MyDropdown label="Пользователь">
         <>

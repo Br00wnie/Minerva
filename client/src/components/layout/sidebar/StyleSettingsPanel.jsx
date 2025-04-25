@@ -1,7 +1,7 @@
 import React from "react";
 import styleMeta from "../../../json/styleMeta.json";
 import MyInput from "../../ui/input/MyInput";
-import { useStore } from "../../../utils/store";
+import { useStore } from "../../../incrum/store";
 import StyleStore from "../../../stores/StyleStore";
 import MySpoiler from "../../ui/spoiler/MySpoiler";
 

@@ -1,0 +1,20 @@
+{
+  "welcome": {
+    "guest": "Вы вошли как гость",
+    "regularUser": "С возвращением, {{login}}!"
+  },
+  "toasts": {
+    "serverNotResponding": "Не удаётся достучаться до сервера"
+  },
+  "validation": {
+    "minLoginLength": "Минимальная длина логина — {{minLoginLength}} символа",
+    "requiredLogin": "Логин обязателен",
+    "minPasswordLength": "Минимальная длина пароля — {{minPasswordLength}} символов",
+    "requiredPassword": "Пароль обязателен",
+    "noNumberInPassword": "Пароль должен содержать хотя бы одну цифру",
+    "noCapitalLetterInPassword": "Пароль должен содержать хотя бы одну заглавную букву",
+    "noSpecialCharacterInPassword": "Пароль должен содержать хотя бы один спецсимвол",
+    "minNameLength": "Минимальная длина имени — {{minNameLength}} символа",
+    "requiredName": "Имя обязательно"
+  }
+}

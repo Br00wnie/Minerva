@@ -3,7 +3,7 @@ import StyleSettingsPanel from "./StyleSettingsPanel";
 import StyleSearchPanel from "./StyleSearchPanel";
 import MyButton from "../../ui/button/MyButton";
 import MyInput from "../../ui/input/MyInput";
-import { useStore } from "../../../utils/store";
+import { useStore } from "../../../incrum/store";
 import StyleStore from "../../../stores/StyleStore";
 import StyleService from "../../../services/StyleService";
 import { RESET_STYLE_MODAL_ID } from "../../../consts";

@@ -1,4 +1,5 @@
 import * as yup from "yup";
+import i18n from "./i18n";
 
 const MIN_LOGIN_LENGTH = 4;
 const MIN_PASSWORD_LENGTH = 8;
@@ -9,22 +10,24 @@ export const userYup = yup.object().shape({
     .string()
     .min(
       MIN_LOGIN_LENGTH,
-      `Минимальная длина логина — ${MIN_LOGIN_LENGTH} символа`
+      i18n.t("validation.minLoginLength", { minLoginLength: MIN_LOGIN_LENGTH })
     )
-    .required("Логин обязателен"),
+    .required(i18n.t("validation.requiredLogin")),
   userPassword: yup
     .string()
     .min(
       MIN_PASSWORD_LENGTH,
-      `Минимальная длина пароля — ${MIN_PASSWORD_LENGTH} символов`
+      i18n.t("validation.minPasswordLength", {
+        minPasswordLength: MIN_PASSWORD_LENGTH,
+      })
     )
-    .matches(/\d/, "Пароль должен содержать хотя бы одну цифру")
-    .matches(/[A-Z]/, "Пароль должен содержать хотя бы одну заглавную букву")
+    .matches(/\d/, i18n.t("validation.noNumberInPassword"))
+    .matches(/[A-Z]/, i18n.t("validation.noCapitalLetterInPassword"))
     .matches(
       /[!@#$%^&*(),.?":{}|<>]/,
-      "Пароль должен содержать хотя бы один спецсимвол"
+      i18n.t("validation.noSpecialCharacterInPassword")
     )
-    .required("Пароль обязателен"),
+    .required(i18n.t("validation.requiredPassword")),
 });
 
 export const nameYup = yup.object().shape({
@@ -32,7 +35,7 @@ export const nameYup = yup.object().shape({
     .string()
     .min(
       MIN_NAME_LENGTH,
-      `Минимальная длина имени — ${MIN_NAME_LENGTH} символа`
+      i18n.t("validation.minNameLength", { minNameLength: MIN_NAME_LENGTH })
     )
-    .required("Имя обязательно"),
+    .required(i18n.t("validation.requiredName")),
 });

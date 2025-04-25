@@ -9,7 +9,7 @@ export const toast = (message) => {
   if (typeof displayToastFunction === "function") {
     displayToastFunction(message);
   } else {
-    console.warn("ToastManager не инициализирован");
+    console.error("ToastManager is not initialized");
   }
 };
 

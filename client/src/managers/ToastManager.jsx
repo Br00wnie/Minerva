@@ -22,6 +22,7 @@ const ToastManager = () => {
       {toasts.map(({ id, message }) =>
         ReactDOM.createPortal(
           <MyToast
+            key={id}
             message={message}
             removeToastFunction={() => removeToast(id)}
           />,

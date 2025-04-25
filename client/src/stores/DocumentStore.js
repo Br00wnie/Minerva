@@ -1,6 +1,6 @@
 import Storage from "../utils/storageManagement";
 import defaultDocument from "../json/defaultDocument.json";
-import { buildStore } from "../utils/store";
+import { buildStore } from "../incrum/store";
 
 const store = buildStore({
   name: Storage.read("documentName") ?? defaultDocument.name,

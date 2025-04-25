@@ -1,4 +1,4 @@
-import { buildStore } from "../utils/store";
+import { buildStore } from "../incrum/store";
 
 const store = buildStore({
   openModalId: null,

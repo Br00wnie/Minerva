@@ -5,6 +5,7 @@ import exportFile from "../utils/fileExport.js";
 import importFile from "../utils/fileImport.js";
 import defaultStyle from "../json/defaultStyle.json";
 import styleMeta from "../json/styleMeta.json";
+import tinycolor from "tinycolor2";
 
 class StyleService {
   /* 
@@ -38,26 +39,41 @@ class StyleService {
         toast("Не найдено содержимое стиля");
         return;
       }
-      const content = {}; // сюда будем заносить
+      const content = {};
       Object.keys(styleMeta).forEach((key) => {
-        if (styleMeta[key].type === "color") {
-          // проверяем, чтобы в style.content[key] была строка цвета,
-          // иначе заносим в content значение из defaultStyle[key]
-        }
-        if (styleMeta[key].type === "number") {
-          // проверяем, чтобы в style.content[key] было число,
-          // если есть styleMeta[key].min, styleMeta[key].max
-          // или styleMeta[key].step, нужно проверить число,
-          // иначе заносим в content значение из defaultStyle[key]
-        }
-        if (styleMeta[key].type === "string") {
-          // проверяем, чтобы в style.content[key] была строка,
-          // иначе заносим в content значение из defaultStyle[key]
-        }
-        if (styleMeta[key].type === "select") {
-          // проверяем, чтобы в style.content[key] была строка,
-          // которая есть в одном из styleMeta[key].options[n].value
-          // иначе заносим в content значение из defaultStyle[key]
+        const meta = styleMeta[key];
+        const value = style.content[key];
+        const defaultValue = defaultStyle.content[key];
+        switch (meta.type) {
+          case "color":
+            content[key] = tinycolor(value).isValid() ? value : defaultValue;
+            break;
+          case "number":
+            if (typeof value !== "number" || isNaN(value)) {
+              content[key] = defaultValue;
+              break;
+            }
+            let result = value;
+            if (meta.min !== undefined) result = Math.max(meta.min, result);
+            if (meta.max !== undefined) result = Math.min(meta.max, result);
+            if (meta.step !== undefined) {
+              const base = meta.min ?? 0;
+              result =
+                base + Math.round((result - base) / meta.step) * meta.step;
+              if (meta.min !== undefined) result = Math.max(meta.min, result);
+              if (meta.max !== undefined) result = Math.min(meta.max, result);
+            }
+            content[key] = result;
+            break;
+          case "string":
+            content[key] = typeof value === "string" ? value : defaultValue;
+            break;
+          case "select":
+            const values = meta.options.map((option) => option.value);
+            content[key] = values.includes(value) ? value : defaultValue;
+            break;
+          default:
+            content[key] = defaultValue;
         }
       });
       const styleService = getStyleServices();

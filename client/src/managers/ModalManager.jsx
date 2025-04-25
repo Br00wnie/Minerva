@@ -25,13 +25,13 @@ const modalMap = {
   [ABOUT_MODAL_ID]: AboutModal,
   [IMPORT_DOCUMENT_MODAL_ID]: ImportDocumentModal,
 };
-import { useStore } from "../utils/store";
+import { useStore } from "../incrum/store";
 
 const renderModal = (ModalComponent) =>
   ReactDOM.createPortal(<ModalComponent />, document.getElementById(PORTAL_ID));
 
 const ModalManager = () => {
-  const [modalStore] = useStore(getModalStore());
+  const [modalStore, modalServices] = useStore(getModalStore());
   const ModalComponent = modalMap[modalStore.openModalId];
   if (!ModalComponent) return null;
   return renderModal(ModalComponent);

@@ -59,6 +59,7 @@ class UserService {
 
   static logout() {
     getUserServices().setLogin(null);
+    document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     toast("Выход выполнен");
   }
 }

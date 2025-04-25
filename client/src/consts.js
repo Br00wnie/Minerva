@@ -1,3 +1,5 @@
+import i18n from "./i18n";
+
 export const DOCUMENT_EDITOR_ROUTE = "/document-editor";
 export const STYLE_EDITOR_ROUTE = "/style-editor";
 
@@ -10,5 +12,6 @@ export const ABOUT_MODAL_ID = "about-modal";
 
 export const PORTAL_ID = "portal";
 
-export const SERVER_NOT_RESPONDING_MESSAGE =
-  "Не удаётся достучаться до сервера";
+export const SERVER_NOT_RESPONDING_MESSAGE = i18n.t(
+  "toasts.serverNotResponding"
+);

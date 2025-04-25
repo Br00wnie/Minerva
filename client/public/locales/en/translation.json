@@ -1,0 +1,8 @@
+{
+  "welcome": "Welcome!",
+  "hello": "Hello, {{name}}!",
+  "errors": {
+    "serverNotResponding": "Server is not responding",
+    "cancel": "Cancel"
+  }
+}

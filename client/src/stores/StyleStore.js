@@ -1,6 +1,6 @@
 import Storage from "../utils/storageManagement";
 import defaultStyle from "../json/defaultStyle.json";
-import { buildStore } from "../utils/store";
+import { buildStore } from "../incrum/store";
 
 const store = buildStore({
   name: Storage.read("styleName") ?? defaultStyle.name,

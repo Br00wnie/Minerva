@@ -4,7 +4,7 @@ import "react-quill/dist/quill.snow.css";
 import styles from "./DocumentEditor.module.css";
 import editorConfig from "../../../../json/editorConfig.json";
 import DocumentStore from "../../../../stores/DocumentStore";
-import { useStore } from "../../../../utils/store";
+import { useStore } from "../../../../incrum/store";
 import "./Quill.css";
 
 const DocumentEditor = () => {

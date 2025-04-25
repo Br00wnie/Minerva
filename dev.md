@@ -1,7 +1,7 @@
 # Content
 
-- [General](#general)
-  - [Interaction Chain](#interaction-chain)
+- [Overview](#overview)
+  - [Interaction Chain](#request-flow)
   - [Response Structure](#response-structure)
   - [Entities](#entities)
   - [Authorization System](#authorization-system)
@@ -13,13 +13,16 @@
   - [Environment variables](#environment-variables)
 - [Client](#client)
   - [Client-Side Storage](#client-side-storage)
-- [Agreements](#agreements)
+- [Development Agreements](#development-agreements)
+- [Development Setup](#development-setup)
+  - [Client](#client-development-setup)
+  - [Server](#server-development-setup)
 
-# General
+# Overview
 
-## Interaction Chain
+## Request/Response Flow
 
-![Architecture diagram](https://i.ibb.co/tw1FNc2q/Minerva-Architecture-Diagram.png)
+![Flow diagram should have loaded here](https://i.ibb.co/wr0FDfsC/Minerva-Flow-Diagram.png)
 
 User interaction with the application happens through _UI_. _UI_ does not handle logic; it delegates all logic to _ClientServices_.
 
@@ -43,7 +46,6 @@ _ServerServices_ perform all necessary logic with the provided data and interact
 - User — users
 - Document — documents
 - Style — styles
-- Favorite — favorite styles
 
 ## Authorization System
 
@@ -53,7 +55,7 @@ To authenticate, the user receives a JWT from the server, stored in a cookie. Th
 
 ## ER Diagram
 
-![ER diagram](https://i.ibb.co/fdGmjJgk/Minerva-ER-Diagram.png)
+![ER diagram should have loaded here](https://i.ibb.co/fdGmjJgk/Minerva-ER-Diagram.png)
 
 ## Universal Endpoints
 
@@ -154,9 +156,53 @@ On app startup, the active document and style data are loaded from Local Storage
 
 Cookies are used for authorization and store only a token containing the user_id.
 
-# Agreements
+# Development Agreements
 
 - Only atomic constants are named in UPPER_SNAKE_CASE
 - Files that are entry points (both on the server and the client) are named "index"
 - Client can get _user_id_ only in hashed form
 - Atomic UI components can be assigned no more than one class
+
+# Development Setup
+
+## Client {Development Setup}
+
+1. Install client dependencies
+
+```bash
+cd client
+npm install
+```
+
+2. Run the client
+
+```bash
+npm run dev
+```
+
+The app will open at http://localhost:5173 by default
+
+## Server {Development Setup}
+
+1. Install server dependencies
+
+```bash
+cd server
+npm install
+```
+
+2. Create a PostgreSQL database
+
+```bash
+sudo -u postgres createdb minerva
+```
+
+3. Configure environment variables
+
+Create a .env file in the server folder with all [environment variables](#environment-variables) specified
+
+4. Start the server
+
+```bash
+npm run dev
+```
