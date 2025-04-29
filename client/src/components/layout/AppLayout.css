@@ -220,3 +220,36 @@ a {
 
   --transition: transform 0.3s ease;
 }
+
+/* #small-window-message  */
+
+#small-window-message {
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+}
+#small-window-message h2 {
+  font-size: var(--header-size);
+}
+#small-window-message p {
+  font-size: var(--description-size);
+}
+#small-window-message h2,
+#small-window-message p {
+  text-align: center;
+}
+
+@media (max-width: 359px) {
+  #root,
+  #editor-toggle {
+    display: none;
+  }
+  #small-window-message {
+    display: flex;
+  }
+}

@@ -8,6 +8,7 @@ import exportFile from "../utils/fileExport.js";
 import importFile from "../utils/fileImport.js";
 import emptyDocument from "../json/emptyDocument.json";
 import parse from "html-react-parser";
+import i18n from "../i18n.js";
 
 class DocumentService {
   /* 
@@ -19,7 +20,7 @@ class DocumentService {
     documentService.setName(emptyDocument.name);
     documentService.setContent(emptyDocument.content);
     documentService.setId(null);
-    toast("Документ сброшен");
+    toast(i18n.t("services.document.resetDone"));
     getModalServices().closeModal();
   }
 
@@ -30,20 +31,20 @@ class DocumentService {
         !document.hasOwnProperty("name") ||
         typeof document.name !== "string"
       ) {
-        toast("Не найдено имя документа");
+        toast(i18n.t("services.document.nameNotFound"));
         return;
       }
       if (
         !document.hasOwnProperty("content") ||
         typeof document.content !== "string"
       ) {
-        toast("Не найдено содержимое документа");
+        toast(i18n.t("services.document.contentNotFound"));
         return;
       }
       try {
         parse(document.content);
       } catch (e) {
-        toast("Содержимого имеет некорректную структуру");
+        toast(i18n.t("services.document.notCorrectContentStructure"));
         return;
       }
       const documentService = getDocumentServices();

@@ -6,12 +6,12 @@ import {
   LOGIN_MODAL_ID,
   RESET_DOCUMENT_MODAL_ID,
   ABOUT_MODAL_ID,
-  IMPORT_DOCUMENT_MODAL_ID,
 } from "../../../consts.js";
 import MyDropdown from "../../ui/dropdown/MyDropdown.jsx";
 import DocumentService from "../../../services/DocumentService.js";
 import generatePdf from "../../../utils/pdfGeneration.js";
 import useDocumentStyle from "../../../hooks/useDocumentStyle.js";
+import { useTranslation } from "react-i18next";
 
 const DocumentEditorHeader = () => {
   const [modalStore, modalServices] = useStore(
@@ -19,44 +19,45 @@ const DocumentEditorHeader = () => {
     ModalStore.services
   );
   const documentStyle = useDocumentStyle();
+  const { t } = useTranslation();
 
   return (
     <>
-      <MyDropdown label="Документ">
+      <MyDropdown label={t("buttons.document.label")}>
         <MyDropdown
-          label="Импортировать"
-          onClick={() => modalServices.openModal(IMPORT_DOCUMENT_MODAL_ID)}
+          label={t("buttons.import.label")}
+          onClick={() => DocumentService.import()}
         />
         <MyDropdown
-          label="Экспортировать"
+          label={t("buttons.export.label")}
           onClick={() => DocumentService.export()}
         />
         <hr />
         <MyDropdown
-          label="Сбросить"
+          label={t("buttons.reset.label")}
           onClick={() => modalServices.openModal(RESET_DOCUMENT_MODAL_ID)}
         />
         <hr />
         <MyDropdown
-          label="Оформить"
+          label={t("buttons.stylize.label")}
           onClick={() => generatePdf(documentStyle)}
         />
       </MyDropdown>
-      <MyDropdown label="Пользователь">
+      <MyDropdown label={t("buttons.user.label")}>
         <>
           <MyDropdown
-            label="Войти"
+            label={t("buttons.login.label")}
             onClick={() => modalServices.openModal(LOGIN_MODAL_ID)}
           />
           <MyDropdown
-            label="Зарегистрироваться"
+            label={t("buttons.register.label")}
             onClick={() => modalServices.openModal(REGISTRATION_MODAL_ID)}
           />
         </>
       </MyDropdown>
-      <MyDropdown label="Приложение">
+      <MyDropdown label={t("buttons.app.label")}>
         <MyDropdown
-          label="О приложении"
+          label={t("buttons.about.label")}
           onClick={() => modalServices.openModal(ABOUT_MODAL_ID)}
         />
       </MyDropdown>

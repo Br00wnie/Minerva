@@ -1,0 +1,8 @@
+.pagedjs_pages {
+  padding: 1rem 0;
+}
+
+.pagedjs_page {
+  margin: 1rem auto !important;
+  box-shadow: var(--box-shadow-big);
+}

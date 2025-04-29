@@ -3,6 +3,7 @@ import { getModalServices } from "../stores/ModalStore.js";
 import { getUserServices } from "../stores/UserStore.js";
 import { userYup } from "../utils/validation";
 import toast from "../utils/toast.js";
+import i18n from "../i18n";
 
 class UserService {
   /* 
@@ -11,7 +12,7 @@ class UserService {
 
   static async register({ userLogin, userPassword, repeatPassword }) {
     if (userPassword !== repeatPassword) {
-      toast("Пароли не совпадают");
+      toast(i18n.t("services.user.passwordsDoNotMatch"));
       return;
     }
     try {
@@ -60,7 +61,7 @@ class UserService {
   static logout() {
     getUserServices().setLogin(null);
     document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    toast("Выход выполнен");
+    toast(i18n.t("services.user.logoutDone"));
   }
 }
 

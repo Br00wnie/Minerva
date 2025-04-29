@@ -4,37 +4,38 @@ import MyButton from "../../ui/button/MyButton";
 import MyInput from "../../ui/input/MyInput";
 import { REGISTRATION_MODAL_ID } from "../../../consts";
 import UserService from "../../../services/UserService";
+import { useTranslation } from "react-i18next";
 
 const RegistrationModal = () => {
   const [userLogin, setUserLogin] = useState("");
   const [userPassword, setUserPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
+  const { t } = useTranslation();
 
   return (
     <MyModal
       id={REGISTRATION_MODAL_ID}
-      title="Зарегистрироваться"
-      description="Мы не собираем статистику и не передаем данные третьим лицам."
+      title={t("modals.user.registration.title")}
+      description={t("modals.user.registration.description")}
     >
       <div className="inputs">
         <MyInput
-          label="Логин"
-          description="Ваш уникальный неизменяемый идентификатор. 
-          Он будет виден другим пользователям под вашими публичными стилями."
+          label={t("inputs.login.label")}
+          description={t("inputs.login.description")}
           placeholder="Artyom"
           value={userLogin}
           onChange={(e) => setUserLogin(e.target.value)}
         />
         <MyInput
-          label="Пароль"
-          description="Восстановление пароля не предусмотрено."
+          label={t("inputs.password.label")}
+          description={t("inputs.password.description")}
           placeholder="123456A!"
           type="password"
           value={userPassword}
           onChange={(e) => setUserPassword(e.target.value)}
         />
         <MyInput
-          label="Повторите пароль"
+          label={t("inputs.repeatPassword.label")}
           placeholder="123456A!"
           type="password"
           value={repeatPassword}
@@ -42,9 +43,9 @@ const RegistrationModal = () => {
         />
       </div>
       <div className="buttons">
-        <MyButton label="Отмена" data-close-modal />
+        <MyButton label={t("buttons.cancel.label")} data-close-modal />
         <MyButton
-          label="Зарегистрироваться"
+          label={t("buttons.register.label")}
           onClick={() => {
             UserService.register({
               userLogin,

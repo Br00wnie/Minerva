@@ -6,6 +6,7 @@ import importFile from "../utils/fileImport.js";
 import defaultStyle from "../json/defaultStyle.json";
 import styleMeta from "../json/styleMeta.json";
 import tinycolor from "tinycolor2";
+import i18n from "../i18n.js";
 
 class StyleService {
   /* 
@@ -20,7 +21,7 @@ class StyleService {
     styleService.setDescription(defaultStyle.description);
     styleService.setPopularity(0);
     styleService.setIsPublic(false);
-    toast("Стиль сброшен");
+    toast(i18n.t("services.style.resetDone"));
     getModalServices().closeModal();
   }
 
@@ -28,7 +29,7 @@ class StyleService {
     const { success, message, file: style } = await importFile();
     if (success) {
       if (!style.hasOwnProperty("name") || typeof style.name !== "string") {
-        toast("Не найдено имя стиля");
+        toast(i18n.t("services.style.nameNotFound"));
         return;
       }
       if (
@@ -36,7 +37,7 @@ class StyleService {
         typeof style.content !== "object" ||
         style.content === null
       ) {
-        toast("Не найдено содержимое стиля");
+        toast(i18n.t("services.style.contentNotFound"));
         return;
       }
       const content = {};

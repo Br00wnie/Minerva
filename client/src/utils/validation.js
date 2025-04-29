@@ -1,5 +1,5 @@
 import * as yup from "yup";
-import i18n from "./i18n";
+import i18n from "../i18n";
 
 const MIN_LOGIN_LENGTH = 4;
 const MIN_PASSWORD_LENGTH = 8;
@@ -10,24 +10,24 @@ export const userYup = yup.object().shape({
     .string()
     .min(
       MIN_LOGIN_LENGTH,
-      i18n.t("validation.minLoginLength", { minLoginLength: MIN_LOGIN_LENGTH })
+      i18n.t("validation.login.tooShort", { minLoginLength: MIN_LOGIN_LENGTH })
     )
-    .required(i18n.t("validation.requiredLogin")),
+    .required(i18n.t("validation.login.required")),
   userPassword: yup
     .string()
     .min(
       MIN_PASSWORD_LENGTH,
-      i18n.t("validation.minPasswordLength", {
+      i18n.t("validation.password.tooShort", {
         minPasswordLength: MIN_PASSWORD_LENGTH,
       })
     )
-    .matches(/\d/, i18n.t("validation.noNumberInPassword"))
-    .matches(/[A-Z]/, i18n.t("validation.noCapitalLetterInPassword"))
+    .matches(/\d/, i18n.t("validation.password.noNumbers"))
+    .matches(/[A-Z]/, i18n.t("validation.password.noCapitalLetters"))
     .matches(
       /[!@#$%^&*(),.?":{}|<>]/,
-      i18n.t("validation.noSpecialCharacterInPassword")
+      i18n.t("validation.password.noSpecialCharacters")
     )
-    .required(i18n.t("validation.requiredPassword")),
+    .required(i18n.t("validation.password.required")),
 });
 
 export const nameYup = yup.object().shape({
@@ -35,7 +35,7 @@ export const nameYup = yup.object().shape({
     .string()
     .min(
       MIN_NAME_LENGTH,
-      i18n.t("validation.minNameLength", { minNameLength: MIN_NAME_LENGTH })
+      i18n.t("validation.name.tooShort", { minNameLength: MIN_NAME_LENGTH })
     )
-    .required(i18n.t("validation.requiredName")),
+    .required(i18n.t("validation.name.required")),
 });

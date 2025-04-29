@@ -26,13 +26,8 @@ const EditorToggleManager = () => {
   };
 
   if (location.pathname === STYLE_EDITOR_ROUTE)
-    return renderToggle(
-      "/icons/document.svg",
-      "Иконка документа",
-      handleToggleClick
-    );
-  else
-    return renderToggle("/icons/style.svg", "Иконка стиля", handleToggleClick);
+    return renderToggle("/icons/document.svg", "", handleToggleClick);
+  else return renderToggle("/icons/style.svg", "", handleToggleClick);
 };
 
 export default EditorToggleManager;

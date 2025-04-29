@@ -3,18 +3,160 @@
     "guest": "Вы вошли как гость",
     "regularUser": "С возвращением, {{login}}!"
   },
-  "toasts": {
-    "serverNotResponding": "Не удаётся достучаться до сервера"
+  "services": {
+    "user": {
+      "passwordsDoNotMatch": "Пароли не совпадают",
+      "logoutDone": "Выход выполнен"
+    },
+    "style": {
+      "resetDone": "Стиль сброшен",
+      "nameNotFound": "Не найдено имя стиля",
+      "contentNotFound": "Не найдено содержимое стиля"
+    },
+    "document": {
+      "resetDone": "Документ сброшен",
+      "nameNotFound": "Не найдено имя документа",
+      "nontentNotFound": "Не найдено содержимое документа",
+      "notCorrectContentStructure": "Содержимого имеет некорректную структуру"
+    }
   },
   "validation": {
-    "minLoginLength": "Минимальная длина логина — {{minLoginLength}} символа",
-    "requiredLogin": "Логин обязателен",
-    "minPasswordLength": "Минимальная длина пароля — {{minPasswordLength}} символов",
-    "requiredPassword": "Пароль обязателен",
-    "noNumberInPassword": "Пароль должен содержать хотя бы одну цифру",
-    "noCapitalLetterInPassword": "Пароль должен содержать хотя бы одну заглавную букву",
-    "noSpecialCharacterInPassword": "Пароль должен содержать хотя бы один спецсимвол",
-    "minNameLength": "Минимальная длина имени — {{minNameLength}} символа",
-    "requiredName": "Имя обязательно"
+    "login": {
+      "tooShort": "Минимальная длина логина — {{minLoginLength}} символа",
+      "required": "Логин обязателен"
+    },
+    "password": {
+      "tooShort": "Минимальная длина пароля — {{minPasswordLength}} символов",
+      "required": "Пароль обязателен",
+      "noNumbers": "Пароль должен содержать хотя бы одну цифру",
+      "noCapitalLetters": "Пароль должен содержать хотя бы одну заглавную букву",
+      "noSpecialCharacters": "Пароль должен содержать хотя бы один спецсимвол"
+    },
+    "name": {
+      "tooShort": "Минимальная длина имени — {{minNameLength}} символа",
+      "required": "Имя обязательно"
+    }
+  },
+  "fileImport": {
+    "fileNotSelected": "Файл не выбран",
+    "successfulImport": "Файл импортирован",
+    "corruptedFile": "Файл поврежден",
+    "unexpectedError": "Не удалось импортировать файл из-за непредвиденной ошибки"
+  },
+  "fileExport": {
+    "fileReadyToExport": "Файл готов к экспорту",
+    "unexpectedError": "Во время экспорта файла возникла непредвиденная ошибка"
+  },
+  "modals": {
+    "user": {
+      "registration": {
+        "title": "Зарегистрироваться",
+        "description": "Мы не собираем статистику и не передаем данные третьим лицам."
+      },
+      "login": {
+        "title": "Войти"
+      }
+    },
+    "style": {
+      "reset": {
+        "title": "Сбросить стиль",
+        "description": "Перед сбросом стиля, экспортируйте или сохраните на аккаунт текущий стиль, чтобы не потерять прогресс."
+      }
+    },
+    "document": {
+      "reset": {
+        "title": "Сбросить документ",
+        "description": "Перед сбросом документа, экспортируйте или сохраните на аккаунт текущий документ, чтобы не потерять прогресс."
+      }
+    },
+    "app": {
+      "about": {
+        "title": "О приложении",
+        "content": {
+          "description": {
+            "label": "Описание:",
+            "value": " веб-приложение для преобразования Markdown в PDF-файл с заданным оформлением"
+          },
+          "version": {
+            "label": "Версия:"
+          },
+          "author": {
+            "label": "Автор:"
+          },
+          "license": {
+            "label": "Лицензия:"
+          },
+          "repository": {
+            "label": "Репозиторий:"
+          }
+        }
+      }
+    }
+  },
+  "inputs": {
+    "login": {
+      "label": "Логин",
+      "description": "Ваш уникальный неизменяемый идентификатор. Он будет виден другим пользователям под вашими публичными стилями."
+    },
+    "password": {
+      "label": "Пароль",
+      "description": "Восстановление пароля не предусмотрено."
+    },
+    "repeatPassword": {
+      "label": "Повторите пароль"
+    },
+    "styleName": {
+      "label": "Название стиля"
+    },
+    "documentName": {
+      "placeholder": "Название документа"
+    },
+    "documentContent": {
+      "placeholder": "Содержимое документа"
+    }
+  },
+  "buttons": {
+    "cancel": {
+      "label": "Отмена"
+    },
+    "register": {
+      "label": "Зарегистрироваться"
+    },
+    "login": {
+      "label": "Войти"
+    },
+    "reset": {
+      "label": "Сбросить"
+    },
+    "close": {
+      "label": "Закрыть"
+    },
+    "export": {
+      "label": "Экспортировать"
+    },
+    "import": {
+      "label": "Импортировать"
+    },
+    "settings": {
+      "label": "Настройки"
+    },
+    "search": {
+      "label": "Поиск"
+    },
+    "document": {
+      "label": "Документ"
+    },
+    "stylize": {
+      "label": "Оформить"
+    },
+    "user": {
+      "label": "Пользователь"
+    },
+    "app": {
+      "label": "Приложение"
+    },
+    "about": {
+      "label": "О приложении"
+    }
   }
 }

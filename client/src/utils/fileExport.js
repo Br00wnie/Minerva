@@ -1,4 +1,5 @@
 import { saveAs } from "file-saver";
+import i18n from "../i18n";
 
 const exportFile = (file) => {
   return new Promise((resolve, reject) => {
@@ -7,10 +8,13 @@ const exportFile = (file) => {
         type: "application/json",
       });
       saveAs(blob, `${file.name}.json`);
-      resolve({ message: "Файл готов к экспорту", success: true });
+      resolve({
+        message: i18n.t("fileExport.fileReadyToExport"),
+        success: true,
+      });
     } catch (e) {
       reject({
-        message: "Во время экспорта файла возникла непредвиденная ошибка",
+        message: i18n.t("fileExport.unexpectedError"),
         success: false,
       });
     }

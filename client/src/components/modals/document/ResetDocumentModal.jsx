@@ -3,20 +3,22 @@ import MyModal from "../../ui/modal/MyModal";
 import MyButton from "../../ui/button/MyButton";
 import { RESET_DOCUMENT_MODAL_ID } from "../../../consts";
 import DocumentService from "../../../services/DocumentService";
+import { useTranslation } from "react-i18next";
 
 const ResetDocumentModal = () => {
+  const { t } = useTranslation();
+
   return (
     <MyModal
       id={RESET_DOCUMENT_MODAL_ID}
-      title="Сбросить документ"
-      description="Перед сбросом документа, экспортируйте или сохраните на аккаунт 
-      текущий документ, чтобы не потерять прогресс."
+      title={t("modals.document.reset.title")}
+      description={t("modals.document.reset.description")}
     >
       <div className="buttons">
-        <MyButton label="Отмена" data-close-modal />
+        <MyButton label={t("buttons.cancel.label")} data-close-modal />
         <MyButton
           className="danger"
-          label="Сбросить"
+          label={t("buttons.reset.label")}
           onClick={() => DocumentService.reset()}
         />
       </div>

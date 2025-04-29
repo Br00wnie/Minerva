@@ -8,6 +8,7 @@ import StyleStore from "../../../stores/StyleStore";
 import StyleService from "../../../services/StyleService";
 import { RESET_STYLE_MODAL_ID } from "../../../consts";
 import ModalStore from "../../../stores/ModalStore";
+import { useTranslation } from "react-i18next";
 
 const StyleEditorSidebar = ({ selectedTab }) => {
   const [styleStore, styleServices] = useStore(
@@ -18,6 +19,7 @@ const StyleEditorSidebar = ({ selectedTab }) => {
     ModalStore.store,
     ModalStore.services
   );
+  const { t } = useTranslation();
 
   return (
     <div>
@@ -30,7 +32,7 @@ const StyleEditorSidebar = ({ selectedTab }) => {
           }}
         >
           <MyInput
-            label="Название стиля"
+            label={t("inputs.styleName.label")}
             type="text"
             value={styleStore.name}
             onChange={(e) => styleServices.setName(e.target.value)}
@@ -44,15 +46,15 @@ const StyleEditorSidebar = ({ selectedTab }) => {
             }}
           >
             <MyButton
-              label="Экспортировать"
+              label={t("buttons.export.label")}
               onClick={() => StyleService.export()}
             ></MyButton>
             <MyButton
-              label="Импортировать"
+              label={t("buttons.import.label")}
               onClick={() => StyleService.import()}
             ></MyButton>
             <MyButton
-              label="Сбросить"
+              label={t("buttons.reset.label")}
               onClick={() => modalServices.openModal(RESET_STYLE_MODAL_ID)}
             ></MyButton>
           </div>

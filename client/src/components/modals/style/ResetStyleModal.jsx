@@ -3,20 +3,22 @@ import MyModal from "../../ui/modal/MyModal";
 import MyButton from "../../ui/button/MyButton";
 import { RESET_STYLE_MODAL_ID } from "../../../consts";
 import StyleService from "../../../services/StyleService";
+import { useTranslation } from "react-i18next";
 
 const ResetStyleModal = () => {
+  const { t } = useTranslation();
+
   return (
     <MyModal
       id={RESET_STYLE_MODAL_ID}
-      title="Сбросить стиль"
-      description="Перед сбросом стиля, экспортируйте или сохраните на аккаунт 
-      текущий стиль, чтобы не потерять прогресс."
+      title={t("modals.style.reset.title")}
+      description={t("modals.style.reset.description")}
     >
       <div className="buttons">
-        <MyButton label="Отмена" data-close-modal />
+        <MyButton label={t("buttons.cancel.label")} data-close-modal />
         <MyButton
           className="danger"
-          label="Сбросить"
+          label={t("buttons.reset.label")}
           onClick={() => StyleService.reset()}
         />
       </div>

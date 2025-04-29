@@ -1,8 +1,162 @@
 {
-  "welcome": "Welcome!",
-  "hello": "Hello, {{name}}!",
-  "errors": {
-    "serverNotResponding": "Server is not responding",
-    "cancel": "Cancel"
+  "welcome": {
+    "guest": "You have logged in as a guest",
+    "regularUser": "Welcome back, {{login}}!"
+  },
+  "services": {
+    "user": {
+      "passwordsDoNotMatch": "Passwords do not match",
+      "logoutDone": "Logout completed"
+    },
+    "style": {
+      "resetDone": "Style reset",
+      "nameNotFound": "Style name not found",
+      "contentNotFound": "Style content not found"
+    },
+    "document": {
+      "resetDone": "Document reset",
+      "nameNotFound": "Document name not found",
+      "nontentNotFound": "Document content not found",
+      "notCorrectContentStructure": "Content has an incorrect structure"
+    }
+  },
+  "validation": {
+    "login": {
+      "tooShort": "Login must be at least {{minLoginLength}} characters",
+      "required": "Login is required"
+    },
+    "password": {
+      "tooShort": "Password must be at least {{minPasswordLength}} characters",
+      "required": "Password is required",
+      "noNumbers": "Password must contain at least one number",
+      "noCapitalLetters": "Password must contain at least one capital letter",
+      "noSpecialCharacters": "Password must contain at least one special character"
+    },
+    "name": {
+      "tooShort": "Name must be at least {{minNameLength}} characters",
+      "required": "Name is required"
+    }
+  },
+  "fileImport": {
+    "fileNotSelected": "File not selected",
+    "successfulImport": "File imported successfully",
+    "corruptedFile": "File is corrupted",
+    "unexpectedError": "Failed to import file due to an unexpected error"
+  },
+  "fileExport": {
+    "fileReadyToExport": "File ready to export",
+    "unexpectedError": "An unexpected error occurred during file export"
+  },
+  "modals": {
+    "user": {
+      "registration": {
+        "title": "Register",
+        "description": "We do not collect statistics or share data with third parties."
+      },
+      "login": {
+        "title": "Log in"
+      }
+    },
+    "style": {
+      "reset": {
+        "title": "Reset style",
+        "description": "Before resetting the style, export or save the current style to your account to avoid losing progress."
+      }
+    },
+    "document": {
+      "reset": {
+        "title": "Reset document",
+        "description": "Before resetting the document, export or save the current document to your account to avoid losing progress."
+      }
+    },
+    "app": {
+      "about": {
+        "title": "About the application",
+        "content": {
+          "description": {
+            "label": "Description:",
+            "value": " a web application for converting Markdown to PDF with custom styling"
+          },
+          "version": {
+            "label": "Version:"
+          },
+          "author": {
+            "label": "Author:"
+          },
+          "license": {
+            "label": "License:"
+          },
+          "repository": {
+            "label": "Repository:"
+          }
+        }
+      }
+    }
+  },
+  "inputs": {
+    "login": {
+      "label": "Login",
+      "description": "Your unique immutable identifier. It will be visible to other users under your public styles."
+    },
+    "password": {
+      "label": "Password",
+      "description": "Password recovery is not provided."
+    },
+    "repeatPassword": {
+      "label": "Repeat password"
+    },
+    "styleName": {
+      "label": "Style name"
+    },
+    "documentName": {
+      "placeholder": "Document name"
+    },
+    "documentContent": {
+      "placeholder": "Document content"
+    }
+  },
+  "buttons": {
+    "cancel": {
+      "label": "Cancel"
+    },
+    "register": {
+      "label": "Register"
+    },
+    "login": {
+      "label": "Log in"
+    },
+    "reset": {
+      "label": "Reset"
+    },
+    "close": {
+      "label": "Close"
+    },
+    "export": {
+      "label": "Export"
+    },
+    "import": {
+      "label": "Import"
+    },
+    "settings": {
+      "label": "Settings"
+    },
+    "search": {
+      "label": "Search"
+    },
+    "document": {
+      "label": "Document"
+    },
+    "stylize": {
+      "label": "Apply style"
+    },
+    "user": {
+      "label": "User"
+    },
+    "app": {
+      "label": "Application"
+    },
+    "about": {
+      "label": "About"
+    }
   }
 }

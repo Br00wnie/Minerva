@@ -1,3 +1,5 @@
+import i18n from "../i18n";
+
 const importFile = () => {
   return new Promise((resolve, reject) => {
     const input = document.createElement("input");
@@ -5,19 +7,30 @@ const importFile = () => {
     input.accept = ".json";
     input.onchange = (event) => {
       const file = event.target.files[0];
-      if (!file) return reject({ message: "Файл не выбран", success: false });
+      if (!file)
+        return reject({
+          message: i18n.t("fileImport.fileNotSelected"),
+          success: false,
+        });
       const reader = new FileReader();
       reader.onload = () => {
         try {
           const file = JSON.parse(reader.result);
-          resolve({ message: "Файл импортирован", file, success: true });
+          resolve({
+            message: i18n.t("fileImport.successfulImport"),
+            file,
+            success: true,
+          });
         } catch (e) {
-          reject({ message: "Файл повреждён", success: false });
+          reject({
+            message: i18n.t("fileImport.corruptedFile"),
+            success: false,
+          });
         }
       };
       reader.onerror = () => {
         reject({
-          message: "Не удалось импортировать файл из-за непредвиденной ошибки",
+          message: i18n.t("fileImport.unexpectedError"),
           success: false,
         });
       };

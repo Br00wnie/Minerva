@@ -2,39 +2,38 @@ import { React } from "react";
 import MyModal from "../../ui/modal/MyModal";
 import MyButton from "../../ui/button/MyButton";
 import { ABOUT_MODAL_ID } from "../../../consts";
+import { useTranslation } from "react-i18next";
 
 const AboutModal = () => {
+  const { t } = useTranslation();
+
   return (
-    <MyModal id={ABOUT_MODAL_ID} title="О приложении">
+    <MyModal id={ABOUT_MODAL_ID} title={t("modals.app.about.title")}>
       <div className="inputs">
-        <img
-          src="/favicon.svg"
-          alt="Иконка приложения"
-          style={{ width: "4rem", height: "4rem" }}
-        />
+        <img src="/favicon.svg" style={{ width: "4rem", height: "4rem" }} />
         <h2>Minerva</h2>
         <p>
-          <b>Описание:</b> веб-приложение для преобразования Markdown в PDF-файл
-          с заданным оформлением
+          <b>{t("modals.app.about.content.description.label")}</b>
+          {t("modals.app.about.content.description.value")}
         </p>
         <p>
-          <b>Версия:</b> 0.1.0
+          <b>{t("modals.app.about.content.version.label")}</b> 0.1.0
         </p>
         <p>
-          <b>Автор:</b> Br00wnie
+          <b>{t("modals.app.about.content.author.label")}</b> Br00wnie
         </p>
         <p>
-          <b>Лицензия:</b> MIT
+          <b>{t("modals.app.about.content.license.label")}</b> MIT
         </p>
         <p>
-          <b>Репозиторий:</b>{" "}
+          <b>{t("modals.app.about.content.repository.label")}</b>{" "}
           <a href="https://github.com/Br00wnie/Minerva">
             https://github.com/Br00wnie/Minerva
           </a>
         </p>
       </div>
       <div className="buttons">
-        <MyButton label="Закрыть" data-close-modal />
+        <MyButton label={t("buttons.close.label")} data-close-modal />
       </div>
     </MyModal>
   );
