@@ -1,5 +1,5 @@
 import * as yup from "yup";
-import i18n from "../i18n";
+import i18n from "@src/i18n";
 
 const MIN_LOGIN_LENGTH = 4;
 const MIN_PASSWORD_LENGTH = 8;

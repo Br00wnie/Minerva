@@ -1,7 +1,6 @@
-import { React } from "react";
-import MyModal from "../../ui/modal/MyModal";
-import MyButton from "../../ui/button/MyButton";
-import { ABOUT_MODAL_ID } from "../../../consts";
+import MyModal from "@ui/modal/MyModal";
+import MyButton from "@ui/button/MyButton";
+import { ABOUT_MODAL_ID } from "@src/consts";
 import { useTranslation } from "react-i18next";
 
 const AboutModal = () => {

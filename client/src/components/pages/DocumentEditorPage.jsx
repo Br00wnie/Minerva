@@ -1,7 +1,6 @@
-import React from "react";
-import AppLayout from "../layout/AppLayout.jsx";
-import DocumentEditorHeader from "../layout/header/DocumentEditorHeader.jsx";
-import DocumentEditor from "../layout/main/documentEditor/DocumentEditor.jsx";
+import AppLayout from "@layout/AppLayout.jsx";
+import DocumentEditorHeader from "@layout/header/DocumentEditorHeader.jsx";
+import DocumentEditor from "@layout/main/documentEditor/DocumentEditor.jsx";
 
 const DocumentEditorPage = () => {
   return (

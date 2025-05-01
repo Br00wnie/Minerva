@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styles from "./MySpoiler.module.css";
 
 const MySpoiler = ({ label = "label", children, open }) => {

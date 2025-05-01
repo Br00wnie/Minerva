@@ -1,7 +1,6 @@
-import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { privateRoutes, publicRoutes } from "../routes.js";
-import { getUserStore } from "../stores/UserStore";
+import { privateRoutes, publicRoutes } from "@src/routes";
+import { getUserStore } from "@stores/UserStore";
 
 const RouteManager = () => {
   const isAuth = !!getUserStore().login;

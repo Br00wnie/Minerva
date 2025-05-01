@@ -1,5 +1,5 @@
-import { publicApi, privateApi } from "./index";
-import { SERVER_NOT_RESPONDING_MESSAGE } from "../consts";
+import { publicApi, privateApi } from "@http/index";
+import { SERVER_NOT_RESPONDING_MESSAGE } from "@src/consts";
 
 class UserApi {
   /* 
@@ -16,7 +16,7 @@ class UserApi {
         message: res.data.message,
         success: res.status >= 200 && res.status < 300,
       };
-    } catch (error) {
+    } catch {
       return {
         success: false,
         message: SERVER_NOT_RESPONDING_MESSAGE,
@@ -32,7 +32,7 @@ class UserApi {
         data: res.data.data,
         message: res.data.message,
       };
-    } catch (error) {
+    } catch {
       return {
         success: false,
         message: SERVER_NOT_RESPONDING_MESSAGE,
@@ -50,7 +50,7 @@ class UserApi {
         success: res.status >= 200 && res.status < 300,
         message: res.data.message,
       };
-    } catch (error) {
+    } catch {
       return {
         success: false,
         message: SERVER_NOT_RESPONDING_MESSAGE,
@@ -65,7 +65,7 @@ class UserApi {
         success: res.status >= 200 && res.status < 300,
         message: res.data.message,
       };
-    } catch (error) {
+    } catch {
       return {
         success: false,
         message: SERVER_NOT_RESPONDING_MESSAGE,
@@ -87,7 +87,7 @@ class UserApi {
         success: res.status >= 200 && res.status < 300,
         data: res.headers,
       };
-    } catch (error) {
+    } catch {
       return {
         success: false,
         message: SERVER_NOT_RESPONDING_MESSAGE,

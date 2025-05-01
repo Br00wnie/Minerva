@@ -1,11 +1,11 @@
-import Storage from "../utils/storageManagement";
-import defaultDocument from "../json/defaultDocument.json";
-import { buildStore } from "../incrum/store";
+import Storage from "@utils/storageManagement";
+import defaultDocument from "@public/json/document/defaultDocument.json";
+import { buildStore } from "@incrum/store";
 
 const store = buildStore({
   name: Storage.read("documentName") ?? defaultDocument.name,
   content: Storage.read("documentContent") ?? defaultDocument.content,
-  id: Number(Storage.read("documentId")) ?? null,
+  id: Number(Storage.read("documentId")) || null,
 });
 
 const services = (store) => ({

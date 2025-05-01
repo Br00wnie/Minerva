@@ -1,6 +1,6 @@
-import Storage from "../utils/storageManagement";
-import checkToken from "../utils/tokenChecking";
-import { buildStore } from "../incrum/store";
+import Storage from "@utils/storageManagement";
+import checkToken from "@utils/tokenChecking";
+import { buildStore } from "@incrum/store";
 
 const store = buildStore({
   login:

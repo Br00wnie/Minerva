@@ -1,5 +1,5 @@
-import { privateApi, publicApi } from "./index";
-import { SERVER_NOT_RESPONDING_MESSAGE } from "../consts";
+import { privateApi, publicApi } from "@http/index";
+import { SERVER_NOT_RESPONDING_MESSAGE } from "@src/consts";
 
 class StyleApi {
   /* 
@@ -17,7 +17,7 @@ class StyleApi {
         success: res.status >= 200 && res.status < 300,
         message: res.data.message,
       };
-    } catch (error) {
+    } catch {
       return {
         success: false,
         message: SERVER_NOT_RESPONDING_MESSAGE,
@@ -38,7 +38,7 @@ class StyleApi {
         data: res.data.data,
         message: res.data.message,
       };
-    } catch (error) {
+    } catch {
       return {
         success: false,
         message: SERVER_NOT_RESPONDING_MESSAGE,
@@ -70,7 +70,7 @@ class StyleApi {
         success: res.status >= 200 && res.status < 300,
         message: res.data.message,
       };
-    } catch (error) {
+    } catch {
       return {
         success: false,
         message: SERVER_NOT_RESPONDING_MESSAGE,
@@ -87,7 +87,7 @@ class StyleApi {
         success: res.status >= 200 && res.status < 300,
         message: res.data.message,
       };
-    } catch (error) {
+    } catch {
       return {
         success: false,
         message: SERVER_NOT_RESPONDING_MESSAGE,
@@ -110,7 +110,7 @@ class StyleApi {
         total: res.data.total,
         message: res.data.message,
       };
-    } catch (error) {
+    } catch {
       return {
         success: false,
         message: SERVER_NOT_RESPONDING_MESSAGE,
@@ -129,7 +129,7 @@ class StyleApi {
         total: res.data.total,
         message: res.data.message,
       };
-    } catch (error) {
+    } catch {
       return {
         success: false,
         message: SERVER_NOT_RESPONDING_MESSAGE,
@@ -146,7 +146,7 @@ class StyleApi {
         success: res.status >= 200 && res.status < 300,
         message: res.data.message,
       };
-    } catch (error) {
+    } catch {
       return {
         success: false,
         message: SERVER_NOT_RESPONDING_MESSAGE,

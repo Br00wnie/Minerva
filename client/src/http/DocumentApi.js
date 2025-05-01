@@ -1,5 +1,5 @@
-import { privateApi } from "./index";
-import { SERVER_NOT_RESPONDING_MESSAGE } from "../consts";
+import { privateApi } from "@http/index";
+import { SERVER_NOT_RESPONDING_MESSAGE } from "@src/consts";
 
 class DocumentApi {
   /* 
@@ -16,7 +16,7 @@ class DocumentApi {
         success: res.status >= 200 && res.status < 300,
         message: res.data.message,
       };
-    } catch (error) {
+    } catch {
       return {
         success: false,
         message: SERVER_NOT_RESPONDING_MESSAGE,
@@ -37,7 +37,7 @@ class DocumentApi {
         data: res.data.data,
         message: res.data.message,
       };
-    } catch (error) {
+    } catch {
       return {
         success: false,
         message: SERVER_NOT_RESPONDING_MESSAGE,
@@ -58,7 +58,7 @@ class DocumentApi {
         success: res.status >= 200 && res.status < 300,
         message: res.data.message,
       };
-    } catch (error) {
+    } catch {
       return {
         success: false,
         message: SERVER_NOT_RESPONDING_MESSAGE,
@@ -75,7 +75,7 @@ class DocumentApi {
         success: res.status >= 200 && res.status < 300,
         message: res.data.message,
       };
-    } catch (error) {
+    } catch {
       return {
         success: false,
         message: SERVER_NOT_RESPONDING_MESSAGE,
@@ -98,7 +98,7 @@ class DocumentApi {
         total: res.data.total,
         message: res.data.message,
       };
-    } catch (error) {
+    } catch {
       return {
         success: false,
         message: SERVER_NOT_RESPONDING_MESSAGE,

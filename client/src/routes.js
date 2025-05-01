@@ -1,6 +1,6 @@
-import DocumentEditorPage from "./components/pages/DocumentEditorPage";
-import StyleEditorPage from "./components/pages/StyleEditorPage";
-import { DOCUMENT_EDITOR_ROUTE, STYLE_EDITOR_ROUTE } from "./consts";
+import DocumentEditorPage from "@components/pages/DocumentEditorPage";
+import StyleEditorPage from "@components/pages/StyleEditorPage";
+import { DOCUMENT_EDITOR_ROUTE, STYLE_EDITOR_ROUTE } from "@src/consts";
 
 export const privateRoutes = [];
 

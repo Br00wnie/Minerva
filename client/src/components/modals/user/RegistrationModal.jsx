@@ -1,9 +1,9 @@
-import { React, useState } from "react";
-import MyModal from "../../ui/modal/MyModal";
-import MyButton from "../../ui/button/MyButton";
-import MyInput from "../../ui/input/MyInput";
-import { REGISTRATION_MODAL_ID } from "../../../consts";
-import UserService from "../../../services/UserService";
+import { useState } from "react";
+import MyModal from "@ui/modal/MyModal";
+import MyButton from "@ui/button/MyButton";
+import MyInput from "@ui/input/MyInput";
+import { REGISTRATION_MODAL_ID } from "@src/consts";
+import UserService from "@services/UserService";
 import { useTranslation } from "react-i18next";
 
 const RegistrationModal = () => {

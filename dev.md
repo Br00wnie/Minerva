@@ -162,6 +162,7 @@ Cookies are used for authorization and store only a token containing the user_id
 - Files that are entry points (both on the server and the client) are named "index"
 - Client can get _user_id_ only in hashed form
 - Atomic UI components can be assigned no more than one class
+- Only omit the extension for .js files when importing — no other extensions should be dropped
 
 # Development Setup
 

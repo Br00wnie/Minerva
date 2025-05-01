@@ -1,13 +1,13 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Previewer } from "pagedjs";
-import DocumentStore from "../../../../stores/DocumentStore";
-import { useStore } from "../../../../incrum/store";
-import useDocumentStyle from "../../../../hooks/useDocumentStyle";
-import generateStylizedDocument from "../../../../utils/stylizedDocumentGeneration";
+import DocumentStore from "@stores/DocumentStore";
+import { useStore } from "@incrum/store";
+import useDocumentStyle from "@hooks/useDocumentStyle";
+import generateStylizedDocument from "@utils/stylizedDocumentGeneration";
 import "./PagedJS.css";
 
 const StylePreview = () => {
-  const [documentStore, documentServices] = useStore(DocumentStore.store);
+  const [documentStore] = useStore(DocumentStore.store);
   const documentStyle = useDocumentStyle();
   const previewContainerRef = useRef(null);
   const previewerRef = useRef(null);

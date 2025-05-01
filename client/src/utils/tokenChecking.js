@@ -8,7 +8,7 @@ const checkToken = () => {
     const decodedToken = jwtDecode(codedToken);
     if (decodedToken.exp < Date.now() / 1000) return false;
     return true;
-  } catch (error) {
+  } catch {
     return false;
   }
 };

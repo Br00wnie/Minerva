@@ -1,13 +1,13 @@
-import Storage from "../utils/storageManagement";
-import defaultStyle from "../json/defaultStyle.json";
-import { buildStore } from "../incrum/store";
+import Storage from "@utils/storageManagement";
+import defaultStyle from "@public/json/style/defaultStyle.json";
+import { buildStore } from "@incrum/store";
 
 const store = buildStore({
   name: Storage.read("styleName") ?? defaultStyle.name,
   description: Storage.read("styleDescription") ?? defaultStyle.description,
   content: JSON.parse(Storage.read("styleContent")) ?? defaultStyle.content,
-  id: Number(Storage.read("styleId")) ?? null,
-  popularity: Number(Storage.read("stylePopularity")) ?? null,
+  id: Number(Storage.read("styleId")) || null,
+  popularity: Number(Storage.read("stylePopularity")) || null,
   isPublic: (() => {
     const storageValue = Storage.read("styleIsPublic");
     return storageValue !== null ? storageValue.toLowerCase() === "true" : null;

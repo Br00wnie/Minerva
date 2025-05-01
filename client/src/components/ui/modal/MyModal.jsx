@@ -1,13 +1,10 @@
 import React from "react";
 import styles from "./MyModal.module.css";
-import ModalStore from "../../../stores/ModalStore";
-import { useStore } from "../../../incrum/store";
+import ModalStore from "@stores/ModalStore";
+import { useStore } from "@incrum/store";
 
 const MyModal = ({ title = "title", description, children }) => {
-  const [modalStore, modalServices] = useStore(
-    ModalStore.store,
-    ModalStore.services
-  );
+  const [, modalServices] = useStore(ModalStore.store, ModalStore.services);
 
   return (
     <div

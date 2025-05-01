@@ -1,13 +1,12 @@
-import React from "react";
 import StyleSettingsPanel from "./StyleSettingsPanel";
 import StyleSearchPanel from "./StyleSearchPanel";
-import MyButton from "../../ui/button/MyButton";
-import MyInput from "../../ui/input/MyInput";
-import { useStore } from "../../../incrum/store";
-import StyleStore from "../../../stores/StyleStore";
-import StyleService from "../../../services/StyleService";
-import { RESET_STYLE_MODAL_ID } from "../../../consts";
-import ModalStore from "../../../stores/ModalStore";
+import MyButton from "@ui/button/MyButton";
+import MyInput from "@ui/input/MyInput";
+import { useStore } from "@incrum/store";
+import StyleStore from "@stores/StyleStore";
+import StyleService from "@services/StyleService";
+import { RESET_STYLE_MODAL_ID } from "@src/consts";
+import ModalStore from "@stores/ModalStore";
 import { useTranslation } from "react-i18next";
 
 const StyleEditorSidebar = ({ selectedTab }) => {
@@ -15,10 +14,7 @@ const StyleEditorSidebar = ({ selectedTab }) => {
     StyleStore.store,
     StyleStore.services
   );
-  const [modalStore, modalServices] = useStore(
-    ModalStore.store,
-    ModalStore.services
-  );
+  const [, modalServices] = useStore(ModalStore.store, ModalStore.services);
   const { t } = useTranslation();
 
   return (

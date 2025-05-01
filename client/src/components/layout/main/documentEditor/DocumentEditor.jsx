@@ -1,10 +1,9 @@
-import React from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import styles from "./DocumentEditor.module.css";
-import editorConfig from "../../../../json/editorConfig.json";
-import DocumentStore from "../../../../stores/DocumentStore";
-import { useStore } from "../../../../incrum/store";
+import editorConfig from "@public/json/document/editorConfig.json";
+import DocumentStore from "@stores/DocumentStore";
+import { useStore } from "@incrum/store";
 import "./Quill.css";
 import { useTranslation } from "react-i18next";
 

@@ -1,11 +1,10 @@
-import React from "react";
 import ReactDOM from "react-dom";
 import { useLocation, useNavigate } from "react-router-dom";
 import {
   DOCUMENT_EDITOR_ROUTE,
   STYLE_EDITOR_ROUTE,
   PORTAL_ID,
-} from "../consts";
+} from "@src/consts";
 
 const renderToggle = (src, alt, clickHandler, title) =>
   ReactDOM.createPortal(

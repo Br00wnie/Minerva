@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
-import MyToast from "../components/ui/toast/MyToast";
-import { PORTAL_ID } from "../consts";
-import { setDisplayToastFunction } from "../utils/toast";
+import MyToast from "@ui/toast/MyToast";
+import { PORTAL_ID } from "@src/consts";
+import { setDisplayToastFunction } from "@utils/toast";
 
 const ToastManager = () => {
   const [toasts, updateToasts] = useState([]);

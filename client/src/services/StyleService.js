@@ -1,12 +1,12 @@
-import { getModalServices } from "../stores/ModalStore.js";
-import { getStyleStore, getStyleServices } from "../stores/StyleStore.js";
-import toast from "../utils/toast.js";
-import exportFile from "../utils/fileExport.js";
-import importFile from "../utils/fileImport.js";
-import defaultStyle from "../json/defaultStyle.json";
-import styleMeta from "../json/styleMeta.json";
+import { getModalServices } from "@stores/ModalStore";
+import { getStyleStore, getStyleServices } from "@stores/StyleStore";
+import toast from "@utils/toast";
+import exportFile from "@utils/fileExport";
+import importFile from "@utils/fileImport";
+import defaultStyle from "@public/json/style/defaultStyle.json";
+import styleMeta from "@public/json/style/styleMeta.json";
 import tinycolor from "tinycolor2";
-import i18n from "../i18n.js";
+import i18n from "@src/i18n";
 
 class StyleService {
   /* 
@@ -28,12 +28,12 @@ class StyleService {
   static async import() {
     const { success, message, file: style } = await importFile();
     if (success) {
-      if (!style.hasOwnProperty("name") || typeof style.name !== "string") {
+      if (!Object.hasOwn(style, "name") || typeof style.name !== "string") {
         toast(i18n.t("services.style.nameNotFound"));
         return;
       }
       if (
-        !style.hasOwnProperty("content") ||
+        !Object.hasOwn(style, "content") ||
         typeof style.content !== "object" ||
         style.content === null
       ) {
@@ -46,10 +46,11 @@ class StyleService {
         const value = style.content[key];
         const defaultValue = defaultStyle.content[key];
         switch (meta.type) {
-          case "color":
+          case "color": {
             content[key] = tinycolor(value).isValid() ? value : defaultValue;
             break;
-          case "number":
+          }
+          case "number": {
             if (typeof value !== "number" || isNaN(value)) {
               content[key] = defaultValue;
               break;
@@ -66,15 +67,19 @@ class StyleService {
             }
             content[key] = result;
             break;
-          case "string":
+          }
+          case "string": {
             content[key] = typeof value === "string" ? value : defaultValue;
             break;
-          case "select":
+          }
+          case "select": {
             const values = meta.options.map((option) => option.value);
             content[key] = values.includes(value) ? value : defaultValue;
             break;
-          default:
+          }
+          default: {
             content[key] = defaultValue;
+          }
         }
       });
       const styleService = getStyleServices();

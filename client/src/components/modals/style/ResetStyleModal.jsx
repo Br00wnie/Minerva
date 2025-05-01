@@ -1,8 +1,7 @@
-import { React } from "react";
-import MyModal from "../../ui/modal/MyModal";
-import MyButton from "../../ui/button/MyButton";
-import { RESET_STYLE_MODAL_ID } from "../../../consts";
-import StyleService from "../../../services/StyleService";
+import MyModal from "@ui/modal/MyModal";
+import MyButton from "@ui/button/MyButton";
+import { RESET_STYLE_MODAL_ID } from "@src/consts";
+import StyleService from "@services/StyleService";
 import { useTranslation } from "react-i18next";
 
 const ResetStyleModal = () => {

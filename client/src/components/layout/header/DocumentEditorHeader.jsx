@@ -1,23 +1,19 @@
-import React from "react";
-import ModalStore from "../../../stores/ModalStore.js";
-import { useStore } from "../../../incrum/store.jsx";
+import ModalStore from "@stores/ModalStore";
+import { useStore } from "@incrum/store.jsx";
 import {
   REGISTRATION_MODAL_ID,
   LOG_IN_MODAL_ID,
   RESET_DOCUMENT_MODAL_ID,
   ABOUT_MODAL_ID,
-} from "../../../consts.js";
-import MyDropdown from "../../ui/dropdown/MyDropdown.jsx";
-import DocumentService from "../../../services/DocumentService.js";
-import generatePdf from "../../../utils/pdfGeneration.js";
-import useDocumentStyle from "../../../hooks/useDocumentStyle.js";
+} from "@src/consts";
+import MyDropdown from "@ui/dropdown/MyDropdown.jsx";
+import DocumentService from "@services/DocumentService";
+import generatePdf from "@utils/pdfGeneration";
+import useDocumentStyle from "@hooks/useDocumentStyle";
 import { useTranslation } from "react-i18next";
 
 const DocumentEditorHeader = () => {
-  const [modalStore, modalServices] = useStore(
-    ModalStore.store,
-    ModalStore.services
-  );
+  const [, modalServices] = useStore(ModalStore.store, ModalStore.services);
   const documentStyle = useDocumentStyle();
   const { t } = useTranslation();
 

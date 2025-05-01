@@ -1,5 +1,5 @@
 import { saveAs } from "file-saver";
-import i18n from "../i18n";
+import i18n from "@src/i18n";
 
 const exportFile = (file) => {
   return new Promise((resolve, reject) => {
@@ -12,7 +12,7 @@ const exportFile = (file) => {
         message: i18n.t("fileExport.fileReadyToExport"),
         success: true,
       });
-    } catch (e) {
+    } catch {
       reject({
         message: i18n.t("fileExport.unexpectedError"),
         success: false,

@@ -1,5 +1,4 @@
-import React from "react";
-import MyToggle from "../../ui/toggle/MyToggle";
+import MyToggle from "@ui/toggle/MyToggle";
 import { useTranslation } from "react-i18next";
 
 const StyleEditorHeader = ({ value, onChange }) => {

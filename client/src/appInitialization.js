@@ -1,6 +1,6 @@
-import { getUserStore } from "./stores/UserStore.js";
-import toast from "./utils/toast.js";
-import i18n from "./i18n.js";
+import { getUserStore } from "@stores/UserStore";
+import toast from "@utils/toast";
+import i18n from "@src/i18n";
 
 const initializeApp = () => {
   const login = getUserStore().login;

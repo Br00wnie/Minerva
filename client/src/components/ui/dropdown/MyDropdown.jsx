@@ -1,12 +1,7 @@
 import React, { useState } from "react";
 import styles from "./MyDropdown.module.css";
 
-const MyDropdown = ({
-  label = "label",
-  children,
-  className = "",
-  ...props
-}) => {
+const MyDropdown = ({ label = "label", children, ...props }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleIsOpen = () => {
     setIsOpen(!isOpen);

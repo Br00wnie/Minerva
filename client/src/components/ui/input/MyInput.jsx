@@ -1,4 +1,3 @@
-import React from "react";
 import "./ReactSelect.css";
 import ReactSelect from "react-select";
 import styles from "./MyInput.module.css";

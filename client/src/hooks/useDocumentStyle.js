@@ -1,5 +1,5 @@
-import { useStore } from "../incrum/store";
-import StyleStore from "../stores/StyleStore";
+import { useStore } from "@incrum/store";
+import StyleStore from "@stores/StyleStore";
 
 const useDocumentStyle = () => {
   const [styleStore] = useStore(StyleStore.store);

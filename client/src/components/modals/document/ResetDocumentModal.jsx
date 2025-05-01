@@ -1,8 +1,7 @@
-import { React } from "react";
-import MyModal from "../../ui/modal/MyModal";
-import MyButton from "../../ui/button/MyButton";
-import { RESET_DOCUMENT_MODAL_ID } from "../../../consts";
-import DocumentService from "../../../services/DocumentService";
+import MyModal from "@ui/modal/MyModal";
+import MyButton from "@ui/button/MyButton";
+import { RESET_DOCUMENT_MODAL_ID } from "@src/consts";
+import DocumentService from "@services/DocumentService";
 import { useTranslation } from "react-i18next";
 
 const ResetDocumentModal = () => {

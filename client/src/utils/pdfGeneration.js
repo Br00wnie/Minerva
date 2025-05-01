@@ -1,7 +1,7 @@
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
-import generateStylizedDocument from "./stylizedDocumentGeneration";
-import { getDocumentStore } from "../stores/DocumentStore";
+import generateStylizedDocument from "@utils/stylizedDocumentGeneration";
+import { getDocumentStore } from "@stores/DocumentStore";
 import { Previewer } from "pagedjs";
 
 const generatePdf = async (documentStyle) => {

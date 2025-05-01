@@ -1,14 +1,11 @@
-import { getModalServices } from "../stores/ModalStore.js";
-import {
-  getDocumentStore,
-  getDocumentServices,
-} from "../stores/DocumentStore.js";
-import toast from "../utils/toast.js";
-import exportFile from "../utils/fileExport.js";
-import importFile from "../utils/fileImport.js";
-import emptyDocument from "../json/emptyDocument.json";
+import { getModalServices } from "@stores/ModalStore";
+import { getDocumentStore, getDocumentServices } from "@stores/DocumentStore";
+import toast from "@utils/toast";
+import exportFile from "@utils/fileExport";
+import importFile from "@utils/fileImport";
+import emptyDocument from "@public/json/document/emptyDocument.json";
 import parse from "html-react-parser";
-import i18n from "../i18n.js";
+import i18n from "@src/i18n";
 
 class DocumentService {
   /* 
@@ -28,14 +25,14 @@ class DocumentService {
     const { success, message, file: document } = await importFile();
     if (success) {
       if (
-        !document.hasOwnProperty("name") ||
+        !Object.hasOwn(document, "name") ||
         typeof document.name !== "string"
       ) {
         toast(i18n.t("services.document.nameNotFound"));
         return;
       }
       if (
-        !document.hasOwnProperty("content") ||
+        !Object.hasOwn(document, "content") ||
         typeof document.content !== "string"
       ) {
         toast(i18n.t("services.document.contentNotFound"));
@@ -43,7 +40,7 @@ class DocumentService {
       }
       try {
         parse(document.content);
-      } catch (e) {
+      } catch {
         toast(i18n.t("services.document.notCorrectContentStructure"));
         return;
       }

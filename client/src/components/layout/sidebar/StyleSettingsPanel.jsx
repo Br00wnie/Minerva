@@ -1,9 +1,8 @@
-import React from "react";
-import styleMeta from "../../../json/styleMeta.json";
-import MyInput from "../../ui/input/MyInput";
-import { useStore } from "../../../incrum/store";
-import StyleStore from "../../../stores/StyleStore";
-import MySpoiler from "../../ui/spoiler/MySpoiler";
+import styleMeta from "@public/json/style/styleMeta.json";
+import MyInput from "@ui/input/MyInput";
+import { useStore } from "@incrum/store";
+import StyleStore from "@stores/StyleStore";
+import MySpoiler from "@ui/spoiler/MySpoiler";
 import { useTranslation } from "react-i18next";
 
 const StyleSettingsPanel = () => {

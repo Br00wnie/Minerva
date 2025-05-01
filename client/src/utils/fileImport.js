@@ -1,4 +1,4 @@
-import i18n from "../i18n";
+import i18n from "@src/i18n";
 
 const importFile = () => {
   return new Promise((resolve, reject) => {
@@ -21,7 +21,7 @@ const importFile = () => {
             file,
             success: true,
           });
-        } catch (e) {
+        } catch {
           reject({
             message: i18n.t("fileImport.corruptedFile"),
             success: false,

@@ -1,9 +1,9 @@
-import UserApi from "../http/UserApi.js";
-import { getModalServices } from "../stores/ModalStore.js";
-import { getUserServices } from "../stores/UserStore.js";
-import { userYup } from "../utils/validation";
-import toast from "../utils/toast.js";
-import i18n from "../i18n";
+import UserApi from "@http/UserApi";
+import { getModalServices } from "@stores/ModalStore";
+import { getUserServices } from "@stores/UserStore";
+import { userYup } from "@utils/validation";
+import toast from "@utils/toast";
+import i18n from "@src/i18n";
 
 class UserService {
   /* 
