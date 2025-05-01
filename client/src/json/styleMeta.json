@@ -1,17 +1,14 @@
 {
   "color": {
-    "label": "Цвет шрифта",
     "type": "color",
-    "group": "Шрифт"
+    "group": "font"
   },
   "font-size": {
-    "label": "Размер шрифта [пт]",
     "type": "number",
     "min": 1,
-    "group": "Шрифт"
+    "group": "font"
   },
   "font-family": {
-    "label": "Шрифт",
     "type": "select",
     "options": [
       { "label": "Arial", "value": "Arial" },
@@ -20,10 +17,9 @@
         "value": "Times New Roman"
       }
     ],
-    "group": "Шрифт"
+    "group": "font"
   },
   "text-align": {
-    "label": "Выравнивание текста",
     "type": "select",
     "options": [
       { "label": "К левому краю", "value": "left" },
@@ -31,63 +27,55 @@
       { "label": "К центру", "value": "center" },
       { "label": "К ширине", "value": "justify" }
     ],
-    "group": "Позиционирование"
+    "group": "positioning"
   },
   "line-height": {
-    "label": "Межстрочный интервал [доля размера шрифта]",
     "type": "number",
     "step": 0.1,
-    "group": "Позиционирование"
+    "group": "positioning"
   },
   "margin-top": {
-    "label": "Верхнее поле страницы [см]",
     "type": "number",
     "step": 0.1,
     "min": 0,
-    "group": "Позиционирование",
-    "subgroup": "Поля"
+    "group": "positioning",
+    "subgroup": "margin"
   },
   "margin-right": {
-    "label": "Правое поле страницы [см]",
     "type": "number",
     "step": 0.1,
     "min": 0,
-    "group": "Позиционирование",
-    "subgroup": "Поля"
+    "group": "positioning",
+    "subgroup": "margin"
   },
   "margin-bottom": {
-    "label": "Нижнее поле страницы [см]",
     "type": "number",
     "step": 0.1,
     "min": 0,
-    "group": "Позиционирование",
-    "subgroup": "Поля"
+    "group": "positioning",
+    "subgroup": "margin"
   },
   "margin-left": {
-    "label": "Левое поле страницы [см]",
     "type": "number",
     "step": 0.1,
     "min": 0,
-    "group": "Позиционирование",
-    "subgroup": "Поля"
+    "group": "positioning",
+    "subgroup": "margin"
   },
   "paragraph-spacing": {
-    "label": "Межабзацный интервал [доля размера шрифта]",
     "type": "number",
     "step": 0.1,
     "min": 0,
-    "group": "Позиционирование"
+    "group": "positioning"
   },
   "text-indent": {
-    "label": "Отступ красной строки [см]",
     "type": "number",
     "step": 0.1,
     "min": 0,
-    "group": "Позиционирование"
+    "group": "positioning"
   },
   "background-color": {
-    "label": "Цвета фона",
     "type": "color",
-    "group": "Страница"
+    "group": "page"
   }
 }

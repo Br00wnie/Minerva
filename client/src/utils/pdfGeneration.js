@@ -22,7 +22,7 @@ const generatePdf = async (documentStyle) => {
     const pdf = new jsPDF({
       orientation: "portrait",
       unit: "mm",
-      format: "a4",
+      format: "letter",
     });
     for (let i = 0; i < pages.length; i++) {
       const page = pages[i];

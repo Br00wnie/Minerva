@@ -4,6 +4,7 @@ import MyInput from "../../ui/input/MyInput";
 import { useStore } from "../../../incrum/store";
 import StyleStore from "../../../stores/StyleStore";
 import MySpoiler from "../../ui/spoiler/MySpoiler";
+import { useTranslation } from "react-i18next";
 
 const StyleSettingsPanel = () => {
   const [styleStore, styleServices] = useStore(
@@ -12,13 +13,15 @@ const StyleSettingsPanel = () => {
   );
   const handleSettingsChange = (key, type) => (newValue) => {
     newValue = type === "select" ? newValue.value : newValue.target.value;
-    newValue = type === "number" ? Number(newValue) : newValue;
+    if (type === "number") newValue = newValue === "" ? "" : Number(newValue);
     const newStyleContent = { ...styleStore.content };
     newStyleContent[key] = newValue;
     styleServices.setContent(newStyleContent);
   };
+  const { t } = useTranslation();
   const groups = Object.keys(styleMeta).reduce((acc, key) => {
-    const groupName = styleMeta[key].group;
+    let groupName = styleMeta[key].group;
+    groupName = t(`styleMeta.groups.${groupName}`);
     if (!acc[groupName]) acc[groupName] = [];
     acc[groupName].push({ key, ...styleMeta[key] });
     return acc;
@@ -61,7 +64,7 @@ const StyleSettingsPanel = () => {
                   }
                   onChange={handleSettingsChange(key, params.type)}
                   options={params.options}
-                  label={params.label}
+                  label={t(`styleMeta.labels.${key}`)}
                   description={params.description}
                   type={params.type}
                   min={params.min}

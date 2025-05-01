@@ -1,6 +1,6 @@
 {
   "welcome": {
-    "guest": "You have logged in as a guest",
+    "guest": "You logged in as a guest",
     "regularUser": "Welcome back, {{login}}!"
   },
   "services": {
@@ -9,15 +9,15 @@
       "logoutDone": "Logout completed"
     },
     "style": {
-      "resetDone": "Style reset",
+      "resetDone": "Style is reset",
       "nameNotFound": "Style name not found",
       "contentNotFound": "Style content not found"
     },
     "document": {
-      "resetDone": "Document reset",
+      "resetDone": "Document is reset",
       "nameNotFound": "Document name not found",
       "nontentNotFound": "Document content not found",
-      "notCorrectContentStructure": "Content has an incorrect structure"
+      "notCorrectContentStructure": "Content has incorrect structure"
     }
   },
   "validation": {
@@ -41,11 +41,11 @@
     "fileNotSelected": "File not selected",
     "successfulImport": "File imported successfully",
     "corruptedFile": "File is corrupted",
-    "unexpectedError": "Failed to import file due to an unexpected error"
+    "unexpectedError": "Failed to import file due to unexpected error"
   },
   "fileExport": {
-    "fileReadyToExport": "File ready to export",
-    "unexpectedError": "An unexpected error occurred during file export"
+    "fileReadyToExport": "File is ready to export",
+    "unexpectedError": "Unexpected error occurred during file export"
   },
   "modals": {
     "user": {
@@ -53,7 +53,7 @@
         "title": "Register",
         "description": "We do not collect statistics or share data with third parties."
       },
-      "login": {
+      "logIn": {
         "title": "Log in"
       }
     },
@@ -75,10 +75,14 @@
         "content": {
           "description": {
             "label": "Description:",
-            "value": " a web application for converting Markdown to PDF with custom styling"
+            "value": " web app for converting Markdown to PDF file with specified layout"
           },
           "version": {
             "label": "Version:"
+          },
+          "languages": {
+            "label": "Localization:",
+            "value": " English, Russian (auto-detected from browser language)"
           },
           "author": {
             "label": "Author:"
@@ -122,7 +126,7 @@
     "register": {
       "label": "Register"
     },
-    "login": {
+    "logIn": {
       "label": "Log in"
     },
     "reset": {
@@ -147,16 +151,41 @@
       "label": "Document"
     },
     "stylize": {
-      "label": "Apply style"
+      "label": "Stylize"
     },
     "user": {
       "label": "User"
     },
     "app": {
-      "label": "Application"
+      "label": "App"
     },
     "about": {
       "label": "About"
     }
+  },
+  "styleMeta": {
+    "groups": {
+      "page": "Page",
+      "positioning": "Positioning",
+      "font": "Font"
+    },
+    "labels": {
+      "color": "Font color",
+      "font-size": "Font size [pt]",
+      "font-family": "Font",
+      "text-align": "Text alignment",
+      "line-height": "Line spacing [font size ratio]",
+      "margin-top": "Top page margin [cm]",
+      "margin-right": "Right page margin [cm]",
+      "margin-bottom": "Bottom page margin [cm]",
+      "margin-left": "Left page margin [cm]",
+      "paragraph-spacing": "Paragraph spacing [font size ratio]",
+      "text-indent": "First-line indent [cm]",
+      "background-color": "Background color"
+    }
+  },
+  "smallWindowMessage": {
+    "h2": "Enlarge the window size",
+    "p": "The application requires a larger browser window to work properly"
   }
 }

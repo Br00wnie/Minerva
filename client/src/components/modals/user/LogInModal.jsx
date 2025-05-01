@@ -2,17 +2,17 @@ import React, { useState } from "react";
 import MyModal from "../../ui/modal/MyModal";
 import MyButton from "../../ui/button/MyButton";
 import MyInput from "../../ui/input/MyInput";
-import { LOGIN_MODAL_ID } from "../../../consts";
+import { LOG_IN_MODAL_ID } from "../../../consts";
 import UserService from "../../../services/UserService";
 import { useTranslation } from "react-i18next";
 
-const LoginModal = () => {
+const LogInModal = () => {
   const [userLogin, setUserLogin] = useState("");
   const [userPassword, setUserPassword] = useState("");
   const { t } = useTranslation();
 
   return (
-    <MyModal id={LOGIN_MODAL_ID} title={t("modals.user.login.title")}>
+    <MyModal id={LOG_IN_MODAL_ID} title={t("modals.user.logIn.title")}>
       <div className="inputs">
         <MyInput
           label={t("inputs.login.label")}
@@ -31,9 +31,9 @@ const LoginModal = () => {
       <div className="buttons">
         <MyButton label={t("buttons.cancel.label")} data-close-modal />
         <MyButton
-          label={t("buttons.login.label")}
+          label={t("buttons.logIn.label")}
           onClick={() =>
-            UserService.login({
+            UserService.logIn({
               userLogin,
               userPassword,
             })
@@ -44,4 +44,4 @@ const LoginModal = () => {
   );
 };
 
-export default LoginModal;
+export default LogInModal;

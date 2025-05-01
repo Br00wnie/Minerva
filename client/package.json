@@ -14,7 +14,6 @@
     "axios": "^1.7.9",
     "file-saver": "^2.0.5",
     "html-react-parser": "^5.2.3",
-    "html-to-pdfmake": "^2.5.23",
     "html2canvas": "^1.4.1",
     "i18next": "^25.0.1",
     "i18next-browser-languagedetector": "^8.0.5",
@@ -23,7 +22,6 @@
     "jspdf": "^3.0.1",
     "jwt-decode": "^4.0.0",
     "pagedjs": "^0.4.3",
-    "pdfmake": "^0.2.19",
     "quill": "^2.0.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -31,7 +29,6 @@
     "react-quill": "^2.0.0",
     "react-router-dom": "^7.0.2",
     "react-select": "^5.8.3",
-    "style-to-object": "^1.0.8",
     "tinycolor2": "^1.6.0",
     "yup": "^1.5.0"
   },

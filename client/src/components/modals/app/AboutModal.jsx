@@ -20,6 +20,10 @@ const AboutModal = () => {
           <b>{t("modals.app.about.content.version.label")}</b> 0.1.0
         </p>
         <p>
+          <b>{t("modals.app.about.content.languages.label")}</b>
+          {t("modals.app.about.content.languages.value")}
+        </p>
+        <p>
           <b>{t("modals.app.about.content.author.label")}</b> Br00wnie
         </p>
         <p>

@@ -32,7 +32,7 @@ class UserService {
     toast(result.message);
   }
 
-  static async login({ userLogin, userPassword }) {
+  static async logIn({ userLogin, userPassword }) {
     try {
       await userYup.validate({
         userLogin,
@@ -42,7 +42,7 @@ class UserService {
       toast(error.message);
       return;
     }
-    const result = await UserApi.login({ userLogin, userPassword });
+    const result = await UserApi.logIn({ userLogin, userPassword });
     if (result.success) {
       getModalServices().closeModal();
       getUserServices().setLogin(userLogin);

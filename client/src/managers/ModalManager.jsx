@@ -2,14 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { getModalStore } from "../stores/ModalStore";
 import RegistrationModal from "../components/modals/user/RegistrationModal";
-import LoginModal from "../components/modals/user/LoginModal";
+import LogInModal from "../components/modals/user/LogInModal";
 import ResetDocumentModal from "../components/modals/document/ResetDocumentModal";
 import ResetStyleModal from "../components/modals/style/ResetStyleModal";
 import AboutModal from "../components/modals/app/AboutModal";
 import {
   PORTAL_ID,
   REGISTRATION_MODAL_ID,
-  LOGIN_MODAL_ID,
+  LOG_IN_MODAL_ID,
   RESET_DOCUMENT_MODAL_ID,
   RESET_STYLE_MODAL_ID,
   ABOUT_MODAL_ID,
@@ -17,7 +17,7 @@ import {
 
 const modalMap = {
   [REGISTRATION_MODAL_ID]: RegistrationModal,
-  [LOGIN_MODAL_ID]: LoginModal,
+  [LOG_IN_MODAL_ID]: LogInModal,
   [RESET_DOCUMENT_MODAL_ID]: ResetDocumentModal,
   [RESET_STYLE_MODAL_ID]: ResetStyleModal,
   [ABOUT_MODAL_ID]: AboutModal,

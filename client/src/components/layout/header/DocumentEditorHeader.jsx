@@ -3,7 +3,7 @@ import ModalStore from "../../../stores/ModalStore.js";
 import { useStore } from "../../../incrum/store.jsx";
 import {
   REGISTRATION_MODAL_ID,
-  LOGIN_MODAL_ID,
+  LOG_IN_MODAL_ID,
   RESET_DOCUMENT_MODAL_ID,
   ABOUT_MODAL_ID,
 } from "../../../consts.js";
@@ -46,8 +46,8 @@ const DocumentEditorHeader = () => {
       <MyDropdown label={t("buttons.user.label")}>
         <>
           <MyDropdown
-            label={t("buttons.login.label")}
-            onClick={() => modalServices.openModal(LOGIN_MODAL_ID)}
+            label={t("buttons.logIn.label")}
+            onClick={() => modalServices.openModal(LOG_IN_MODAL_ID)}
           />
           <MyDropdown
             label={t("buttons.register.label")}

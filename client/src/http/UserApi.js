@@ -77,7 +77,7 @@ class UserApi {
     Entity-specific requests
   */
 
-  static async login({ userLogin, userPassword }) {
+  static async logIn({ userLogin, userPassword }) {
     try {
       const res = await privateApi.post("/users/login/", {
         user_login: userLogin,
