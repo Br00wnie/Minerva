@@ -16,7 +16,7 @@
     "document": {
       "resetDone": "Документ сброшен",
       "nameNotFound": "Не найдено имя документа",
-      "nontentNotFound": "Не найдено содержимое документа",
+      "ContentNotFound": "Не найдено содержимое документа",
       "notCorrectContentStructure": "Содержимого имеет некорректную структуру"
     }
   },

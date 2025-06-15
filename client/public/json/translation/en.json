@@ -16,7 +16,7 @@
     "document": {
       "resetDone": "Document is reset",
       "nameNotFound": "Document name not found",
-      "nontentNotFound": "Document content not found",
+      "ContentNotFound": "Document content not found",
       "notCorrectContentStructure": "Content has incorrect structure"
     }
   },

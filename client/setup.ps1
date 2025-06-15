@@ -17,4 +17,4 @@ Write-Host "📦 Installing project dependencies..."
 npm install
 
 Write-Host "🎉 Setup finished successfully!"
-Write-Host "👉 Now you can run the project with: ./run.ps1"
+Write-Host "👉 Now you can run the project with: .\run.ps1"

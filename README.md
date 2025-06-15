@@ -6,6 +6,8 @@
 
 Web app for converting Markdown to PDF file with specified layout
 
+![App screenshot should have loaded here](https://i.ibb.co/S7PrRPjn/minerva-screenshot.jpg)
+
 ## Localization
 
 - English
@@ -19,44 +21,55 @@ This project is licensed under the MIT License – see the [LICENSE](LICENSE) fi
 
 ## TODO
 
-- [ ] Hotkeys
-- [ ] Formula support
-- [ ] Customizable progress bar for page count
+- [ ] Support for italic, bold, and underlined text [High]
+- [ ] Numbered and bulleted lists [High]
+- [ ] Image support [High]
+- [ ] Table support [High]
+- [ ] Formula support [High]
+- [ ] Page numbering [High]
+- [ ] Context menu [High]
+- [ ] Table of contents [High]
+- [ ] List of sources [High]
+- [ ] Pre- and post-filled PDF templates with variables [High]
+- [ ] Headers and footers [High]
+- [ ] Save documents and styles to account [High]
+- [ ] Public styles [High]
+- [ ] Keyboard shortcuts [Medium]
+- [ ] Spell checker [Medium]
+- [ ] Customizable page count progress bar [Low]
+- [ ] Import content from .docx [Low]
 
 ## Installation & Running
 
 ### Windows
 
+#### Requirements
+
+- [Node.js](https://nodejs.org/) or [Chocolatey](https://chocolatey.org/)
+- [PowerShell 7+](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.5)
+
 #### Installation
 
-> You need [Node.js](https://nodejs.org/) or [Chocolatey](https://chocolatey.org/) to set up the app!
-
-1. Download the latest release zip file
-
-2. Extract the archive to your preferred location
-
-3. Run setup.ps1
+1. Download the latest zip release
+2. Extract it to your preferred location
+3. Go to `client` folder and run `setup.ps1` (with PowerShell 7+)
 
 #### Running
 
-1. Launch app by executing run.ps1
-
-2. Open http://localhost:5173
+1. In `client` folder run `run.ps1` (with PowerShell 7+)
+2. Go to http://localhost:5173
 
 ### Linux
 
 #### Installation
 
-1. Download the latest release zip file
-
-2. Extract the archive to your preferred location
-
-3. Run setup.sh
+1. Download the latest zip release
+2. Extract it to your preferred location
+3. Go to `client` directory and run `setup.sh`
 
 #### Running
 
-1. Launch app by executing run.sh
-
+1. In `client` directory run `run.sh`
 2. Open http://localhost:5173
 
 ## Stack

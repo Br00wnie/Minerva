@@ -1,7 +1,8 @@
 # Content
 
+- [Content](#content)
 - [Overview](#overview)
-  - [Interaction Chain](#request-flow)
+  - [Request/Response Flow](#requestresponse-flow)
   - [Response Structure](#response-structure)
   - [Entities](#entities)
   - [Authorization System](#authorization-system)
@@ -13,10 +14,17 @@
   - [Environment variables](#environment-variables)
 - [Client](#client)
   - [Client-Side Storage](#client-side-storage)
+    - [Stores (State Management)](#stores-state-management)
+    - [Local Storage (Persistent Data)](#local-storage-persistent-data)
+    - [Cookie (Authentication System)](#cookie-authentication-system)
 - [Development Agreements](#development-agreements)
 - [Development Setup](#development-setup)
-  - [Client](#client-development-setup)
-  - [Server](#server-development-setup)
+  - [Client {Development Setup}](#client-development-setup)
+    - [Installation](#installation)
+    - [Running](#running)
+  - [Server {Development Setup}](#server-development-setup)
+    - [Installation](#installation-1)
+    - [Running](#running-1)
 
 # Overview
 
@@ -160,39 +168,39 @@ Cookies are used for authorization and store only a token containing the user_id
 
 - Only atomic constants are named in UPPER_SNAKE_CASE
 - Files that are entry points (both on the server and the client) are named "index"
-- Client can get _user_id_ only in hashed form
-- Atomic UI components can be assigned no more than one class
 - Only omit the extension for .js files when importing — no other extensions should be dropped
 
 # Development Setup
 
 ## Client {Development Setup}
 
-1. Install client dependencies
+### Installation
 
 ```bash
 cd client
 npm install
 ```
 
-2. Run the client
+### Running
 
 ```bash
 npm run dev
 ```
 
-The app will open at http://localhost:5173 by default
+> The app will open at http://localhost:5173 by default
 
 ## Server {Development Setup}
 
-1. Install server dependencies
+### Installation
+
+1. Install dependencies
 
 ```bash
 cd server
 npm install
 ```
 
-2. Create a PostgreSQL database
+2. Create PostgreSQL database
 
 ```bash
 sudo -u postgres createdb minerva
@@ -200,9 +208,9 @@ sudo -u postgres createdb minerva
 
 3. Configure environment variables
 
-Create a .env file in the server folder with all [environment variables](#environment-variables) specified
+Create .env file in the server folder with all [environment variables](#environment-variables) specified
 
-4. Start the server
+### Running
 
 ```bash
 npm run dev

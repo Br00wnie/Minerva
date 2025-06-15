@@ -19,12 +19,16 @@ const generatePdf = async (documentStyle) => {
     await previewer.preview(stylizedDocument, [], pdfContainer);
     await new Promise((resolve) => setTimeout(resolve, 1000));
     const pages = pdfContainer.querySelectorAll(".pagedjs_page");
+    if (pages.length === 0) {
+      document.body.removeChild(pdfContainer);
+      return;
+    }
     const pdf = new jsPDF({
       orientation: "portrait",
       unit: "mm",
       format: "letter",
     });
-    for (let i = 0; i < pages.length; i++) {
+    for (let i = 0; i < pages.length - 1; i++) {
       const page = pages[i];
       const canvas = await html2canvas(page, {
         scale: 2,
